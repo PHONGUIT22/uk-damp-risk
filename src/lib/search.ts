@@ -1,56 +1,37 @@
-import { supabase } from "@/lib/supabase";
+import { getAllAreas, getAreaByOutcode } from "@/lib/dampData";
 
 /**
- * Hàm phân tích câu Search và tự động chuyển hướng đúng URL SEO cho nước Anh (UK)
+ * Resolves search queries directly from local dampData (zero database overhead)
  */
 export async function resolveSearchDestination(query: string): Promise<string> {
-  const clean = query.trim();
-  if (!clean) return "/outcodes";
+  const clean = query.trim().toUpperCase();
+  if (!clean) return "/damp-risk";
 
-  // Chuẩn hóa chuỗi tìm kiếm (VD: "sw1a-1" hoặc "sw1a 1" -> "SW1A 1")
-  const normalizedQuery = clean.replace(/-/g, " ").toUpperCase();
-  const outcodeQuery = clean.replace(/\s+/g, "").toUpperCase();
-
-  // 1. TRƯỜNG HỢP 1: User nhập đầy đủ Postcode Sector (VD: "SW1A 1", "AB10 1", "ab10-1")
-  const { data: sectorMatch } = await supabase
-    .from("water_hardness_sectors")
-    .select("sector, outcode")
-    .ilike("sector", normalizedQuery)
-    .limit(1)
-    .maybeSingle();
-
-  if (sectorMatch) {
-    const outcodeClean = sectorMatch.outcode.toLowerCase();
-    const sectorSlug = sectorMatch.sector.toLowerCase().replace(/\s+/g, "-");
-    return `/water-hardness/${outcodeClean}/${sectorSlug}`;
+  // 1. Direct match on outcode (e.g. "B1", "M14", "WA15")
+  const area = getAreaByOutcode(clean);
+  if (area) {
+    return `/damp-risk/${area.outcode.toLowerCase()}`;
   }
 
-  // 2. TRƯỜNG HỢP 2: User chỉ nhập Outcode (VD: "SW1A", "AB10", "M1", "B1")
-  const { data: outcodeMatch } = await supabase
-    .from("water_hardness_sectors")
-    .select("outcode")
-    .ilike("outcode", outcodeQuery)
-    .limit(1)
-    .maybeSingle();
-
-  if (outcodeMatch) {
-    return `/water-hardness/${outcodeMatch.outcode.toLowerCase()}`;
+  // 2. City name match
+  if (clean.includes("BIRMINGHAM")) {
+    return "/cities/birmingham";
+  }
+  if (clean.includes("MANCHESTER")) {
+    return "/cities/manchester";
   }
 
-  // 3. TRƯỜNG HỢP 3: Tìm kiếm tương đối (Gõ thiếu hoặc tìm kiếm gần đúng)
-  const { data: partialMatches } = await supabase
-    .from("water_hardness_sectors")
-    .select("sector, outcode")
-    .or(`sector.ilike.%${normalizedQuery}%,outcode.ilike.%${outcodeQuery}%`)
-    .limit(1);
+  // 3. Partial / prefix match on outcode
+  const allAreas = getAllAreas();
+  const matchedOutcode = allAreas.find((a) => {
+    const code = a.outcode.toUpperCase();
+    return clean.startsWith(code) || code.startsWith(clean);
+  });
 
-  if (partialMatches && partialMatches.length > 0) {
-    const match = partialMatches[0];
-    const outcodeClean = match.outcode.toLowerCase();
-    const sectorSlug = match.sector.toLowerCase().replace(/\s+/g, "-");
-    return `/water-hardness/${outcodeClean}/${sectorSlug}`;
+  if (matchedOutcode) {
+    return `/damp-risk/${matchedOutcode.outcode.toLowerCase()}`;
   }
 
-  // 4. FALLBACK AN TOÀN: Nếu không tìm thấy gì thì về trang danh mục Outcodes (Không crash app)
-  return "/outcodes";
+  // 4. Default fallback
+  return "/damp-risk";
 }

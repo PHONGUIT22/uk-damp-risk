@@ -6,6 +6,7 @@ import {
   getAreaByOutcode,
   getAreasByCity,
   getRiskColorClass,
+  getRainExposureColorClass,
 } from "@/lib/dampData";
 import DehumidifierSizingGuide from "@/components/detail/DehumidifierSizingGuide";
 import EpcDistributionChart from "@/components/detail/EpcDistributionChart";
@@ -26,6 +27,8 @@ import {
   Info,
   Wrench,
   Sparkles,
+  CloudRain,
+  Droplets,
 } from "lucide-react";
 
 export const revalidate = 86400; // Cache on CDN 24h
@@ -53,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const baseTitle = `${area.outcode} Damp & Mould Risk Score: ${area.damp_risk_score}/100 (${area.risk_level} Risk)`;
-  const description = `Check damp, condensation & mould risk for ${area.outcode} (${area.city}). Pre-1930 solid wall homes: ${area.pct_old_build}%, poor EPC ratings (E-G): ${area.pct_poor_epc}%, based on ${area.total_properties.toLocaleString()} surveyed homes.`;
+  const description = `${area.outcode} damp & mould risk score: ${area.damp_risk_score}/100 (${area.risk_level}). EPC & building age analysis for ${area.city} properties with local climate factors.`;
 
   return {
     title: { absolute: `${baseTitle} | CheckDamp UK` },
@@ -86,6 +89,7 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
   }
 
   const color = getRiskColorClass(area.risk_level);
+  const rainColor = getRainExposureColorClass(area.wind_driven_rain_exposure);
   const cityPeers = getAreasByCity(area.city)
     .filter((p) => p.outcode !== area.outcode)
     .slice(0, 8);
@@ -129,7 +133,16 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
       {
         "@type": "Dataset",
         "name": `Damp and Condensation Vulnerability Profile for ${area.outcode}`,
-        "description": `Statistical property condition report for postal district ${area.outcode}, ${area.city}. Records ${area.total_properties} domestic dwellings with ${area.pct_old_build}% solid-wall structures and an overall risk score of ${area.damp_risk_score}/100.`,
+        "description": `Statistical property condition report for postal district ${area.outcode}, ${area.city}. Records ${area.total_properties} domestic dwellings with ${area.pct_solid_wall}% solid-wall masonry, ${area.wind_driven_rain_exposure} wind-driven rain exposure index, ${area.avg_relative_humidity}% winter relative humidity, and an overall risk score of ${area.damp_risk_score}/100.`,
+        "creator": {
+          "@type": "Organization",
+          "@id": "https://checkdamp.co.uk/#organization",
+          "name": "CheckDamp UK"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://checkdamp.co.uk/#organization"
+        },
         "spatialCoverage": {
           "@type": "Place",
           "name": `${area.outcode}, ${area.city}, UK`,
@@ -141,8 +154,12 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
         },
         "variableMeasured": [
           "Damp Risk Score",
-          "Percentage Solid Wall Pre-1930 Properties",
+          "Percentage Solid Wall Uninsulated Masonry",
+          "Percentage Pre-1930 Housing Stock",
           "Percentage EPC Band E-G Energy Inefficiency",
+          "Wind-Driven Rain Exposure Index",
+          "Winter Ambient Relative Humidity",
+          "Estimated Indoor Dew Point Temperature",
         ],
       },
       {
@@ -153,7 +170,7 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
             "name": `What is the damp risk score in ${area.outcode}?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `${area.outcode} has a damp risk score of ${area.damp_risk_score}/100, categorized as ${area.risk_level} risk. This is driven by ${area.pct_old_build}% of homes being solid-wall pre-1930 builds and ${area.pct_poor_epc}% carrying energy-inefficient EPC ratings (E-G).`,
+              "text": `${area.outcode} has a damp risk score of ${area.damp_risk_score}/100, categorized as ${area.risk_level} risk. This is driven by ${area.pct_solid_wall}% solid-wall masonry, ${area.wind_driven_rain_exposure} wind-driven rain exposure, and ${area.pct_poor_epc}% carrying energy-inefficient EPC ratings (E-G) with an estimated indoor dew point of ${area.est_dew_point_c}°C.`,
             },
           },
           {
@@ -161,7 +178,7 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
             "name": `Why are solid-wall Victorian homes in ${area.outcode} vulnerable to mould?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `Pre-1930 properties in ${area.outcode} typically lack cavity insulation. Uninsulated 9-inch brick walls allow external winter cold to penetrate deeply, chilling interior plaster below the 12.8°C dew point and provoking continuous condensation.`,
+              "text": `In ${area.outcode}, approximately ${area.pct_solid_wall}% of homes lack cavity wall insulation. Uninsulated solid walls allow external winter cold and wind chill to penetrate deeply, chilling interior plaster below the ${area.est_dew_point_c}°C dew point and provoking continuous condensation.`,
             },
           },
           {
@@ -169,7 +186,7 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
             "name": `Should I get a damp survey before buying in ${area.outcode}?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `Given the ${area.risk_level.toLowerCase()} risk profile and ${area.pct_old_build}% pre-1930 housing stock, an independent PCA or RICS Level 3 building survey with electronic moisture mapping is strongly recommended to identify rising damp, bridging, or timber rot before completing exchange of contracts.`,
+              "text": `Given the ${area.risk_level.toLowerCase()} risk profile, ${area.pct_solid_wall}% solid-wall construction, and ${area.wind_driven_rain_exposure} rain exposure, an independent PCA or RICS Level 3 building survey with electronic moisture mapping is strongly recommended to identify rising damp, bridging, or timber rot before completing exchange of contracts.`,
             },
           },
         ],
@@ -232,12 +249,18 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                 </p>
 
                 {/* Quick specs pill */}
-                <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+                <div className="mt-6 flex flex-wrap items-center gap-2.5 text-xs text-slate-300">
                   <span className="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">
                     LAD Code: <strong className="text-white">{area.lad_code}</strong>
                   </span>
                   <span className="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">
-                    Coordinates: <strong className="text-white">{area.latitude.toFixed(3)}°N, {Math.abs(area.longitude).toFixed(3)}°W</strong>
+                    Solid Wall: <strong className="text-white">{area.pct_solid_wall}%</strong>
+                  </span>
+                  <span className="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">
+                    Rain Exposure: <strong className="text-white">{area.wind_driven_rain_exposure} (BS 8104)</strong>
+                  </span>
+                  <span className="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">
+                    Dew Point: <strong className="text-white">{area.est_dew_point_c}°C @ 20°C</strong>
                   </span>
                   <span className="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">
                     Sample: <strong className="text-white">{area.total_properties.toLocaleString()} Homes</strong>
@@ -289,7 +312,7 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
 
                 <p className="mt-4 text-xs text-slate-300 leading-relaxed border-t border-slate-700/80 pt-3">
                   {isHigh
-                    ? `⚠️ Elevated damp hazard. The combination of high pre-1930 build density (${area.pct_old_build}%) and poor EPC ratings (${area.pct_poor_epc}%) predisposes homes in ${area.outcode} to persistent surface condensation and thermal bridging.`
+                    ? `⚠️ Elevated damp hazard. The combination of high solid-wall density (${area.pct_solid_wall}%), ${area.wind_driven_rain_exposure.toLowerCase()} rain exposure, and poor EPC ratings (${area.pct_poor_epc}%) predisposes homes in ${area.outcode} to persistent surface condensation and thermal bridging.`
                     : isModerate
                     ? `⚡ Moderate moisture load. Properties in ${area.outcode} require consistent background heating and active extraction ventilation to avoid winter mould growth.`
                     : `✅ Low vulnerability relative to UK averages. Modern thermal standards and lower solid-wall density reduce condensation frequency.`}
@@ -299,9 +322,9 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* 5-METRIC STATISTICAL GRID */}
+        {/* 6-METRIC STATISTICAL GRID */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5">
             {/* Metric 1 */}
             <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md">
               <div className="flex items-center justify-between text-slate-500 mb-2">
@@ -317,12 +340,12 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
             {/* Metric 2 */}
             <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md">
               <div className="flex items-center justify-between text-slate-500 mb-2">
-                <span className="text-xs font-bold uppercase tracking-wider">Pre-1930 Builds</span>
+                <span className="text-xs font-bold uppercase tracking-wider">Solid Wall %</span>
                 <Building2 className="w-4 h-4 text-slate-700" />
               </div>
-              <div className="text-2xl font-black text-slate-900">{area.pct_old_build}%</div>
+              <div className="text-2xl font-black text-slate-900">{area.pct_solid_wall}%</div>
               <span className="text-[11px] text-slate-500 mt-1 block">
-                Victorian / Solid Brick
+                {area.pct_old_build}% Pre-1930 stock
               </span>
             </div>
 
@@ -334,11 +357,35 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
               </div>
               <div className="text-2xl font-black text-slate-900">{area.pct_poor_epc}%</div>
               <span className="text-[11px] text-slate-500 mt-1 block">
-                Thermal dew-point risk
+                Dew point ~{area.est_dew_point_c}°C
               </span>
             </div>
 
             {/* Metric 4 */}
+            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md">
+              <div className="flex items-center justify-between text-slate-500 mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider">Rain Exposure</span>
+                <CloudRain className="w-4 h-4 text-slate-700" />
+              </div>
+              <div className="text-xl font-black text-slate-900 truncate">{area.wind_driven_rain_exposure}</div>
+              <span className={`text-[11px] font-bold mt-1 inline-block ${rainColor.text}`}>
+                BS 8104 UK Index
+              </span>
+            </div>
+
+            {/* Metric 5 */}
+            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md">
+              <div className="flex items-center justify-between text-slate-500 mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider">Winter RH</span>
+                <Droplets className="w-4 h-4 text-slate-700" />
+              </div>
+              <div className="text-2xl font-black text-slate-900">{area.avg_relative_humidity}%</div>
+              <span className="text-[11px] text-slate-500 mt-1 block">
+                Outdoor moisture load
+              </span>
+            </div>
+
+            {/* Metric 6 */}
             <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md">
               <div className="flex items-center justify-between text-slate-500 mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider">Housing Type</span>
@@ -347,18 +394,6 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
               <div className="text-2xl font-black text-slate-900 truncate">{area.dominant_house_type}</div>
               <span className="text-[11px] text-slate-500 mt-1 block">
                 {area.pct_terrace_or_flat}% Terraced/Flats
-              </span>
-            </div>
-
-            {/* Metric 5 */}
-            <div className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md">
-              <div className="flex items-center justify-between text-slate-500 mb-2">
-                <span className="text-xs font-bold uppercase tracking-wider">Sample Size</span>
-                <Home className="w-4 h-4 text-slate-700" />
-              </div>
-              <div className="text-2xl font-black text-slate-900">{area.total_properties.toLocaleString()}</div>
-              <span className="text-[11px] text-slate-500 mt-1 block">
-                Inspected properties
               </span>
             </div>
           </div>
@@ -377,15 +412,49 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
 
                 <div className="mt-6 space-y-4 text-slate-600 text-sm leading-relaxed">
                   <p>
-                    In <strong>{area.outcode} ({area.city})</strong>, approximately <strong>{area.pct_old_build}%</strong> of all residential housing stock was constructed prior to 1930. Standard UK construction before the 1930s relied on 9-inch solid brickwork without a cavity barrier. Without an insulating air cavity, external moisture from driving rain can transfer through deteriorated mortar joints directly onto internal wall surfaces.
+                    In <strong>{area.outcode} ({area.city})</strong>, approximately <strong>{area.pct_solid_wall}%</strong> of all residential housing stock is built with uninsulated solid brick or stone masonry (originating from {area.pct_old_build}% pre-1930 construction). Unlike modern cavity-wall construction where an air gap halts lateral water ingress, 9-inch solid brickwork allows exterior rainwater and wind chill to travel directly through porous masonry onto internal living room and bedroom walls.
                   </p>
 
                   <p>
-                    Furthermore, <strong>{area.pct_poor_epc}%</strong> of properties in {area.outcode} have an Energy Performance Certificate (EPC) rating between E and G. Underheated rooms and uninsulated solid walls create cold thermal bridges. When routine household activities (cooking, showering, drying clothes indoors) elevate indoor relative humidity above 60%, air reaching cold external wall surfaces plummets below the <strong>12.8°C dew point</strong>, depositing liquid water and triggering <em>Aspergillus niger</em> (black toxic mould) colonization within 48 to 72 hours.
+                    Under British Standard <strong>BS 8104</strong>, postal district {area.outcode} is classified with a <strong>{area.wind_driven_rain_exposure}</strong> wind-driven rain exposure index, experiencing an average winter outdoor relative humidity of <strong>{area.avg_relative_humidity}%</strong>. {
+                      area.wind_driven_rain_exposure === "Very Severe" || area.wind_driven_rain_exposure === "Severe"
+                        ? `This severe meteorological exposure subjects exposed elevations to intense driving precipitation, repeatedly saturating exterior brick faces and increasing thermal conductivity by up to 300%.`
+                        : area.wind_driven_rain_exposure === "Moderate"
+                        ? `This moderate exposure classification indicates steady exposure to Atlantic weather fronts, where periodic driving rain penetrates unsealed mortar joints during autumn and winter storms.`
+                        : `While sheltered by surrounding urban terrain, persistent low air velocity and dense development create stagnant microclimates that slow masonry drying cycles.`
+                    }
+                  </p>
+
+                  <p>
+                    Crucially, <strong>{area.pct_poor_epc}%</strong> of properties in {area.outcode} hold substandard EPC ratings (Bands E to G). Combined with solid masonry heat leakage, interior wall surfaces frequently chill below the local estimated <strong>dew point of {area.est_dew_point_c}°C</strong> (measured at 20°C room temperature). When everyday moisture generation (cooking, showering, breathing) elevates indoor relative humidity above 60%, water vapor condenses instantaneously onto uninsulated wall surfaces, sparking <em>Aspergillus</em> and toxic black mould proliferation within 48 to 72 hours.
                   </p>
                 </div>
 
-                <div className="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* 4-Box Quantitative Forensic Spec Table */}
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Solid Wall Fabric</span>
+                    <strong className="text-sm font-black text-slate-900">{area.pct_solid_wall}%</strong>
+                    <span className="text-[10px] text-slate-500 block">Uninsulated masonry</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Rain Exposure</span>
+                    <strong className="text-sm font-black text-slate-900">{area.wind_driven_rain_exposure}</strong>
+                    <span className="text-[10px] text-slate-500 block">BS 8104 Index</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Winter Ambient RH</span>
+                    <strong className="text-sm font-black text-slate-900">{area.avg_relative_humidity}%</strong>
+                    <span className="text-[10px] text-slate-500 block">Outdoor moisture load</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Dew Point @ 20°C</span>
+                    <strong className="text-sm font-black text-slate-900">{area.est_dew_point_c}°C</strong>
+                    <span className="text-[10px] text-slate-500 block">Condensation line</span>
+                  </div>
+                </div>
+
+                <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
@@ -409,6 +478,8 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                 outcode={area.outcode}
                 totalProperties={area.total_properties}
                 dominantHouseType={area.dominant_house_type}
+                epcBreakdown={area.epc_breakdown}
+                estDewPointC={area.est_dew_point_c}
               />
 
               {/* LOCAL MOISTURE PATHOLOGY & ACTION PLAN */}
@@ -696,7 +767,7 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                   What causes damp problems in {area.outcode}?
                 </h3>
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  In {area.outcode}, the primary driver of domestic damp is a combination of <strong>{area.pct_old_build}% pre-1930 solid-wall construction</strong> and <strong>{area.pct_poor_epc}% EPC band E-G thermal inefficiency</strong>. Without cavity insulation, external cold lowers internal wall surface temperatures below the condensation dew point.
+                  In {area.outcode}, the primary driver of domestic damp is a combination of <strong>{area.pct_solid_wall}% solid-wall construction</strong>, <strong>{area.wind_driven_rain_exposure.toLowerCase()} wind-driven rain exposure</strong>, and <strong>{area.pct_poor_epc}% EPC band E-G thermal inefficiency</strong>. Without cavity insulation, external cold chills internal plaster below the local <strong>{area.est_dew_point_c}°C dew point</strong>, precipitating persistent surface condensation.
                 </p>
               </div>
 

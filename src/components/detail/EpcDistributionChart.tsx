@@ -11,13 +11,16 @@ import {
   Cell,
   CartesianGrid,
 } from "recharts";
-import { ThermometerSnowflake, ShieldCheck, AlertTriangle, Layers, Info } from "lucide-react";
+import { ThermometerSnowflake, AlertTriangle } from "lucide-react";
+import { EpcBreakdown } from "@/lib/types/damp";
 
 interface EpcDistributionChartProps {
   pctPoorEpc: number;
   outcode: string;
   totalProperties?: number;
   dominantHouseType?: string;
+  epcBreakdown?: EpcBreakdown;
+  estDewPointC?: number;
 }
 
 interface EpcBandData {
@@ -35,6 +38,8 @@ export default function EpcDistributionChart({
   outcode,
   totalProperties = 10000,
   dominantHouseType = "Terraced",
+  epcBreakdown,
+  estDewPointC = 12.8,
 }: EpcDistributionChartProps) {
   const [mounted, setMounted] = useState(false);
 
@@ -46,11 +51,51 @@ export default function EpcDistributionChart({
   const good = 100 - poor;
 
   const data: EpcBandData[] = useMemo(() => {
-    // Model realistic UK EPC band breakdown anchored to exact % poor EPC (Bands E-G)
+    if (epcBreakdown) {
+      return [
+        {
+          band: "Band A–B",
+          category: "High Efficiency",
+          pct: epcBreakdown.band_a_b,
+          properties: Math.round((totalProperties * epcBreakdown.band_a_b) / 100),
+          color: "#10b981", // Emerald
+          assessment: "Modern insulated envelope, minimal condensation risk",
+          riskTier: "low",
+        },
+        {
+          band: "Band C–D",
+          category: "UK Compliant Standard",
+          pct: epcBreakdown.band_c_d,
+          properties: Math.round((totalProperties * epcBreakdown.band_c_d) / 100),
+          color: "#84cc16", // Lime
+          assessment: "Standard UK thermal retention; requires routine background airflow",
+          riskTier: "medium",
+        },
+        {
+          band: "Band E",
+          category: "Elevated Heat Loss",
+          pct: epcBreakdown.band_e,
+          properties: Math.round((totalProperties * epcBreakdown.band_e) / 100),
+          color: "#f97316", // Orange
+          assessment: `Frequent cold bridging; internal plaster plummets toward ${estDewPointC}°C dew point`,
+          riskTier: "high",
+        },
+        {
+          band: "Band F–G",
+          category: "Critical Substandard",
+          pct: epcBreakdown.band_f_g,
+          properties: Math.round((totalProperties * epcBreakdown.band_f_g) / 100),
+          color: "#ef4444", // Rose / Red
+          assessment: "Critical thermal deficit; persistent condensation & black toxic mould hazard",
+          riskTier: "high",
+        },
+      ];
+    }
+
+    // Fallback if epcBreakdown is not provided
     const bandAB = Math.max(2, Math.round(good * 0.08));
     const bandC = Math.max(5, Math.round(good * 0.42));
     const bandD = Math.max(5, 100 - poor - bandAB - bandC);
-
     const bandE = Math.max(3, Math.round(poor * 0.74));
     const bandFG = Math.max(1, poor - bandE);
 
@@ -60,26 +105,17 @@ export default function EpcDistributionChart({
         category: "High Efficiency",
         pct: bandAB,
         properties: Math.round((totalProperties * bandAB) / 100),
-        color: "#10b981", // Emerald
+        color: "#10b981",
         assessment: "Cavity & loft insulation, minimal condensation risk",
         riskTier: "low",
       },
       {
-        band: "Band C",
-        category: "Good Standard",
-        pct: bandC,
-        properties: Math.round((totalProperties * bandC) / 100),
-        color: "#84cc16", // Lime
-        assessment: "Modern thermal envelope, standard dew-point buffer",
-        riskTier: "low",
-      },
-      {
-        band: "Band D",
+        band: "Band C–D",
         category: "UK Median",
-        pct: bandD,
-        properties: Math.round((totalProperties * bandD) / 100),
-        color: "#f59e0b", // Amber
-        assessment: "Average heat retention; requires adequate ventilation",
+        pct: bandC + bandD,
+        properties: Math.round((totalProperties * (bandC + bandD)) / 100),
+        color: "#84cc16",
+        assessment: "Standard thermal envelope; requires continuous background ventilation",
         riskTier: "medium",
       },
       {
@@ -87,8 +123,8 @@ export default function EpcDistributionChart({
         category: "Poor (High Loss)",
         pct: bandE,
         properties: Math.round((totalProperties * bandE) / 100),
-        color: "#f97316", // Orange
-        assessment: "Frequent cold bridging; high risk of wall dew point (<12.8°C)",
+        color: "#f97316",
+        assessment: `Frequent cold bridging; high risk of wall dew point (<${estDewPointC}°C)`,
         riskTier: "high",
       },
       {
@@ -96,12 +132,19 @@ export default function EpcDistributionChart({
         category: "Substandard",
         pct: bandFG,
         properties: Math.round((totalProperties * bandFG) / 100),
-        color: "#ef4444", // Rose / Red
-        assessment: "Critical thermal deficit; persistent condensation & black mould hazard",
+        color: "#ef4444",
+        assessment: "Critical thermal deficit; persistent condensation & mould hazard",
         riskTier: "high",
       },
     ];
-  }, [poor, good, totalProperties]);
+  }, [epcBreakdown, poor, good, totalProperties, estDewPointC]);
+
+  const goodPct = epcBreakdown
+    ? Math.round((epcBreakdown.band_a_b + epcBreakdown.band_c_d) * 10) / 10
+    : good;
+  const poorPct = epcBreakdown
+    ? Math.round((epcBreakdown.band_e + epcBreakdown.band_f_g) * 10) / 10
+    : poor;
 
   const customTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
@@ -142,7 +185,7 @@ export default function EpcDistributionChart({
             EPC Rating Distribution in {outcode}
           </h2>
           <p className="text-slate-500 text-xs mt-1">
-            Thermal efficiency breakdown across ~{totalProperties.toLocaleString()} surveyed dwellings.
+            Empirical energy performance breakdown across ~{totalProperties.toLocaleString()} surveyed dwellings.
           </p>
         </div>
 
@@ -150,11 +193,11 @@ export default function EpcDistributionChart({
         <div className="flex items-center gap-2">
           <div className="px-3 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 text-left">
             <span className="text-[10px] uppercase font-bold text-emerald-800 block">Band A–D (Efficient)</span>
-            <span className="text-lg font-black text-emerald-900">{good}%</span>
+            <span className="text-lg font-black text-emerald-900">{goodPct}%</span>
           </div>
           <div className="px-3 py-2 rounded-2xl bg-rose-50 border border-rose-200 text-left">
             <span className="text-[10px] uppercase font-bold text-rose-800 block">Band E–G (Poor)</span>
-            <span className="text-lg font-black text-rose-900">{poor}%</span>
+            <span className="text-lg font-black text-rose-900">{poorPct}%</span>
           </div>
         </div>
       </div>
@@ -198,7 +241,7 @@ export default function EpcDistributionChart({
 
       {/* EPC Color Legend & Technical Callout */}
       <div className="mt-6 pt-6 border-t border-slate-100">
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
           {data.map((item) => (
             <div
               key={item.band}
@@ -224,10 +267,10 @@ export default function EpcDistributionChart({
           </div>
           <div className="space-y-1">
             <div className="font-bold text-slate-200">
-              Building Pathology Impact for {outcode} ({poor}% Poor EPC Stock)
+              Building Pathology Impact for {outcode} ({poorPct}% Poor EPC Stock)
             </div>
             <p className="text-slate-300 leading-relaxed text-[11px]">
-              Properties ranked in Band E, F, or G experience an estimated 3.4× higher rate of interior wall surface chill. When internal temperatures fall below <strong>12.8°C (the typical indoor dew point at 65% RH)</strong>, airborne water vapor condenses instantly against plasterwork. In {outcode}&apos;s {dominantHouseType} stock, this thermal gap is the primary catalyst for chronic black mould colonies behind wardrobes and around external window lintels.
+              Properties ranked in Band E, F, or G experience an estimated 3.4× higher rate of interior wall surface chill. When internal wall temperatures fall below <strong>{estDewPointC}°C (the estimated indoor dew point at 20°C room temperature)</strong>, airborne water vapor condenses instantly against plasterwork. In {outcode}&apos;s {dominantHouseType} stock, this thermal gap is the primary catalyst for chronic black mould colonies behind wardrobes and around external window lintels.
             </p>
           </div>
         </div>

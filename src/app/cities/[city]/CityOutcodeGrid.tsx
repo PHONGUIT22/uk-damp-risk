@@ -22,7 +22,7 @@ export default function CityOutcodeGrid({ cityName, outcodes }: CityOutcodeGridP
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-            <MapPin className="h-6 w-6 text-cyan-600" />
+            <MapPin className="h-6 w-6 text-slate-800" />
             {cityName} Postcode Districts ({outcodes.length})
           </h2>
           <p className="text-sm text-slate-500 mt-1">
@@ -38,7 +38,7 @@ export default function CityOutcodeGrid({ cityName, outcodes }: CityOutcodeGridP
               placeholder="Filter outcode (e.g. B1, M14)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors"
+              className="w-full pl-9 pr-4 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 transition-colors"
             />
           </div>
         )}
@@ -58,15 +58,20 @@ export default function CityOutcodeGrid({ cityName, outcodes }: CityOutcodeGridP
               <Link
                 key={item.outcode}
                 href={`/damp-risk/${item.outcode.toLowerCase()}`}
-                className="group flex flex-col justify-between p-3.5 rounded-2xl border border-slate-200/70 bg-slate-50 hover:bg-cyan-50 hover:border-cyan-300 transition-all duration-150"
+                className="group flex flex-col justify-between p-3.5 rounded-2xl border border-slate-200/70 bg-slate-50 hover:bg-slate-100 hover:border-slate-400 transition-all duration-150"
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-extrabold text-slate-900 group-hover:text-cyan-700 text-base">
-                    {item.outcode}
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-extrabold text-slate-900 text-base">
+                      {item.outcode}
+                    </span>
+                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-slate-900 group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                  <span className="text-[10px] text-slate-500 block mt-0.5">
+                    {item.pct_solid_wall}% Solid • {item.wind_driven_rain_exposure}
                   </span>
-                  <ArrowRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-cyan-600 group-hover:translate-x-0.5 transition-all" />
                 </div>
-                <div className="mt-2 flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between">
                   <span
                     className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${
                       isHigh
@@ -79,7 +84,7 @@ export default function CityOutcodeGrid({ cityName, outcodes }: CityOutcodeGridP
                     {item.risk_level}
                   </span>
                   <span className="text-xs font-black text-slate-800">
-                    {item.damp_risk_score}
+                    {item.damp_risk_score}/100
                   </span>
                 </div>
               </Link>

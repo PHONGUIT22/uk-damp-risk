@@ -95,6 +95,9 @@ export default async function CityHubPage({ params }: PageProps) {
   const avgOldBuild = Math.round(
     (outcodes.reduce((sum, a) => sum + a.pct_old_build, 0) / outcodes.length) * 10
   ) / 10;
+  const avgSolidWall = Math.round(
+    (outcodes.reduce((sum, a) => sum + a.pct_solid_wall, 0) / outcodes.length) * 10
+  ) / 10;
   const avgPoorEpc = Math.round(
     (outcodes.reduce((sum, a) => sum + a.pct_poor_epc, 0) / outcodes.length) * 10
   ) / 10;
@@ -135,6 +138,11 @@ export default async function CityHubPage({ params }: PageProps) {
         "headline": `${cityName} Housing Condition & Damp Risk Index`,
         "description": `Comprehensive analysis of residential damp, solid wall construction, and energy ratings across ${cityName}.`,
         "mainEntityOfPage": `https://checkdamp.co.uk/cities/${rawCity}`,
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://checkdamp.co.uk/#organization",
+          "name": "CheckDamp UK"
+        },
       },
     ],
   };
@@ -177,7 +185,7 @@ export default async function CityHubPage({ params }: PageProps) {
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
-              Analysis across <strong>{outcodes.length} postcode districts</strong> and {totalProperties.toLocaleString()} surveyed homes. Evaluates Victorian solid-wall housing density, EPC energy inefficiency, and winter condensation risks across {cityName}.
+              Analysis across <strong>{outcodes.length} postcode districts</strong> and {totalProperties.toLocaleString()} surveyed homes. Evaluates Victorian solid-wall housing density ({avgSolidWall}% solid masonry), EPC energy inefficiency, and winter condensation risks across {cityName}.
             </p>
 
             {/* City Stats Snapshot */}
@@ -193,12 +201,12 @@ export default async function CityHubPage({ params }: PageProps) {
               </div>
 
               <div className="bg-slate-800/80 border border-slate-700 p-4 rounded-2xl">
-                <span className="text-xs text-slate-400 block">Pre-1930 Solid Walls</span>
+                <span className="text-xs text-slate-400 block">Solid Wall Density</span>
                 <span className="text-2xl sm:text-3xl font-black text-white mt-1 block">
-                  {avgOldBuild}%
+                  {avgSolidWall}%
                 </span>
                 <span className="text-[11px] text-slate-400 block mt-0.5">
-                  Lack cavity insulation
+                  {avgOldBuild}% Pre-1930 builds
                 </span>
               </div>
 

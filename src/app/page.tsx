@@ -4,14 +4,14 @@ import OutcodeDirectory from "@/components/home/OutcodeDirectory";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* 1. Hero Search */}
+    <main className="min-h-screen bg-[#FDFDFD]">
+      {/* 1. Hero Search Section */}
       <HeroSearchSection />
 
-      {/* 2. Top Xếp Hạng Độ cứng nước */}
+      {/* 2. Top Damp Risk Rankings */}
       <TopRankingGrid />
 
-      {/* 3. Danh sách các Outcode tại UK */}
+      {/* 3. Complete UK Outcode Directory */}
       <OutcodeDirectory />
     </main>
   );

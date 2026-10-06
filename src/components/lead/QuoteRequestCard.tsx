@@ -3,9 +3,7 @@
 import { useState } from "react";
 import {
   ShieldCheck,
-  Droplets,
-  Flame,
-  Filter,
+  Search,
   CheckCircle2,
   ArrowRight,
   Loader2,
@@ -14,23 +12,24 @@ import {
   Home,
   Clock,
   Wrench,
-  Shield
+  Shield,
+  FileText,
+  AlertTriangle
 } from "lucide-react";
 
 interface QuoteRequestCardProps {
   outcode: string;
-  avgPpm: number;
+  dampRiskScore?: number;
   locationName?: string;
+  avgPpm?: number;
 }
 
 export default function QuoteRequestCard({
   outcode,
-  avgPpm,
+  dampRiskScore = 35,
   locationName = "your area",
 }: QuoteRequestCardProps) {
-  const isHardWater = avgPpm >= 180;
-  const isModerateWater = avgPpm >= 100 && avgPpm < 180;
-  const isSoftWater = avgPpm < 100;
+  const isHighRisk = dampRiskScore >= 50;
 
   const [step, setStep] = useState<1 | 2>(1);
   const [loading, setLoading] = useState(false);
@@ -38,9 +37,9 @@ export default function QuoteRequestCard({
   const [errorMessage, setErrorMessage] = useState("");
 
   const [serviceNeeded, setServiceNeeded] = useState(
-    isSoftWater ? "drinking_filter" : "water_softener"
+    isHighRisk ? "damp_timber_survey" : "condensation_mould"
   );
-  const [propertyType, setPropertyType] = useState("detached");
+  const [propertyType, setPropertyType] = useState("victorian_solid");
   const [urgency, setUrgency] = useState("within_month");
 
   const [fullName, setFullName] = useState("");
@@ -64,7 +63,7 @@ export default function QuoteRequestCard({
         body: JSON.stringify({
           outcode,
           city_or_town: locationName,
-          ppm_reading: avgPpm,
+          damp_risk_score: dampRiskScore,
           service_needed: serviceNeeded,
           property_type: propertyType,
           urgency,
@@ -76,12 +75,12 @@ export default function QuoteRequestCard({
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || "Failed to register request. Please check your details.");
+        throw new Error(data.error || "Failed to register survey inquiry. Please check your details.");
       }
 
       setSubmitted(true);
     } catch (err: any) {
-      setErrorMessage(err.message || "Something went wrong. Please check your details.");
+      setErrorMessage(err.message || "Something went wrong. Please check your details and try again.");
     } finally {
       setLoading(false);
     }
@@ -89,202 +88,181 @@ export default function QuoteRequestCard({
 
   if (submitted) {
     return (
-      <div className="my-8 rounded-2xl border border-emerald-200 bg-emerald-50/80 p-6 sm:p-8 text-center shadow-sm">
-        <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-sm">
-          <CheckCircle2 className="w-6 h-6" />
+      <div className="rounded-3xl border border-emerald-200 bg-emerald-50/70 p-8 text-center shadow-lg my-8">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-600 text-white shadow-md">
+          <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="text-xl font-bold text-slate-900">
-          Quote Request Successfully Matched!
+        <span className="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">
+          Request Received
+        </span>
+        <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+          Survey Request Confirmed for {outcode}
         </h3>
-        <p className="mt-2 text-sm text-slate-700 max-w-lg mx-auto leading-relaxed">
-          Thank you, <strong>{fullName}</strong>. We have matched your request for <strong>{outcode}</strong> ({avgPpm} PPM) with vetted local water and heating engineers in <strong>{locationName}</strong>. You will receive up to 3 competitive, no-obligation quotes shortly.
+        <p className="mx-auto mt-2 max-w-md text-sm text-slate-600 leading-relaxed">
+          Thank you, <strong>{fullName}</strong>. We have matched your inquiry with accredited independent PCA / RICS damp & timber surveyors covering <strong>{locationName} ({outcode})</strong>.
         </p>
-        <div className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-white px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-2xs">
-          <ShieldCheck className="w-4 h-4 text-emerald-600" />
-          Verified Against British Standard BS 7593 Code of Practice
+        <div className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-xs font-semibold text-slate-700 shadow-xs border border-emerald-200">
+          <Clock className="h-4 w-4 text-emerald-600" />
+          <span>Local specialist will contact you by phone/email within 1 business day</span>
         </div>
       </div>
     );
   }
 
   return (
-    <section className="my-8 rounded-2xl border border-blue-200 bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/50 p-6 sm:p-8 shadow-sm">
-      {/* Header */}
-      <div className="mb-6">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-800 mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
-          Local Installer Quote Network
+    <div className="relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 shadow-xl my-8">
+      {/* Top Banner & Trust badges */}
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-6 border-b border-slate-100">
+        <div className="flex items-center gap-2">
+          <div className="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shrink-0 shadow-xs">
+            <FileText className="w-5 h-5" />
+          </div>
+          <div>
+            <span className="text-[11px] font-black uppercase tracking-wider text-slate-900 block">
+              Independent Surveyor Network • {outcode}
+            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-slate-700">PCA &amp; RICS Accredited</span>
+              <span className="text-slate-300">•</span>
+              <span className="text-xs text-slate-500">Unbiased Diagnosis (No Sales Commission)</span>
+            </div>
+          </div>
         </div>
-        <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-          {isHardWater
-            ? `Living in a Hard Water Zone (${outcode} averages ${avgPpm} PPM)? Compare Approved Local Installers`
-            : isModerateWater
-            ? `Protect Your Heating & Appliances in ${outcode} (${avgPpm} PPM): Compare Local Specialists`
-            : `Looking for Water Treatment & Heating Protection in ${outcode} (${avgPpm} PPM)?`}
-        </h2>
-        <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
-          {isHardWater
-            ? `Get up to 3 free, no-obligation quotes from WRAS-approved water softener installers and heating engineers serving ${locationName}.`
-            : isModerateWater
-            ? `Connect with certified local plumbers for limescale management and British Standard BS 7593 heating system protection in ${locationName}.`
-            : `Connect with certified local specialists for drinking water filtration and British Standard BS 7593 anti-corrosion boiler protection in ${locationName}.`}
+
+        <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
+          <Shield className="w-4 h-4 text-slate-700" />
+          <span>100% Free &amp; No-Obligation</span>
+        </div>
+      </div>
+
+      <div className="mb-6">
+        <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          Get an Independent Damp & Timber Survey Quote
+        </h3>
+        <p className="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+          Need a definitive diagnosis for buying a property, mortgage lender retention, or persistent black mould? Get transparent fixed-fee quotes from vetted, insured damp surveyors in <strong>{locationName} ({outcode})</strong>.
         </p>
       </div>
 
-      {/* Trust Badges */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 py-3 px-4 bg-white/90 rounded-xl border border-slate-200/80 text-xs text-slate-700 font-medium">
+      {/* Progress Indicators */}
+      <div className="flex items-center gap-3 mb-8">
         <div className="flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-          <span>Verified Against British Standard BS 7593</span>
+          <span className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
+            step === 1 ? "bg-slate-900 text-white" : "bg-emerald-600 text-white"
+          }`}>
+            {step === 1 ? "1" : "✓"}
+          </span>
+          <span className={`text-xs font-bold ${step === 1 ? "text-slate-900" : "text-slate-500"}`}>
+            Survey Needs
+          </span>
         </div>
+        <div className="h-0.5 w-8 bg-slate-200" />
         <div className="flex items-center gap-2">
-          <Droplets className="w-4 h-4 text-blue-600 shrink-0" />
-          <span>{isSoftWater ? "WRAS-Approved Filtration Systems" : "WRAS-Approved Water Softeners"}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
-          <span>100% Free &amp; No Obligation Quotes</span>
+          <span className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
+            step === 2 ? "bg-slate-900 text-white" : "bg-slate-200 text-slate-600"
+          }`}>
+            2
+          </span>
+          <span className={`text-xs font-bold ${step === 2 ? "text-slate-900" : "text-slate-400"}`}>
+            Contact Details
+          </span>
         </div>
       </div>
 
-      {/* Step 1 Form */}
+      {errorMessage && (
+        <div className="mb-6 rounded-2xl bg-red-50 border border-red-200 p-4 text-xs font-medium text-red-700 flex items-start gap-2">
+          <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-red-600" />
+          <span>{errorMessage}</span>
+        </div>
+      )}
+
+      {/* STEP 1: Survey Needs */}
       {step === 1 && (
-        <form onSubmit={handleStep1Submit} className="space-y-4">
+        <form onSubmit={handleStep1Submit} className="space-y-6">
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-              1. What service do you need in {outcode}?
+            <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+              1. What service do you require in {outcode}?
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {!isSoftWater && (
-                <button
-                  type="button"
-                  onClick={() => setServiceNeeded("water_softener")}
-                  className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all relative ${
-                    serviceNeeded === "water_softener"
-                      ? "border-blue-600 bg-blue-50 text-blue-900 ring-2 ring-blue-500/20 shadow-xs"
-                      : isHardWater
-                      ? "border-blue-300 bg-white hover:bg-blue-50/50 text-slate-800 ring-1 ring-blue-200"
-                      : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
+              {[
+                {
+                  id: "damp_timber_survey",
+                  title: "Pre-Purchase Damp & Timber Survey",
+                  desc: "Essential for homebuyers & mortgage approvals. Full written report with moisture mapping.",
+                },
+                {
+                  id: "condensation_mould",
+                  title: "Condensation & Mould Diagnosis",
+                  desc: "Dew-point analysis, hygrometer testing, and PIV / ventilation recommendations.",
+                },
+                {
+                  id: "rising_penetrating",
+                  title: "Rising & Penetrating Damp Inspection",
+                  desc: "DPC check, external brick pointing, ground-level bridging, and salt contamination tests.",
+                },
+                {
+                  id: "full_property_audit",
+                  title: "Thermal Imaging & Moisture Audit",
+                  desc: "FLIR thermal camera scan to locate hidden plumbing leaks and cold bridging.",
+                },
+              ].map((item) => (
+                <label
+                  key={item.id}
+                  className={`p-4 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-between ${
+                    serviceNeeded === item.id
+                      ? "border-slate-900 bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
+                      : "border-slate-200 bg-slate-50/70 hover:bg-slate-100/80 text-slate-800"
                   }`}
                 >
-                  <Droplets className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between gap-1">
-                      <div className="text-sm font-bold">Whole-House Water Softener</div>
-                      {isHardWater && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-blue-600 text-white shadow-2xs">
-                          ★ Recommended
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-xs text-slate-500 mt-0.5">
-                      Harvey, Kinetico, EcoWater compatible (£1,200–£2,500)
-                    </div>
+                  <div className="flex items-start justify-between">
+                    <span className="text-sm font-bold block">{item.title}</span>
+                    <input
+                      type="radio"
+                      name="service"
+                      value={item.id}
+                      checked={serviceNeeded === item.id}
+                      onChange={() => setServiceNeeded(item.id)}
+                      className="sr-only"
+                    />
                   </div>
-                </button>
-              )}
-
-              <button
-                type="button"
-                onClick={() => setServiceNeeded("boiler_protection")}
-                className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all ${
-                  serviceNeeded === "boiler_protection"
-                    ? "border-blue-600 bg-blue-50 text-blue-900 ring-2 ring-blue-500/20 shadow-xs"
-                    : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
-                }`}
-              >
-                <Flame className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-1">
-                    <div className="text-sm font-bold">Boiler Descaling &amp; Protection</div>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-0.5">
-                    {isSoftWater
-                      ? "BS 7593 Anti-corrosion flush & inhibitor (£350–£600)"
-                      : "BS 7593 Power flush & scale protection (£350–£600)"}
-                  </div>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setServiceNeeded("drinking_filter")}
-                className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all ${
-                  serviceNeeded === "drinking_filter"
-                    ? "border-blue-600 bg-blue-50 text-blue-900 ring-2 ring-blue-500/20 shadow-xs"
-                    : isSoftWater
-                    ? "border-cyan-300 bg-white hover:bg-cyan-50/50 text-slate-800 ring-1 ring-cyan-200"
-                    : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
-                }`}
-              >
-                <Filter className="w-5 h-5 text-cyan-600 shrink-0 mt-0.5" />
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-1">
-                    <div className="text-sm font-bold">Drinking Water Filtration</div>
-                    {isSoftWater && (
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-cyan-600 text-white shadow-2xs">
-                        ★ Recommended
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs text-slate-500 mt-0.5">
-                    Under-sink Reverse Osmosis / Carbon block filter
-                  </div>
-                </div>
-              </button>
-
-              {!isSoftWater && (
-                <button
-                  type="button"
-                  onClick={() => setServiceNeeded("both")}
-                  className={`p-3.5 rounded-xl border text-left flex items-start gap-3 transition-all ${
-                    serviceNeeded === "both"
-                      ? "border-blue-600 bg-blue-50 text-blue-900 ring-2 ring-blue-500/20 shadow-xs"
-                      : "border-slate-200 bg-white hover:bg-slate-50 text-slate-800"
-                  }`}
-                >
-                  <Wrench className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-sm font-bold">Complete Package</div>
-                    <div className="text-xs text-slate-500 mt-0.5">
-                      Water Softener + BS 7593 Boiler Care Package
-                    </div>
-                  </div>
-                </button>
-              )}
+                  <span className={`text-xs mt-2 block ${serviceNeeded === item.id ? "text-slate-300" : "text-slate-500"}`}>
+                    {item.desc}
+                  </span>
+                </label>
+              ))}
             </div>
           </div>
 
-          {/* Property Type & Urgency */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <Home className="w-3.5 h-3.5 text-slate-500" /> Property Type
+              <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                2. Property Construction Type
               </label>
               <select
                 value={propertyType}
                 onChange={(e) => setPropertyType(e.target.value)}
-                className="w-full p-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
               >
-                <option value="detached">Detached House (3–5 Bedrooms)</option>
-                <option value="semi_detached">Semi-Detached House</option>
-                <option value="terraced">Terraced Property</option>
-                <option value="flat_apartment">Flat / Apartment</option>
+                <option value="victorian_solid">Victorian / Pre-1930 Solid Wall</option>
+                <option value="semi_detached">1930-1980 Cavity Wall Semi-Detached</option>
+                <option value="terraced">Mid / End-of-Terrace House</option>
+                <option value="flat_apartment">Apartment / Tenement Flat</option>
+                <option value="modern_post_1980">Modern Post-1980 Insulated Build</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-slate-500" /> Timeframe
+              <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                3. Timescale / Urgency
               </label>
               <select
                 value={urgency}
                 onChange={(e) => setUrgency(e.target.value)}
-                className="w-full p-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
               >
-                <option value="asap">As soon as possible</option>
-                <option value="within_month">Within the next month</option>
-                <option value="planning_budget">Just researching / budgeting</option>
+                <option value="asap">Urgent (Within 48 hours / Home purchase deadline)</option>
+                <option value="within_month">Next 2 to 4 weeks</option>
+                <option value="planning_budget">Planning & getting quotes</option>
               </select>
             </div>
           </div>
@@ -292,54 +270,36 @@ export default function QuoteRequestCard({
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer"
             >
-              Continue to Local Quotes <ArrowRight className="w-4 h-4" />
+              <span>Continue to Contact Step</span>
+              <ArrowRight className="h-4 w-4" />
             </button>
           </div>
         </form>
       )}
 
-      {/* Step 2 Form */}
+      {/* STEP 2: Contact Details */}
       {step === 2 && (
-        <form onSubmit={handleFinalSubmit} className="space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-2">
-            <span className="text-xs font-bold uppercase text-slate-600">
-              2. Contact Details for Certified {outcode} Engineers
-            </span>
-            <button
-              type="button"
-              onClick={() => setStep(1)}
-              className="text-xs font-semibold text-blue-600 hover:underline cursor-pointer"
-            >
-              &larr; Back to services
-            </button>
-          </div>
-
-          {errorMessage && (
-            <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-700">
-              {errorMessage}
-            </div>
-          )}
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <form onSubmit={handleFinalSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Full Name *
+              <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                Your Full Name
               </label>
               <input
                 type="text"
                 required
-                placeholder="e.g. David Smith"
+                placeholder="e.g. David Williams"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full p-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1 flex items-center gap-1">
-                <Phone className="w-3 h-3 text-slate-500" /> UK Phone Number *
+              <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                UK Phone Number
               </label>
               <input
                 type="tel"
@@ -347,65 +307,60 @@ export default function QuoteRequestCard({
                 placeholder="e.g. 07123 456789"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                className="w-full p-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
               />
-              <span className="text-[10px] text-slate-500 mt-0.5 block">
-                Used solely by certified installers to deliver your quote.
-              </span>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Email Address *
+              <label className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
+                Email Address
               </label>
               <input
                 type="email"
                 required
-                placeholder="e.g. david.smith@example.co.uk"
+                placeholder="e.g. david@example.co.uk"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2.5 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Postal District (Outcode)
-              </label>
-              <input
-                type="text"
-                readOnly
-                disabled
-                value={outcode}
-                className="w-full p-2.5 text-sm bg-slate-100 border border-slate-200 rounded-xl text-slate-700 font-bold"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
               />
             </div>
           </div>
 
-          <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>We never sell your contact info. Details are shared solely with 1-2 verified local damp surveyors.</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 pt-2">
+            <button
+              type="button"
+              onClick={() => setStep(1)}
+              className="px-5 py-3 rounded-xl border border-slate-200 text-slate-600 font-bold text-sm hover:bg-slate-100 transition-colors"
+            >
+              Back
+            </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+              className="px-8 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all flex items-center justify-center gap-2 shadow-md disabled:opacity-50 cursor-pointer"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" /> Submitting Request...
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>Connecting with Local Surveyors...</span>
                 </>
               ) : (
                 <>
-                  Request Free Quotes <ArrowRight className="w-4 h-4" />
+                  <span>Request Free Survey Quotes</span>
+                  <ArrowRight className="h-4 w-4" />
                 </>
               )}
             </button>
-            <span className="text-[11px] text-slate-500">
-              🔒 100% Free. No spam. Data protected under UK GDPR.
-            </span>
           </div>
         </form>
       )}
-    </section>
+    </div>
   );
 }

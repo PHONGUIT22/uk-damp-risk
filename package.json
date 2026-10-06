@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "process:data": "node --experimental-strip-types scripts/process-damp-data.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

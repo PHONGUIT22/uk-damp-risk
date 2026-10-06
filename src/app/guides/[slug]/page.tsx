@@ -116,7 +116,8 @@ export default async function GuideArticlePage({ params }: PageProps) {
         },
         "publisher": {
           "@type": "Organization",
-          "name": "UK Damp Risk Index",
+          "@id": "https://checkdamp.co.uk/#organization",
+          "name": "CheckDamp UK",
           "url": "https://checkdamp.co.uk"
         },
         "about": {

@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect, RedirectType } from "next/navigation";
 import { getAreaByOutcode } from "@/lib/dampData";
 import CompareHero from "@/components/compare/CompareHero";
 import VersusTable from "@/components/compare/VersusTable";
 import QuoteRequestCard from "@/components/lead/QuoteRequestCard";
-import { POPULAR_COMPARE_PAIRS, isPopularComparePair } from "@/lib/comparePairs";
+import { POPULAR_COMPARE_PAIRS, isPopularComparePair, getCanonicalPairForReverse } from "@/lib/comparePairs";
 import { ChevronRight, ShieldCheck, Building2, Scale, ArrowRight } from "lucide-react";
 
 export const revalidate = 86400;
@@ -37,11 +37,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resolvedParams = await params;
   const rawPairSlug = resolvedParams.pair || "";
   const normalizedPairSlug = rawPairSlug.toLowerCase().trim();
+
+  // If this pair is the inverse of a whitelisted pair, redirect to canonical pair
+  const canonicalTarget = getCanonicalPairForReverse(normalizedPairSlug);
+  if (canonicalTarget) {
+    redirect(`/compare/${canonicalTarget}`, RedirectType.replace);
+  }
+
   const parsed = parsePairSlug(normalizedPairSlug);
 
   if (!parsed) {
     return {
-      title: "Comparison Not Found | UK Damp Risk Index",
+      title: "Comparison Not Found | CheckDamp UK",
       robots: { index: false, follow: true },
     };
   }
@@ -51,7 +58,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!dataA || !dataB) {
     return {
-      title: "Comparison Not Found | UK Damp Risk Index",
+      title: "Comparison Not Found | CheckDamp UK",
       robots: { index: false, follow: true },
     };
   }
@@ -95,6 +102,13 @@ export default async function CompareDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
   const rawPairSlug = resolvedParams.pair || "";
   const normalizedPairSlug = rawPairSlug.toLowerCase().trim();
+
+  // If this pair is the inverse of a whitelisted pair, redirect to canonical pair
+  const canonicalTarget = getCanonicalPairForReverse(normalizedPairSlug);
+  if (canonicalTarget) {
+    redirect(`/compare/${canonicalTarget}`, RedirectType.replace);
+  }
+
   const parsed = parsePairSlug(normalizedPairSlug);
 
   if (!parsed) {
@@ -139,6 +153,11 @@ export default async function CompareDetailPage({ params }: PageProps) {
         "headline": `${dataA.outcode} vs ${dataB.outcode} Housing Condition & Damp Risk Head-to-Head`,
         "description": `Detailed comparison between ${dataA.outcode} (${dataA.city}) and ${dataB.outcode} (${dataB.city}).`,
         "mainEntityOfPage": `https://checkdamp.co.uk/compare/${normalizedPairSlug}`,
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://checkdamp.co.uk/#organization",
+          "name": "CheckDamp UK"
+        },
       },
     ],
   };

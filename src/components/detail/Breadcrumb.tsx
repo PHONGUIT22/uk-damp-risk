@@ -19,8 +19,8 @@ export default function Breadcrumb({ outcode, sector }: Props) {
       <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
 
       <Link 
-        href="/outcodes" 
-        className="hover:text-cyan-600 transition-colors font-medium"
+        href="/damp-risk" 
+        className="hover:text-slate-900 transition-colors font-medium"
       >
         All Outcodes
       </Link>
@@ -29,7 +29,7 @@ export default function Breadcrumb({ outcode, sector }: Props) {
 
       <Link 
         href={`/damp-risk/${cleanOutcode.toLowerCase()}`} 
-        className="hover:text-cyan-600 transition-colors font-medium"
+        className="hover:text-slate-900 transition-colors font-medium"
       >
         Outcode {cleanOutcode}
       </Link>

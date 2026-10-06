@@ -4,6 +4,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/outcodes",
+        destination: "/damp-risk",
+        permanent: true,
+      },
+      {
+        source: "/outcodes/:path*",
+        destination: "/damp-risk/:path*",
+        permanent: true,
+      },
+      {
         source: "/water-hardness/:outcode",
         destination: "/damp-risk/:outcode",
         permanent: true,

@@ -23,7 +23,6 @@ export async function POST(request: Request) {
       outcode,
       city_or_town,
       damp_risk_score,
-      ppm_reading,
       service_needed,
       property_type,
       full_name,
@@ -62,17 +61,13 @@ export async function POST(request: Request) {
     // 4. Validate and sanitize inputs
     const cleanOutcode = outcode.trim().toUpperCase();
     const cleanCity = city_or_town ? String(city_or_town).trim() : null;
-    const score = Number(damp_risk_score ?? ppm_reading ?? 0);
+    const score = Number(damp_risk_score ?? 0);
 
     const validServices = [
       "damp_timber_survey",
       "condensation_mould",
       "rising_penetrating",
       "full_property_audit",
-      "water_softener",
-      "boiler_protection",
-      "drinking_filter",
-      "both"
     ];
     const sanitizedService = validServices.includes(service_needed) ? service_needed : "damp_timber_survey";
 
@@ -86,7 +81,7 @@ export async function POST(request: Request) {
       id: leadId,
       outcode: cleanOutcode,
       city_or_town: cleanCity,
-      ppm_reading: score,
+      damp_risk_score: score,
       service_needed: sanitizedService,
       property_type: property_type || "terraced",
       full_name: full_name.trim(),
@@ -97,17 +92,6 @@ export async function POST(request: Request) {
     };
 
     let { error } = await supabase.from("leads").insert([payload]);
-
-    // Backward-compatibility fallback if Supabase table has legacy CHECK constraint
-    if (error && error.message?.includes("service_needed")) {
-      console.warn("Retrying with backward-compatible service_needed due to constraint:", error.message);
-      payload.service_needed = "water_softener";
-      if (!["detached", "semi_detached", "terraced", "flat_apartment"].includes(payload.property_type)) {
-        payload.property_type = "terraced";
-      }
-      const retryResult = await supabase.from("leads").insert([payload]);
-      error = retryResult.error;
-    }
 
     if (error) {
       console.error("Supabase insert lead error:", error);

@@ -21,7 +21,6 @@ interface QuoteRequestCardProps {
   outcode: string;
   dampRiskScore?: number;
   locationName?: string;
-  avgPpm?: number;
 }
 
 export default function QuoteRequestCard({

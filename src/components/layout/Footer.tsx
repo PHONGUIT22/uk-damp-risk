@@ -73,6 +73,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
+                <Link href="/cities/london" className="hover:text-white transition-colors text-slate-300 font-semibold">
+                  London Damp Risk
+                </Link>
+              </li>
+              <li>
                 <Link href="/cities/birmingham" className="hover:text-white transition-colors text-slate-300 font-semibold">
                   Birmingham Damp Risk
                 </Link>

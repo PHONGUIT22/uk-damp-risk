@@ -67,6 +67,10 @@ export default function HeroSearchSection() {
       return;
     }
 
+    if (clean.includes("LONDON")) {
+      router.push("/cities/london");
+      return;
+    }
     if (clean.includes("BIRMINGHAM")) {
       router.push("/cities/birmingham");
       return;

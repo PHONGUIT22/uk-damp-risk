@@ -14,6 +14,9 @@ export async function resolveSearchDestination(query: string): Promise<string> {
   }
 
   // 2. City name match
+  if (clean.includes("LONDON")) {
+    return "/cities/london";
+  }
   if (clean.includes("BIRMINGHAM")) {
     return "/cities/birmingham";
   }

@@ -8,6 +8,7 @@ import {
   getRiskColorClass,
 } from "@/lib/dampData";
 import DehumidifierSizingGuide from "@/components/detail/DehumidifierSizingGuide";
+import EpcDistributionChart from "@/components/detail/EpcDistributionChart";
 import QuoteRequestCard from "@/components/lead/QuoteRequestCard";
 import {
   ShieldCheck,
@@ -401,6 +402,14 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                   </div>
                 </div>
               </div>
+
+              {/* EPC Rating Distribution & Thermal Efficiency Audit */}
+              <EpcDistributionChart
+                pctPoorEpc={area.pct_poor_epc}
+                outcode={area.outcode}
+                totalProperties={area.total_properties}
+                dominantHouseType={area.dominant_house_type}
+              />
 
               {/* LOCAL MOISTURE PATHOLOGY & ACTION PLAN */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm">

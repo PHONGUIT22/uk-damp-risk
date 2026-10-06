@@ -35,7 +35,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const rawCity = resolvedParams.city.toLowerCase();
-  const cityName = rawCity === "birmingham" ? "Birmingham" : rawCity === "manchester" ? "Manchester" : null;
+  const cityName = getAllCities().find((c) => c.toLowerCase() === rawCity) || null;
 
   if (!cityName) {
     return {
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CityHubPage({ params }: PageProps) {
   const resolvedParams = await params;
   const rawCity = resolvedParams.city.toLowerCase();
-  const cityName = rawCity === "birmingham" ? "Birmingham" : rawCity === "manchester" ? "Manchester" : null;
+  const cityName = getAllCities().find((c) => c.toLowerCase() === rawCity) || null;
 
   if (!cityName) {
     notFound();

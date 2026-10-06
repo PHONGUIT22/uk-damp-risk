@@ -1,5 +1,5 @@
 import dampDataRaw from "@/data/dampData.json";
-import { DampAreaRecord } from "@/lib/types/damp";
+import { DampAreaRecord, WindDrivenRainExposure } from "@/lib/types/damp";
 
 export const dampData: DampAreaRecord[] = dampDataRaw as DampAreaRecord[];
 
@@ -116,3 +116,46 @@ export function getRiskColorClass(levelOrScore: string | number): {
       };
   }
 }
+
+/**
+ * Color classes and badge metadata helper for Wind-Driven Rain Exposure
+ */
+export function getRainExposureColorClass(exposure: WindDrivenRainExposure | string): {
+  badgeBg: string;
+  badgeText: string;
+  border: string;
+  text: string;
+} {
+  switch (exposure) {
+    case "Very Severe":
+      return {
+        badgeBg: "bg-purple-100 text-purple-900",
+        badgeText: "text-purple-700",
+        border: "border-purple-300",
+        text: "text-purple-600",
+      };
+    case "Severe":
+      return {
+        badgeBg: "bg-blue-100 text-blue-900",
+        badgeText: "text-blue-700",
+        border: "border-blue-300",
+        text: "text-blue-600",
+      };
+    case "Moderate":
+      return {
+        badgeBg: "bg-amber-100 text-amber-900",
+        badgeText: "text-amber-800",
+        border: "border-amber-300",
+        text: "text-amber-600",
+      };
+    case "Sheltered":
+    default:
+      return {
+        badgeBg: "bg-emerald-100 text-emerald-900",
+        badgeText: "text-emerald-800",
+        border: "border-emerald-300",
+        text: "text-emerald-600",
+      };
+  }
+}
+

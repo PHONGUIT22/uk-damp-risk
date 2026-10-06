@@ -13,7 +13,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 18,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.4,
+      "band_c_d": 84.8,
+      "band_e": 2.8,
+      "band_f_g": 1
+    },
+    "pct_solid_wall": 6.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B10",
@@ -21,7 +31,7 @@
     "lad_code": "E08000025",
     "total_properties": 10145,
     "pct_poor_epc": 30.7,
-    "pct_old_build": 61.0,
+    "pct_old_build": 61,
     "pct_terrace_or_flat": 82.1,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.47011754923414,
@@ -29,7 +39,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 56,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 65.2,
+      "band_e": 22.7,
+      "band_f_g": 8
+    },
+    "pct_solid_wall": 55.6,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 84,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "B11",
@@ -45,7 +65,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 63.6,
+      "band_e": 24.2,
+      "band_f_g": 8.5
+    },
+    "pct_solid_wall": 58.6,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 84,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "B12",
@@ -61,7 +91,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 38,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 76.5,
+      "band_e": 12.1,
+      "band_f_g": 4.2
+    },
+    "pct_solid_wall": 33.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.3,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "B13",
@@ -70,14 +110,24 @@
     "total_properties": 15865,
     "pct_poor_epc": 25.1,
     "pct_old_build": 36.6,
-    "pct_terrace_or_flat": 44.0,
+    "pct_terrace_or_flat": 44,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.47672104140969,
     "longitude": -1.8811886149779733,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 68.7,
+      "band_e": 18.6,
+      "band_f_g": 6.5
+    },
+    "pct_solid_wall": 35.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.2,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "B14",
@@ -85,7 +135,7 @@
     "lad_code": "E08000025",
     "total_properties": 16959,
     "pct_poor_epc": 23.6,
-    "pct_old_build": 20.0,
+    "pct_old_build": 20,
     "pct_terrace_or_flat": 56.3,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.41884773699422,
@@ -93,7 +143,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 30,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.6,
+      "band_c_d": 68.8,
+      "band_e": 17.5,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 21.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.1,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "B15",
@@ -109,7 +169,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 18,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.4,
+      "band_c_d": 81,
+      "band_e": 6.4,
+      "band_f_g": 2.2
+    },
+    "pct_solid_wall": 10.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B16",
@@ -125,7 +195,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 33,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.1,
+      "band_c_d": 76.3,
+      "band_e": 12.3,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 33.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.2,
+    "est_dew_point_c": 11.1
   },
   {
     "outcode": "B17",
@@ -141,7 +221,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.5,
+      "band_c_d": 71.1,
+      "band_e": 16.6,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 35.4,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 83.2,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "B18",
@@ -157,7 +247,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 36,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.7,
+      "band_c_d": 80.8,
+      "band_e": 8.5,
+      "band_f_g": 3
+    },
+    "pct_solid_wall": 32.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.3,
+    "est_dew_point_c": 11.3
   },
   {
     "outcode": "B19",
@@ -165,7 +265,7 @@
     "lad_code": "E08000025",
     "total_properties": 12005,
     "pct_poor_epc": 15.4,
-    "pct_old_build": 33.0,
+    "pct_old_build": 33,
     "pct_terrace_or_flat": 73.2,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.49626644186046,
@@ -173,7 +273,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 37,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 77.2,
+      "band_e": 11.4,
+      "band_f_g": 4
+    },
+    "pct_solid_wall": 32.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.3,
+    "est_dew_point_c": 11.3
   },
   {
     "outcode": "B2",
@@ -182,14 +292,24 @@
     "total_properties": 844,
     "pct_poor_epc": 8.1,
     "pct_old_build": 14.6,
-    "pct_terrace_or_flat": 80.0,
+    "pct_terrace_or_flat": 80,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.48632694651163,
     "longitude": -1.897319789534884,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 29,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.7,
+      "band_c_d": 82.2,
+      "band_e": 6,
+      "band_f_g": 2.1
+    },
+    "pct_solid_wall": 17.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "B20",
@@ -205,7 +325,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.7,
+      "band_c_d": 69.9,
+      "band_e": 18.1,
+      "band_f_g": 6.3
+    },
+    "pct_solid_wall": 42.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.4,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "B21",
@@ -221,7 +351,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 66.6,
+      "band_e": 22.1,
+      "band_f_g": 7.7
+    },
+    "pct_solid_wall": 62.5,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 84,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "B23",
@@ -229,15 +369,25 @@
     "lad_code": "E08000025",
     "total_properties": 21970,
     "pct_poor_epc": 20.5,
-    "pct_old_build": 27.0,
-    "pct_terrace_or_flat": 51.0,
+    "pct_old_build": 27,
+    "pct_terrace_or_flat": 51,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.60226502911094,
     "longitude": -1.8484761856805665,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 31,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 72.1,
+      "band_e": 15.2,
+      "band_f_g": 5.3
+    },
+    "pct_solid_wall": 27.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.1,
+    "est_dew_point_c": 11
   },
   {
     "outcode": "B24",
@@ -245,7 +395,7 @@
     "lad_code": "E08000025",
     "total_properties": 11749,
     "pct_poor_epc": 22.9,
-    "pct_old_build": 26.0,
+    "pct_old_build": 26,
     "pct_terrace_or_flat": 40.4,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.51970343455497,
@@ -253,7 +403,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 29,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 69.9,
+      "band_e": 16.9,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 26.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "B25",
@@ -261,15 +421,25 @@
     "lad_code": "E08000025",
     "total_properties": 6556,
     "pct_poor_epc": 26.9,
-    "pct_old_build": 35.0,
-    "pct_terrace_or_flat": 67.0,
+    "pct_old_build": 35,
+    "pct_terrace_or_flat": 67,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.54534143694494,
     "longitude": -1.82360620071048,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 66.9,
+      "band_e": 19.9,
+      "band_f_g": 7
+    },
+    "pct_solid_wall": 34.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.4,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "B26",
@@ -285,7 +455,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 17,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.8,
+      "band_c_d": 69.5,
+      "band_e": 16.1,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 11,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.2
   },
   {
     "outcode": "B27",
@@ -301,7 +481,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.6,
+      "band_c_d": 69.1,
+      "band_e": 18,
+      "band_f_g": 6.3
+    },
+    "pct_solid_wall": 32.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.2,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "B28",
@@ -317,7 +507,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 23,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.8,
+      "band_c_d": 65.7,
+      "band_e": 19.6,
+      "band_f_g": 6.9
+    },
+    "pct_solid_wall": 17,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "B29",
@@ -325,7 +525,7 @@
     "lad_code": "E08000025",
     "total_properties": 18055,
     "pct_poor_epc": 16.2,
-    "pct_old_build": 32.0,
+    "pct_old_build": 32,
     "pct_terrace_or_flat": 56.4,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.43775498033959,
@@ -333,7 +533,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 33,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 76.4,
+      "band_e": 12,
+      "band_f_g": 4.2
+    },
+    "pct_solid_wall": 31.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.2,
+    "est_dew_point_c": 11.1
   },
   {
     "outcode": "B3",
@@ -349,7 +559,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 23,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.8,
+      "band_c_d": 82.7,
+      "band_e": 4.8,
+      "band_f_g": 1.7
+    },
+    "pct_solid_wall": 8.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "B30",
@@ -365,7 +585,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.7,
+      "band_c_d": 73.4,
+      "band_e": 14.7,
+      "band_f_g": 5.2
+    },
+    "pct_solid_wall": 34.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.2,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "B31",
@@ -381,7 +611,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 17,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.7,
+      "band_c_d": 75.9,
+      "band_e": 10.7,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 10.7,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.2
   },
   {
     "outcode": "B32",
@@ -397,7 +637,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 19,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.8,
+      "band_c_d": 74.4,
+      "band_e": 11.7,
+      "band_f_g": 4.1
+    },
+    "pct_solid_wall": 7.6,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 82.7,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B33",
@@ -413,7 +663,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 22,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.3,
+      "band_c_d": 74.2,
+      "band_e": 12.2,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 11.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.5
   },
   {
     "outcode": "B34",
@@ -429,7 +689,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 19,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.3,
+      "band_c_d": 77.3,
+      "band_e": 9.2,
+      "band_f_g": 3.2
+    },
+    "pct_solid_wall": 6.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.7,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B35",
@@ -445,7 +715,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 17,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.6,
+      "band_c_d": 85,
+      "band_e": 2.5,
+      "band_f_g": 0.9
+    },
+    "pct_solid_wall": 5.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.2
   },
   {
     "outcode": "B36",
@@ -453,7 +733,7 @@
     "lad_code": "E08000025",
     "total_properties": 5214,
     "pct_poor_epc": 24.2,
-    "pct_old_build": 3.0,
+    "pct_old_build": 3,
     "pct_terrace_or_flat": 37.9,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.50453033379694,
@@ -461,7 +741,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 19,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.9,
+      "band_c_d": 66.9,
+      "band_e": 17.9,
+      "band_f_g": 6.3
+    },
+    "pct_solid_wall": 7.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.7,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B37",
@@ -469,7 +759,7 @@
     "lad_code": "E08000025",
     "total_properties": 124,
     "pct_poor_epc": 9.7,
-    "pct_old_build": 0.0,
+    "pct_old_build": 0,
     "pct_terrace_or_flat": 41.9,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.4784424771033,
@@ -477,7 +767,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 14,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.8,
+      "band_c_d": 79.5,
+      "band_e": 7.2,
+      "band_f_g": 2.5
+    },
+    "pct_solid_wall": 5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.5,
+    "est_dew_point_c": 10.1
   },
   {
     "outcode": "B38",
@@ -493,7 +793,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 18,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.4,
+      "band_c_d": 78.2,
+      "band_e": 8.4,
+      "band_f_g": 3
+    },
+    "pct_solid_wall": 6.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B4",
@@ -502,14 +812,24 @@
     "total_properties": 3515,
     "pct_poor_epc": 3.4,
     "pct_old_build": 5.2,
-    "pct_terrace_or_flat": 87.0,
+    "pct_terrace_or_flat": 87,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.4838566036961,
     "longitude": -1.893621593429158,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 25,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.1,
+      "band_c_d": 85.5,
+      "band_e": 2.5,
+      "band_f_g": 0.9
+    },
+    "pct_solid_wall": 9.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.9,
+    "est_dew_point_c": 10.7
   },
   {
     "outcode": "B42",
@@ -517,7 +837,7 @@
     "lad_code": "E08000025",
     "total_properties": 9138,
     "pct_poor_epc": 21.2,
-    "pct_old_build": 7.0,
+    "pct_old_build": 7,
     "pct_terrace_or_flat": 37.1,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.65216453283767,
@@ -525,7 +845,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 19,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.9,
+      "band_c_d": 69.9,
+      "band_e": 15.7,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 10.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.7,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B43",
@@ -534,21 +864,31 @@
     "total_properties": 296,
     "pct_poor_epc": 28.4,
     "pct_old_build": 3.7,
-    "pct_terrace_or_flat": 49.0,
+    "pct_terrace_or_flat": 49,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.54761763527653,
     "longitude": -1.9282396741405083,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 24,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.3,
+      "band_c_d": 63.3,
+      "band_e": 21,
+      "band_f_g": 7.4
+    },
+    "pct_solid_wall": 8.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "B44",
     "city": "Birmingham",
     "lad_code": "E08000025",
     "total_properties": 13856,
-    "pct_poor_epc": 21.0,
+    "pct_poor_epc": 21,
     "pct_old_build": 8.9,
     "pct_terrace_or_flat": 49.6,
     "dominant_house_type": "Semi-Detached",
@@ -557,7 +897,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 23,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.8,
+      "band_c_d": 70.2,
+      "band_e": 15.5,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 12.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "B45",
@@ -573,7 +923,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 18,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.8,
+      "band_c_d": 79.9,
+      "band_e": 6.9,
+      "band_f_g": 2.4
+    },
+    "pct_solid_wall": 6.1,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 82.6,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "B5",
@@ -589,7 +949,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 20,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11,
+      "band_c_d": 83.3,
+      "band_e": 4.2,
+      "band_f_g": 1.5
+    },
+    "pct_solid_wall": 7.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.7,
+    "est_dew_point_c": 10.4
   },
   {
     "outcode": "B6",
@@ -605,14 +975,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 69,
+      "band_e": 19.1,
+      "band_f_g": 6.7
+    },
+    "pct_solid_wall": 45.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.8,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "B62",
     "city": "Birmingham",
     "lad_code": "E08000025",
     "total_properties": 146,
-    "pct_poor_epc": 11.0,
+    "pct_poor_epc": 11,
     "pct_old_build": 0.7,
     "pct_terrace_or_flat": 7.5,
     "dominant_house_type": "Semi-Detached",
@@ -621,7 +1001,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 6,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.6,
+      "band_c_d": 78.4,
+      "band_e": 8.1,
+      "band_f_g": 2.9
+    },
+    "pct_solid_wall": 5.6,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 82.2,
+    "est_dew_point_c": 9.6
   },
   {
     "outcode": "B7",
@@ -637,7 +1027,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 20,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.8,
+      "band_c_d": 83.6,
+      "band_e": 4.1,
+      "band_f_g": 1.5
+    },
+    "pct_solid_wall": 9.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.7,
+    "est_dew_point_c": 10.4
   },
   {
     "outcode": "B72",
@@ -653,7 +1053,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 24,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.6,
+      "band_c_d": 68.9,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 21.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "B73",
@@ -669,7 +1079,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 23,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.5,
+      "band_c_d": 66,
+      "band_e": 19.6,
+      "band_f_g": 6.9
+    },
+    "pct_solid_wall": 20.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "B74",
@@ -677,7 +1097,7 @@
     "lad_code": "E08000025",
     "total_properties": 5523,
     "pct_poor_epc": 19.4,
-    "pct_old_build": 9.0,
+    "pct_old_build": 9,
     "pct_terrace_or_flat": 18.7,
     "dominant_house_type": "Detached",
     "latitude": 52.58237887474333,
@@ -685,7 +1105,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 15,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.9,
+      "band_c_d": 71.7,
+      "band_e": 14.4,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 12.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.5,
+    "est_dew_point_c": 10.1
   },
   {
     "outcode": "B75",
@@ -694,14 +1124,24 @@
     "total_properties": 8921,
     "pct_poor_epc": 15.2,
     "pct_old_build": 6.7,
-    "pct_terrace_or_flat": 24.0,
+    "pct_terrace_or_flat": 24,
     "dominant_house_type": "Semi-Detached",
     "latitude": 52.57774182742317,
     "longitude": -1.8109485283687945,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 14,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.6,
+      "band_c_d": 75.2,
+      "band_e": 11.2,
+      "band_f_g": 4
+    },
+    "pct_solid_wall": 10.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.5,
+    "est_dew_point_c": 10.1
   },
   {
     "outcode": "B76",
@@ -717,7 +1157,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 12,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.2,
+      "band_c_d": 77.2,
+      "band_e": 9.3,
+      "band_f_g": 3.3
+    },
+    "pct_solid_wall": 8.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 82.4,
+    "est_dew_point_c": 10
   },
   {
     "outcode": "B8",
@@ -726,21 +1176,31 @@
     "total_properties": 15678,
     "pct_poor_epc": 26.7,
     "pct_old_build": 48.7,
-    "pct_terrace_or_flat": 70.0,
+    "pct_terrace_or_flat": 70,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 52.49002947240052,
     "longitude": -1.8427788780487808,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 46,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 68.1,
+      "band_e": 19.8,
+      "band_f_g": 6.9
+    },
+    "pct_solid_wall": 45.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.6,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "B9",
     "city": "Birmingham",
     "lad_code": "E08000025",
     "total_properties": 9779,
-    "pct_poor_epc": 24.0,
+    "pct_poor_epc": 24,
     "pct_old_build": 48.3,
     "pct_terrace_or_flat": 69.6,
     "dominant_house_type": "Mid-Terrace",
@@ -749,7 +1209,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 45,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.4,
+      "band_c_d": 70.6,
+      "band_e": 17.8,
+      "band_f_g": 6.2
+    },
+    "pct_solid_wall": 45.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 83.6,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "M1",
@@ -758,14 +1228,24 @@
     "total_properties": 11929,
     "pct_poor_epc": 5.2,
     "pct_old_build": 10.6,
-    "pct_terrace_or_flat": 70.0,
+    "pct_terrace_or_flat": 70,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 53.92589242678228,
     "longitude": -2.215161694605009,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 24,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.4,
+      "band_c_d": 84.4,
+      "band_e": 3.8,
+      "band_f_g": 1.4
+    },
+    "pct_solid_wall": 13.8,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 85.8,
+    "est_dew_point_c": 10.6
   },
   {
     "outcode": "M11",
@@ -781,7 +1261,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.8,
+      "band_c_d": 81.4,
+      "band_e": 8,
+      "band_f_g": 2.8
+    },
+    "pct_solid_wall": 32.1,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.2,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "M12",
@@ -797,7 +1287,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 36,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 78.4,
+      "band_e": 10.5,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 32.9,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.3,
+    "est_dew_point_c": 11.3
   },
   {
     "outcode": "M13",
@@ -805,15 +1305,25 @@
     "lad_code": "E08000003",
     "total_properties": 9766,
     "pct_poor_epc": 16.8,
-    "pct_old_build": 38.0,
-    "pct_terrace_or_flat": 68.0,
+    "pct_old_build": 38,
+    "pct_terrace_or_flat": 68,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 53.46222189370079,
     "longitude": -2.2171487335958004,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 38,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.8,
+      "band_c_d": 76.4,
+      "band_e": 12.4,
+      "band_f_g": 4.4
+    },
+    "pct_solid_wall": 36.5,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 86.3,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "M14",
@@ -829,7 +1339,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6,
+      "band_c_d": 79.9,
+      "band_e": 10.4,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 46.6,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.5,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "M15",
@@ -845,23 +1365,43 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 17,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.5,
+      "band_c_d": 86.1,
+      "band_e": 1.8,
+      "band_f_g": 0.6
+    },
+    "pct_solid_wall": 6.4,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 85.6,
+    "est_dew_point_c": 10.2
   },
   {
     "outcode": "M16",
     "city": "Manchester",
     "lad_code": "E08000003",
     "total_properties": 10021,
-    "pct_poor_epc": 19.0,
+    "pct_poor_epc": 19,
     "pct_old_build": 41.3,
-    "pct_terrace_or_flat": 52.0,
+    "pct_terrace_or_flat": 52,
     "dominant_house_type": "Semi-Detached",
     "latitude": 53.93933252303699,
     "longitude": -2.2416919597663854,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 36,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.4,
+      "band_c_d": 74.6,
+      "band_e": 14.1,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 39.3,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.3,
+    "est_dew_point_c": 11.3
   },
   {
     "outcode": "M18",
@@ -877,7 +1417,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 41,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 77.4,
+      "band_e": 12.1,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 42.6,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 86.4,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "M19",
@@ -893,7 +1443,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 41,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.5,
+      "band_c_d": 72.7,
+      "band_e": 16.1,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 46.7,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.4,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "M2",
@@ -909,14 +1469,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 27,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.7,
+      "band_c_d": 79.5,
+      "band_e": 9.5,
+      "band_f_g": 3.3
+    },
+    "pct_solid_wall": 31.7,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 85.9,
+    "est_dew_point_c": 10.8
   },
   {
     "outcode": "M20",
     "city": "Manchester",
     "lad_code": "E08000003",
     "total_properties": 22626,
-    "pct_poor_epc": 14.0,
+    "pct_poor_epc": 14,
     "pct_old_build": 36.2,
     "pct_terrace_or_flat": 45.1,
     "dominant_house_type": "Semi-Detached",
@@ -925,7 +1495,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 31,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 78.8,
+      "band_e": 10.4,
+      "band_f_g": 3.6
+    },
+    "pct_solid_wall": 35,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 86.1,
+    "est_dew_point_c": 11
   },
   {
     "outcode": "M21",
@@ -941,7 +1521,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.3,
+      "band_c_d": 74.8,
+      "band_e": 14,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 39.8,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.2,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "M22",
@@ -949,7 +1539,7 @@
     "lad_code": "E08000003",
     "total_properties": 25080,
     "pct_poor_epc": 8.1,
-    "pct_old_build": 3.0,
+    "pct_old_build": 3,
     "pct_terrace_or_flat": 53.3,
     "dominant_house_type": "Semi-Detached",
     "latitude": 53.69958972874494,
@@ -957,7 +1547,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 17,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.8,
+      "band_c_d": 81.1,
+      "band_e": 6,
+      "band_f_g": 2.1
+    },
+    "pct_solid_wall": 7.5,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 85.6,
+    "est_dew_point_c": 10.2
   },
   {
     "outcode": "M23",
@@ -973,7 +1573,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 18,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10.8,
+      "band_c_d": 80.9,
+      "band_e": 6.1,
+      "band_f_g": 2.2
+    },
+    "pct_solid_wall": 7.2,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 85.6,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "M3",
@@ -989,7 +1599,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 21,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.6,
+      "band_c_d": 86.7,
+      "band_e": 1.3,
+      "band_f_g": 0.4
+    },
+    "pct_solid_wall": 7.1,
+    "wind_driven_rain_exposure": "Severe",
+    "avg_relative_humidity": 85.7,
+    "est_dew_point_c": 10.5
   },
   {
     "outcode": "M33",
@@ -997,7 +1617,7 @@
     "lad_code": "E08000003",
     "total_properties": 328,
     "pct_poor_epc": 14.6,
-    "pct_old_build": 4.0,
+    "pct_old_build": 4,
     "pct_terrace_or_flat": 38.7,
     "dominant_house_type": "Semi-Detached",
     "latitude": 53.864920482339535,
@@ -1005,14 +1625,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 16,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.9,
+      "band_c_d": 75.5,
+      "band_e": 10.8,
+      "band_f_g": 3.8
+    },
+    "pct_solid_wall": 8.3,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 85.6,
+    "est_dew_point_c": 10.2
   },
   {
     "outcode": "M4",
     "city": "Manchester",
     "lad_code": "E08000003",
     "total_properties": 17364,
-    "pct_poor_epc": 3.0,
+    "pct_poor_epc": 3,
     "pct_old_build": 4.9,
     "pct_terrace_or_flat": 59.2,
     "dominant_house_type": "Mid-Terrace",
@@ -1021,7 +1651,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 18,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.2,
+      "band_c_d": 85.8,
+      "band_e": 2.2,
+      "band_f_g": 0.8
+    },
+    "pct_solid_wall": 9.1,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 85.6,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "M40",
@@ -1037,7 +1677,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 29,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.6,
+      "band_c_d": 78.9,
+      "band_e": 9.3,
+      "band_f_g": 3.2
+    },
+    "pct_solid_wall": 23.3,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "M7",
@@ -1053,7 +1703,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 19,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 10,
+      "band_c_d": 81.6,
+      "band_e": 6.2,
+      "band_f_g": 2.2
+    },
+    "pct_solid_wall": 13.7,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 85.7,
+    "est_dew_point_c": 10.3
   },
   {
     "outcode": "M8",
@@ -1069,7 +1729,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 38,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.5,
+      "band_c_d": 72.9,
+      "band_e": 15.2,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 36.8,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.3,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "M9",
@@ -1085,15 +1755,25 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 30,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8.4,
+      "band_c_d": 78.2,
+      "band_e": 9.9,
+      "band_f_g": 3.5
+    },
+    "pct_solid_wall": 24.3,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.1,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "WA15",
     "city": "Manchester",
     "lad_code": "E08000003",
     "total_properties": 123,
-    "pct_poor_epc": 22.0,
-    "pct_old_build": 22.0,
+    "pct_poor_epc": 22,
+    "pct_old_build": 22,
     "pct_terrace_or_flat": 61.8,
     "dominant_house_type": "End-Terrace",
     "latitude": 54.54169672542205,
@@ -1101,14 +1781,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 32,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.6,
+      "band_c_d": 70.4,
+      "band_e": 16.3,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 23.3,
+    "wind_driven_rain_exposure": "Very Severe",
+    "avg_relative_humidity": 86.1,
+    "est_dew_point_c": 11.1
   },
   {
     "outcode": "E1",
     "city": "London",
     "lad_code": "E09000030",
     "total_properties": 28046,
-    "pct_poor_epc": 12.0,
+    "pct_poor_epc": 12,
     "pct_old_build": 45.6,
     "pct_terrace_or_flat": 86.5,
     "dominant_house_type": "Flat",
@@ -1117,7 +1807,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.5,
+      "band_c_d": 81.5,
+      "band_e": 8.9,
+      "band_f_g": 3.1
+    },
+    "pct_solid_wall": 42.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "E10",
@@ -1133,7 +1833,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 73.8,
+      "band_e": 15.8,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 52.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "E11",
@@ -1149,7 +1859,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.1,
+      "band_c_d": 73.6,
+      "band_e": 15.8,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 50.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E12",
@@ -1157,15 +1877,25 @@
     "lad_code": "E09000025",
     "total_properties": 7326,
     "pct_poor_epc": 19.6,
-    "pct_old_build": 55.0,
-    "pct_terrace_or_flat": 74.0,
+    "pct_old_build": 55,
+    "pct_terrace_or_flat": 74,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.5507260025,
     "longitude": 0.053073048,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 75.2,
+      "band_e": 14.5,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 50.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E13",
@@ -1181,7 +1911,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 46,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.6,
+      "band_c_d": 76.8,
+      "band_e": 13,
+      "band_f_g": 4.6
+    },
+    "pct_solid_wall": 48.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E14",
@@ -1197,7 +1937,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 33,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 9.4,
+      "band_c_d": 83.3,
+      "band_e": 5.4,
+      "band_f_g": 1.9
+    },
+    "pct_solid_wall": 20.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.1
   },
   {
     "outcode": "E15",
@@ -1213,7 +1963,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6,
+      "band_c_d": 75.4,
+      "band_e": 13.8,
+      "band_f_g": 4.8
+    },
+    "pct_solid_wall": 43.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "E16",
@@ -1222,14 +1982,24 @@
     "total_properties": 19665,
     "pct_poor_epc": 20.6,
     "pct_old_build": 52.2,
-    "pct_terrace_or_flat": 77.0,
+    "pct_terrace_or_flat": 77,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.5103491336,
     "longitude": 0.0300033029,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.4,
+      "band_c_d": 74,
+      "band_e": 15.2,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 48.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E17",
@@ -1245,7 +2015,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 76.3,
+      "band_e": 13.9,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 55,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "E18",
@@ -1261,7 +2041,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 29,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 8,
+      "band_c_d": 80.6,
+      "band_e": 8.4,
+      "band_f_g": 3
+    },
+    "pct_solid_wall": 30.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.4,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "E1W",
@@ -1277,7 +2067,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.9,
+      "band_c_d": 77.6,
+      "band_e": 11.5,
+      "band_f_g": 4
+    },
+    "pct_solid_wall": 36.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "E2",
@@ -1293,7 +2093,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 46,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 77.3,
+      "band_e": 12.2,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 42.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E20",
@@ -1301,7 +2111,7 @@
     "lad_code": "E09000025",
     "total_properties": 4329,
     "pct_poor_epc": 4.2,
-    "pct_old_build": 2.0,
+    "pct_old_build": 2,
     "pct_terrace_or_flat": 94.7,
     "dominant_house_type": "Flat",
     "latitude": 51.5463169316,
@@ -1309,7 +2119,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 26,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 11.3,
+      "band_c_d": 84.5,
+      "band_e": 3.1,
+      "band_f_g": 1.1
+    },
+    "pct_solid_wall": 6.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.3,
+    "est_dew_point_c": 10.7
   },
   {
     "outcode": "E22",
@@ -1325,7 +2145,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 46,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 77.3,
+      "band_e": 12.2,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 42.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E3",
@@ -1341,7 +2171,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.6,
+      "band_c_d": 78.9,
+      "band_e": 10.7,
+      "band_f_g": 3.8
+    },
+    "pct_solid_wall": 40.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "E4",
@@ -1357,7 +2197,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 76.3,
+      "band_e": 13.9,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 55,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "E5",
@@ -1373,7 +2223,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 76.7,
+      "band_e": 14,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 59.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "E6",
@@ -1389,7 +2249,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.3,
+      "band_c_d": 76.6,
+      "band_e": 13.4,
+      "band_f_g": 4.7
+    },
+    "pct_solid_wall": 51.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "E7",
@@ -1405,7 +2275,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 45,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.7,
+      "band_c_d": 73.2,
+      "band_e": 15.6,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 44.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "E8",
@@ -1421,7 +2301,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 53,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.5,
+      "band_c_d": 75.6,
+      "band_e": 14.7,
+      "band_f_g": 5.2
+    },
+    "pct_solid_wall": 58,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "E9",
@@ -1437,14 +2327,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 52,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.7,
+      "band_c_d": 71.9,
+      "band_e": 17.3,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 53.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "E98",
     "city": "London",
     "lad_code": "E09000030",
     "total_properties": 1036,
-    "pct_poor_epc": 16.0,
+    "pct_poor_epc": 16,
     "pct_old_build": 42.8,
     "pct_terrace_or_flat": 87.7,
     "dominant_house_type": "Flat",
@@ -1453,7 +2353,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 45,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.5,
+      "band_c_d": 77.5,
+      "band_e": 11.8,
+      "band_f_g": 4.2
+    },
+    "pct_solid_wall": 40.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "EC1A",
@@ -1469,7 +2379,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 41,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.8,
+      "band_c_d": 82.9,
+      "band_e": 6.9,
+      "band_f_g": 2.4
+    },
+    "pct_solid_wall": 33.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "EC1M",
@@ -1485,7 +2405,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 56,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 73.5,
+      "band_e": 16.6,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 60.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "EC1N",
@@ -1501,7 +2431,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 72.2,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 57.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "EC1P",
@@ -1517,7 +2457,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 75.3,
+      "band_e": 15.1,
+      "band_f_g": 5.3
+    },
+    "pct_solid_wall": 59.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "EC1R",
@@ -1525,15 +2475,25 @@
     "lad_code": "E09000019",
     "total_properties": 4902,
     "pct_poor_epc": 23.9,
-    "pct_old_build": 71.0,
-    "pct_terrace_or_flat": 87.0,
+    "pct_old_build": 71,
+    "pct_terrace_or_flat": 87,
     "dominant_house_type": "Flat",
     "latitude": 51.5250403547,
     "longitude": -0.1083381321,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 72.4,
+      "band_e": 17.7,
+      "band_f_g": 6.2
+    },
+    "pct_solid_wall": 63.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "EC1V",
@@ -1542,14 +2502,24 @@
     "total_properties": 8917,
     "pct_poor_epc": 22.9,
     "pct_old_build": 68.2,
-    "pct_terrace_or_flat": 87.0,
+    "pct_terrace_or_flat": 87,
     "dominant_house_type": "Flat",
     "latitude": 51.5268011909,
     "longitude": -0.0977809004,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 73.1,
+      "band_e": 16.9,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 61.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "EC1Y",
@@ -1565,7 +2535,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.5,
+      "band_c_d": 74.1,
+      "band_e": 15.8,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 57,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "EC2A",
@@ -1573,7 +2553,7 @@
     "lad_code": "E09000012",
     "total_properties": 6234,
     "pct_poor_epc": 19.4,
-    "pct_old_build": 61.0,
+    "pct_old_build": 61,
     "pct_terrace_or_flat": 81.1,
     "dominant_house_type": "Flat",
     "latitude": 51.5236931128,
@@ -1581,7 +2561,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 51,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.8,
+      "band_c_d": 75.8,
+      "band_e": 14.4,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 55.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "EC2M",
@@ -1597,7 +2587,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 41,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.7,
+      "band_c_d": 82,
+      "band_e": 7.6,
+      "band_f_g": 2.7
+    },
+    "pct_solid_wall": 33.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "EC2N",
@@ -1606,14 +2606,24 @@
     "total_properties": 851,
     "pct_poor_epc": 12.3,
     "pct_old_build": 32.4,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.515800087,
     "longitude": -0.0858030435,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.7,
+      "band_c_d": 80,
+      "band_e": 9.1,
+      "band_f_g": 3.2
+    },
+    "pct_solid_wall": 31.9,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC2P",
@@ -1622,14 +2632,24 @@
     "total_properties": 1221,
     "pct_poor_epc": 20.9,
     "pct_old_build": 67.5,
-    "pct_terrace_or_flat": 87.0,
+    "pct_terrace_or_flat": 87,
     "dominant_house_type": "Flat",
     "latitude": 51.5244364545,
     "longitude": -0.1117050909,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 56,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.2,
+      "band_c_d": 74.9,
+      "band_e": 15.5,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 61,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "EC2R",
@@ -1638,14 +2658,24 @@
     "total_properties": 1332,
     "pct_poor_epc": 13.8,
     "pct_old_build": 35.9,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5162835833,
     "longitude": -0.0910992361,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 79,
+      "band_e": 10.2,
+      "band_f_g": 3.6
+    },
+    "pct_solid_wall": 34.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "EC2V",
@@ -1654,14 +2684,24 @@
     "total_properties": 1831,
     "pct_poor_epc": 11.8,
     "pct_old_build": 29.6,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5154080101,
     "longitude": -0.0936203131,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 8,
+      "band_c_d": 80.2,
+      "band_e": 8.7,
+      "band_f_g": 3.1
+    },
+    "pct_solid_wall": 29.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "EC2Y",
@@ -1677,7 +2717,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 80,
+      "band_e": 9.5,
+      "band_f_g": 3.3
+    },
+    "pct_solid_wall": 36,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC3A",
@@ -1693,7 +2743,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.9,
+      "band_c_d": 79.8,
+      "band_e": 9.1,
+      "band_f_g": 3.2
+    },
+    "pct_solid_wall": 30.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "EC3M",
@@ -1709,7 +2769,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.3,
+      "band_c_d": 81.9,
+      "band_e": 8,
+      "band_f_g": 2.8
+    },
+    "pct_solid_wall": 37.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC3N",
@@ -1718,14 +2788,24 @@
     "total_properties": 1498,
     "pct_poor_epc": 11.3,
     "pct_old_build": 36.6,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5117366296,
     "longitude": -0.0766063086,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 81.3,
+      "band_e": 8.4,
+      "band_f_g": 2.9
+    },
+    "pct_solid_wall": 35.4,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC3P",
@@ -1733,7 +2813,7 @@
     "lad_code": "E09000019",
     "total_properties": 462,
     "pct_poor_epc": 20.9,
-    "pct_old_build": 71.0,
+    "pct_old_build": 71,
     "pct_terrace_or_flat": 88.8,
     "dominant_house_type": "Flat",
     "latitude": 51.52415408,
@@ -1741,7 +2821,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 75.2,
+      "band_e": 15.5,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 63.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "EC3R",
@@ -1749,15 +2839,25 @@
     "lad_code": "E09000001",
     "total_properties": 1443,
     "pct_poor_epc": 10.3,
-    "pct_old_build": 38.0,
-    "pct_terrace_or_flat": 98.0,
+    "pct_old_build": 38,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5105312179,
     "longitude": -0.083424,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 82.3,
+      "band_e": 7.6,
+      "band_f_g": 2.7
+    },
+    "pct_solid_wall": 36.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC3V",
@@ -1773,7 +2873,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7,
+      "band_c_d": 78.7,
+      "band_e": 10.6,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 37.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "EC4A",
@@ -1782,14 +2892,24 @@
     "total_properties": 2035,
     "pct_poor_epc": 10.3,
     "pct_old_build": 33.1,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5158001,
     "longitude": -0.1081835273,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 41,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.8,
+      "band_c_d": 81.9,
+      "band_e": 7.6,
+      "band_f_g": 2.7
+    },
+    "pct_solid_wall": 32.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "EC4M",
@@ -1805,7 +2925,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 78.3,
+      "band_e": 10.6,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 33.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC4N",
@@ -1814,14 +2944,24 @@
     "total_properties": 1258,
     "pct_poor_epc": 10.3,
     "pct_old_build": 33.8,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5128114559,
     "longitude": -0.0913537059,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.7,
+      "band_c_d": 82,
+      "band_e": 7.6,
+      "band_f_g": 2.7
+    },
+    "pct_solid_wall": 33.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "EC4P",
@@ -1837,7 +2977,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 73.6,
+      "band_e": 16.6,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 61.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "EC4R",
@@ -1845,7 +2995,7 @@
     "lad_code": "E09000001",
     "total_properties": 1036,
     "pct_poor_epc": 12.8,
-    "pct_old_build": 31.0,
+    "pct_old_build": 31,
     "pct_terrace_or_flat": 96.8,
     "dominant_house_type": "Flat",
     "latitude": 51.5108699643,
@@ -1853,7 +3003,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 41,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.8,
+      "band_c_d": 79.4,
+      "band_e": 9.5,
+      "band_f_g": 3.3
+    },
+    "pct_solid_wall": 30.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "EC4V",
@@ -1861,7 +3021,7 @@
     "lad_code": "E09000001",
     "total_properties": 2053,
     "pct_poor_epc": 14.3,
-    "pct_old_build": 38.0,
+    "pct_old_build": 38,
     "pct_terrace_or_flat": 95.6,
     "dominant_house_type": "Flat",
     "latitude": 51.512476018,
@@ -1869,7 +3029,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7,
+      "band_c_d": 78.7,
+      "band_e": 10.6,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 36.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "EC4Y",
@@ -1878,14 +3048,24 @@
     "total_properties": 2275,
     "pct_poor_epc": 13.8,
     "pct_old_build": 33.1,
-    "pct_terrace_or_flat": 98.0,
+    "pct_terrace_or_flat": 98,
     "dominant_house_type": "Flat",
     "latitude": 51.5129062114,
     "longitude": -0.1089469024,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.5,
+      "band_c_d": 78.7,
+      "band_e": 10.2,
+      "band_f_g": 3.6
+    },
+    "pct_solid_wall": 32.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "N1",
@@ -1901,7 +3081,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 74.2,
+      "band_e": 16.2,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 62.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "N10",
@@ -1917,7 +3107,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 74.3,
+      "band_e": 15.6,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 56.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "N11",
@@ -1933,23 +3133,43 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 79.3,
+      "band_e": 10,
+      "band_f_g": 3.5
+    },
+    "pct_solid_wall": 35,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N12",
     "city": "London",
     "lad_code": "E09000003",
     "total_properties": 12913,
-    "pct_poor_epc": 17.0,
+    "pct_poor_epc": 17,
     "pct_old_build": 38.3,
-    "pct_terrace_or_flat": 56.0,
+    "pct_terrace_or_flat": 56,
     "dominant_house_type": "Semi-Detached",
     "latitude": 51.6149018696,
     "longitude": -0.177617437,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.8,
+      "band_c_d": 76.2,
+      "band_e": 12.6,
+      "band_f_g": 4.4
+    },
+    "pct_solid_wall": 36.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N13",
@@ -1965,7 +3185,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 31,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.9,
+      "band_c_d": 79,
+      "band_e": 9.7,
+      "band_f_g": 3.4
+    },
+    "pct_solid_wall": 29.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.4,
+    "est_dew_point_c": 11
   },
   {
     "outcode": "N14",
@@ -1981,7 +3211,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 29,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.9,
+      "band_c_d": 78,
+      "band_e": 10.4,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 27.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.4,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "N15",
@@ -1997,7 +3237,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 72.8,
+      "band_e": 17.1,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 60.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "N16",
@@ -2013,7 +3263,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 56,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 75,
+      "band_e": 15.5,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 62,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "N17",
@@ -2021,7 +3281,7 @@
     "lad_code": "E09000014",
     "total_properties": 20868,
     "pct_poor_epc": 20.6,
-    "pct_old_build": 68.0,
+    "pct_old_build": 68,
     "pct_terrace_or_flat": 74.7,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.5977471941,
@@ -2029,7 +3289,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 53,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 75.3,
+      "band_e": 15.2,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 61.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "N18",
@@ -2045,7 +3315,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 76.2,
+      "band_e": 12.3,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 33.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N19",
@@ -2053,7 +3333,7 @@
     "lad_code": "E09000019",
     "total_properties": 11840,
     "pct_poor_epc": 24.4,
-    "pct_old_build": 71.0,
+    "pct_old_build": 71,
     "pct_terrace_or_flat": 85.8,
     "dominant_house_type": "Flat",
     "latitude": 51.5652555922,
@@ -2061,7 +3341,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 71.9,
+      "band_e": 18.1,
+      "band_f_g": 6.3
+    },
+    "pct_solid_wall": 63.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "N1C",
@@ -2070,14 +3360,24 @@
     "total_properties": 1517,
     "pct_poor_epc": 18.5,
     "pct_old_build": 63.3,
-    "pct_terrace_or_flat": 88.0,
+    "pct_terrace_or_flat": 88,
     "dominant_house_type": "Flat",
     "latitude": 51.5369317195,
     "longitude": -0.125883561,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 76.9,
+      "band_e": 13.7,
+      "band_f_g": 4.8
+    },
+    "pct_solid_wall": 57.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "N1P",
@@ -2086,14 +3386,24 @@
     "total_properties": 12117,
     "pct_poor_epc": 22.9,
     "pct_old_build": 65.4,
-    "pct_terrace_or_flat": 90.0,
+    "pct_terrace_or_flat": 90,
     "dominant_house_type": "Flat",
     "latitude": 51.5390149298,
     "longitude": -0.103396487,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.2,
+      "band_c_d": 72.9,
+      "band_e": 16.9,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 59.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "N2",
@@ -2109,7 +3419,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.9,
+      "band_c_d": 76.6,
+      "band_e": 12.2,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 35.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N20",
@@ -2125,7 +3445,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.2,
+      "band_c_d": 76.3,
+      "band_e": 12.2,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 32.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N21",
@@ -2141,7 +3471,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7,
+      "band_c_d": 76.9,
+      "band_e": 11.9,
+      "band_f_g": 4.2
+    },
+    "pct_solid_wall": 35.4,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N22",
@@ -2157,14 +3497,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 51,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 74.8,
+      "band_e": 15.2,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 56.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "N3",
     "city": "London",
     "lad_code": "E09000003",
     "total_properties": 11655,
-    "pct_poor_epc": 17.0,
+    "pct_poor_epc": 17,
     "pct_old_build": 34.8,
     "pct_terrace_or_flat": 57.2,
     "dominant_house_type": "Semi-Detached",
@@ -2173,7 +3523,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.1,
+      "band_c_d": 75.9,
+      "band_e": 12.6,
+      "band_f_g": 4.4
+    },
+    "pct_solid_wall": 33.9,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "N4",
@@ -2189,7 +3549,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 53,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.2,
+      "band_c_d": 73.2,
+      "band_e": 16.7,
+      "band_f_g": 5.9
+    },
+    "pct_solid_wall": 59.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "N5",
@@ -2198,14 +3568,24 @@
     "total_properties": 7659,
     "pct_poor_epc": 21.4,
     "pct_old_build": 71.7,
-    "pct_terrace_or_flat": 90.0,
+    "pct_terrace_or_flat": 90,
     "dominant_house_type": "Flat",
     "latitude": 51.5538980169,
     "longitude": -0.0985386691,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.8,
+      "band_c_d": 74.8,
+      "band_e": 15.8,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 64.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "N6",
@@ -2213,7 +3593,7 @@
     "lad_code": "E09000014",
     "total_properties": 9139,
     "pct_poor_epc": 21.1,
-    "pct_old_build": 68.0,
+    "pct_old_build": 68,
     "pct_terrace_or_flat": 77.7,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.5732236781,
@@ -2221,7 +3601,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 74.8,
+      "band_e": 15.6,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 61.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "N7",
@@ -2237,7 +3627,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 72.6,
+      "band_e": 17.3,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 61,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "N8",
@@ -2253,7 +3653,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 51,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.8,
+      "band_c_d": 75.1,
+      "band_e": 14.9,
+      "band_f_g": 5.2
+    },
+    "pct_solid_wall": 55,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "N81",
@@ -2269,7 +3679,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 75.4,
+      "band_e": 15.2,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 62.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "N9",
@@ -2277,22 +3697,32 @@
     "lad_code": "E09000010",
     "total_properties": 16206,
     "pct_poor_epc": 16.6,
-    "pct_old_build": 31.0,
-    "pct_terrace_or_flat": 58.0,
+    "pct_old_build": 31,
+    "pct_terrace_or_flat": 58,
     "dominant_house_type": "Semi-Detached",
     "latitude": 51.6285119441,
     "longitude": -0.0580536792,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 33,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.4,
+      "band_c_d": 76,
+      "band_e": 12.3,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 30.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.1
   },
   {
     "outcode": "NW1",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 30691,
-    "pct_poor_epc": 22.0,
+    "pct_poor_epc": 22,
     "pct_old_build": 61.2,
     "pct_terrace_or_flat": 86.2,
     "dominant_house_type": "Flat",
@@ -2301,7 +3731,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 73.4,
+      "band_e": 16.3,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 55.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "NW10",
@@ -2317,14 +3757,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 77.1,
+      "band_e": 12.4,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 42.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "NW11",
     "city": "London",
     "lad_code": "E09000003",
     "total_properties": 15410,
-    "pct_poor_epc": 14.0,
+    "pct_poor_epc": 14,
     "pct_old_build": 37.6,
     "pct_terrace_or_flat": 55.4,
     "dominant_house_type": "Semi-Detached",
@@ -2333,7 +3783,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.1,
+      "band_c_d": 78.9,
+      "band_e": 10.4,
+      "band_f_g": 3.6
+    },
+    "pct_solid_wall": 36.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "NW1W",
@@ -2342,14 +3802,24 @@
     "total_properties": 19129,
     "pct_poor_epc": 19.5,
     "pct_old_build": 62.6,
-    "pct_terrace_or_flat": 85.0,
+    "pct_terrace_or_flat": 85,
     "dominant_house_type": "Flat",
     "latitude": 51.5307927002,
     "longitude": -0.1354095222,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 53,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 75.9,
+      "band_e": 14.4,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 57,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "NW2",
@@ -2365,7 +3835,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6,
+      "band_c_d": 73.3,
+      "band_e": 15.3,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 42.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "NW26",
@@ -2381,7 +3861,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.9,
+      "band_c_d": 73.4,
+      "band_e": 15.3,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 43.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "NW3",
@@ -2397,7 +3887,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 73.9,
+      "band_e": 16.7,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 65.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "NW4",
@@ -2413,14 +3913,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.1,
+      "band_c_d": 76.4,
+      "band_e": 12.2,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 33.9,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "NW5",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 16557,
-    "pct_poor_epc": 19.0,
+    "pct_poor_epc": 19,
     "pct_old_build": 65.4,
     "pct_terrace_or_flat": 88.6,
     "dominant_house_type": "Flat",
@@ -2429,7 +3939,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 76.6,
+      "band_e": 14.1,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 59.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "NW6",
@@ -2445,14 +3965,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 72.5,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 61.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "NW7",
     "city": "London",
     "lad_code": "E09000003",
     "total_properties": 14800,
-    "pct_poor_epc": 13.0,
+    "pct_poor_epc": 13,
     "pct_old_build": 36.2,
     "pct_terrace_or_flat": 60.8,
     "dominant_house_type": "Semi-Detached",
@@ -2461,7 +3991,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.3,
+      "band_c_d": 79.7,
+      "band_e": 9.6,
+      "band_f_g": 3.4
+    },
+    "pct_solid_wall": 35,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "NW8",
@@ -2477,14 +4017,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 74.1,
+      "band_e": 15.9,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 58.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "NW9",
     "city": "London",
     "lad_code": "E09000003",
     "total_properties": 27435,
-    "pct_poor_epc": 15.0,
+    "pct_poor_epc": 15,
     "pct_old_build": 40.4,
     "pct_terrace_or_flat": 60.8,
     "dominant_house_type": "Semi-Detached",
@@ -2493,7 +4043,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 37,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.8,
+      "band_c_d": 78.2,
+      "band_e": 11.1,
+      "band_f_g": 3.9
+    },
+    "pct_solid_wall": 38.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.3
   },
   {
     "outcode": "SE1",
@@ -2509,7 +4069,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 51,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 76,
+      "band_e": 14.1,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 53.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SE10",
@@ -2518,14 +4088,24 @@
     "total_properties": 15706,
     "pct_poor_epc": 10.8,
     "pct_old_build": 35.8,
-    "pct_terrace_or_flat": 77.0,
+    "pct_terrace_or_flat": 77,
     "dominant_house_type": "Flat",
     "latitude": 51.484919616,
     "longitude": 0.0007608963,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 37,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.5,
+      "band_c_d": 81.7,
+      "band_e": 8,
+      "band_f_g": 2.8
+    },
+    "pct_solid_wall": 34.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.3
   },
   {
     "outcode": "SE11",
@@ -2533,7 +4113,7 @@
     "lad_code": "E09000022",
     "total_properties": 9176,
     "pct_poor_epc": 21.2,
-    "pct_old_build": 64.0,
+    "pct_old_build": 64,
     "pct_terrace_or_flat": 76.8,
     "dominant_house_type": "Flat",
     "latitude": 51.4897788488,
@@ -2541,7 +4121,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 52,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 74.4,
+      "band_e": 15.7,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 58.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "SE12",
@@ -2557,7 +4147,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.1,
+      "band_c_d": 71.6,
+      "band_e": 17.2,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 49.9,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE13",
@@ -2573,7 +4173,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 51,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.5,
+      "band_c_d": 72.2,
+      "band_e": 17.2,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 55.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SE14",
@@ -2589,7 +4199,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5,
+      "band_c_d": 71.7,
+      "band_e": 17.2,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 50.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE15",
@@ -2605,7 +4225,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 73.7,
+      "band_e": 15.6,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 50.4,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE16",
@@ -2621,7 +4251,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5,
+      "band_c_d": 74.9,
+      "band_e": 14.9,
+      "band_f_g": 5.2
+    },
+    "pct_solid_wall": 52.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SE17",
@@ -2637,23 +4277,43 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.6,
+      "band_c_d": 76.3,
+      "band_e": 13.4,
+      "band_f_g": 4.7
+    },
+    "pct_solid_wall": 48.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE18",
     "city": "London",
     "lad_code": "E09000011",
     "total_properties": 26880,
-    "pct_poor_epc": 18.0,
+    "pct_poor_epc": 18,
     "pct_old_build": 41.4,
-    "pct_terrace_or_flat": 67.0,
+    "pct_terrace_or_flat": 67,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.4844776222,
     "longitude": 0.0723378424,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.4,
+      "band_c_d": 75.6,
+      "band_e": 13.3,
+      "band_f_g": 4.7
+    },
+    "pct_solid_wall": 39.4,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "SE19",
@@ -2669,7 +4329,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 34,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7,
+      "band_c_d": 79.3,
+      "band_e": 10.1,
+      "band_f_g": 3.6
+    },
+    "pct_solid_wall": 37,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.5,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "SE1P",
@@ -2678,21 +4348,31 @@
     "total_properties": 17186,
     "pct_poor_epc": 19.6,
     "pct_old_build": 56.1,
-    "pct_terrace_or_flat": 80.0,
+    "pct_terrace_or_flat": 80,
     "dominant_house_type": "Flat",
     "latitude": 51.4927740474,
     "longitude": -0.0801267147,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.1,
+      "band_c_d": 75.3,
+      "band_e": 14.5,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 51.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE2",
     "city": "London",
     "lad_code": "E09000011",
     "total_properties": 8565,
-    "pct_poor_epc": 19.0,
+    "pct_poor_epc": 19,
     "pct_old_build": 44.9,
     "pct_terrace_or_flat": 71.2,
     "dominant_house_type": "Mid-Terrace",
@@ -2701,7 +4381,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.1,
+      "band_c_d": 74.9,
+      "band_e": 14.1,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 42.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "SE20",
@@ -2709,7 +4399,7 @@
     "lad_code": "E09000006",
     "total_properties": 8954,
     "pct_poor_epc": 12.3,
-    "pct_old_build": 32.0,
+    "pct_old_build": 32,
     "pct_terrace_or_flat": 48.8,
     "dominant_house_type": "Semi-Detached",
     "latitude": 51.4122038802,
@@ -2717,7 +4407,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 29,
-    "risk_level": "Low"
+    "risk_level": "Low",
+    "epc_breakdown": {
+      "band_a_b": 7.7,
+      "band_c_d": 80,
+      "band_e": 9.1,
+      "band_f_g": 3.2
+    },
+    "pct_solid_wall": 31.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.4,
+    "est_dew_point_c": 10.9
   },
   {
     "outcode": "SE21",
@@ -2726,14 +4426,24 @@
     "total_properties": 5476,
     "pct_poor_epc": 20.6,
     "pct_old_build": 58.2,
-    "pct_terrace_or_flat": 80.0,
+    "pct_terrace_or_flat": 80,
     "dominant_house_type": "Flat",
     "latitude": 51.4389571791,
     "longitude": -0.0887216284,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 74.5,
+      "band_e": 15.2,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 53.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SE22",
@@ -2749,7 +4459,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.3,
+      "band_c_d": 77.1,
+      "band_e": 13,
+      "band_f_g": 4.6
+    },
+    "pct_solid_wall": 51,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE23",
@@ -2765,7 +4485,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.8,
+      "band_c_d": 75.9,
+      "band_e": 14.3,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 55.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE24",
@@ -2773,7 +4503,7 @@
     "lad_code": "E09000022",
     "total_properties": 5457,
     "pct_poor_epc": 19.7,
-    "pct_old_build": 64.0,
+    "pct_old_build": 64,
     "pct_terrace_or_flat": 76.2,
     "dominant_house_type": "Flat",
     "latitude": 51.4557845085,
@@ -2781,7 +4511,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 52,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.5,
+      "band_c_d": 75.8,
+      "band_e": 14.6,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 58.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "SE25",
@@ -2797,7 +4537,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.8,
+      "band_c_d": 79.5,
+      "band_e": 10.1,
+      "band_f_g": 3.6
+    },
+    "pct_solid_wall": 38.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "SE26",
@@ -2813,7 +4563,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 75.5,
+      "band_e": 14.3,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 51.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "SE27",
@@ -2822,14 +4582,24 @@
     "total_properties": 6974,
     "pct_poor_epc": 22.7,
     "pct_old_build": 54.9,
-    "pct_terrace_or_flat": 78.0,
+    "pct_terrace_or_flat": 78,
     "dominant_house_type": "Flat",
     "latitude": 51.4306453687,
     "longitude": -0.1024359735,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5,
+      "band_c_d": 72.3,
+      "band_e": 16.8,
+      "band_f_g": 5.9
+    },
+    "pct_solid_wall": 50.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE28",
@@ -2845,7 +4615,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 79.3,
+      "band_e": 10.7,
+      "band_f_g": 3.8
+    },
+    "pct_solid_wall": 44.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "SE3",
@@ -2853,7 +4633,7 @@
     "lad_code": "E09000011",
     "total_properties": 14707,
     "pct_poor_epc": 15.5,
-    "pct_old_build": 40.0,
+    "pct_old_build": 40,
     "pct_terrace_or_flat": 72.4,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.4689681308,
@@ -2861,7 +4641,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.8,
+      "band_c_d": 77.7,
+      "band_e": 11.5,
+      "band_f_g": 4
+    },
+    "pct_solid_wall": 38.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "SE4",
@@ -2870,14 +4660,24 @@
     "total_properties": 8584,
     "pct_poor_epc": 19.8,
     "pct_old_build": 56.9,
-    "pct_terrace_or_flat": 74.0,
+    "pct_terrace_or_flat": 74,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.4610096832,
     "longitude": -0.0351722565,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.1,
+      "band_c_d": 75.1,
+      "band_e": 14.7,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 52.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE5",
@@ -2893,7 +4693,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.7,
+      "band_c_d": 76.7,
+      "band_e": 13,
+      "band_f_g": 4.6
+    },
+    "pct_solid_wall": 46.9,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "SE6",
@@ -2909,14 +4719,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.7,
+      "band_c_d": 73,
+      "band_e": 16.5,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 54.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SE7",
     "city": "London",
     "lad_code": "E09000011",
     "total_properties": 7992,
-    "pct_poor_epc": 15.0,
+    "pct_poor_epc": 15,
     "pct_old_build": 40.7,
     "pct_terrace_or_flat": 67.6,
     "dominant_house_type": "Mid-Terrace",
@@ -2925,7 +4745,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 38,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.7,
+      "band_c_d": 78.3,
+      "band_e": 11.1,
+      "band_f_g": 3.9
+    },
+    "pct_solid_wall": 38.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "SE8",
@@ -2941,14 +4771,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5,
+      "band_c_d": 73.2,
+      "band_e": 16.1,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 51.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SE9",
     "city": "London",
     "lad_code": "E09000011",
     "total_properties": 22366,
-    "pct_poor_epc": 19.0,
+    "pct_poor_epc": 19,
     "pct_old_build": 48.4,
     "pct_terrace_or_flat": 71.2,
     "dominant_house_type": "Mid-Terrace",
@@ -2957,7 +4797,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 44,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.8,
+      "band_c_d": 75.2,
+      "band_e": 14.1,
+      "band_f_g": 4.9
+    },
+    "pct_solid_wall": 45.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.7
   },
   {
     "outcode": "SW10",
@@ -2965,15 +4815,25 @@
     "lad_code": "E09000020",
     "total_properties": 8658,
     "pct_poor_epc": 25.6,
-    "pct_old_build": 77.0,
-    "pct_terrace_or_flat": 90.0,
+    "pct_old_build": 77,
+    "pct_terrace_or_flat": 90,
     "dominant_house_type": "Flat",
     "latitude": 51.4836751667,
     "longitude": -0.1827584103,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 62,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.2,
+      "band_c_d": 71.2,
+      "band_e": 18.9,
+      "band_f_g": 6.7
+    },
+    "pct_solid_wall": 68.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.4,
+    "est_dew_point_c": 12.6
   },
   {
     "outcode": "SW11",
@@ -2989,7 +4849,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.1,
+      "band_c_d": 75.2,
+      "band_e": 14.6,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 52.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SW12",
@@ -3005,7 +4875,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.8,
+      "band_c_d": 78,
+      "band_e": 12.7,
+      "band_f_g": 4.5
+    },
+    "pct_solid_wall": 56.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SW13",
@@ -3021,7 +4901,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 75.8,
+      "band_e": 14.3,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 54.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "SW14",
@@ -3037,7 +4927,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 47,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 75.3,
+      "band_e": 14.7,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 54.1,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.8
   },
   {
     "outcode": "SW15",
@@ -3053,7 +4953,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.3,
+      "band_c_d": 78,
+      "band_e": 12.4,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 52.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SW16",
@@ -3061,15 +4971,25 @@
     "lad_code": "E09000022",
     "total_properties": 25030,
     "pct_poor_epc": 18.2,
-    "pct_old_build": 57.0,
-    "pct_terrace_or_flat": 81.0,
+    "pct_old_build": 57,
+    "pct_terrace_or_flat": 81,
     "dominant_house_type": "Flat",
     "latitude": 51.421200269,
     "longitude": -0.1292400466,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 49,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 76.6,
+      "band_e": 13.5,
+      "band_f_g": 4.7
+    },
+    "pct_solid_wall": 52.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SW17",
@@ -3085,7 +5005,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.2,
+      "band_c_d": 77.6,
+      "band_e": 12.7,
+      "band_f_g": 4.5
+    },
+    "pct_solid_wall": 52.8,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SW18",
@@ -3094,14 +5024,24 @@
     "total_properties": 22977,
     "pct_poor_epc": 19.7,
     "pct_old_build": 62.5,
-    "pct_terrace_or_flat": 78.0,
+    "pct_terrace_or_flat": 78,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.451508372,
     "longitude": -0.1914330862,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 51,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 75.7,
+      "band_e": 14.6,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 56.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SW19",
@@ -3117,14 +5057,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 43,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.8,
+      "band_c_d": 80,
+      "band_e": 10.5,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 48.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "SW1A",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 2682,
-    "pct_poor_epc": 23.0,
+    "pct_poor_epc": 23,
     "pct_old_build": 71.2,
     "pct_terrace_or_flat": 93.6,
     "dominant_house_type": "Flat",
@@ -3133,7 +5083,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 60,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.8,
+      "band_c_d": 73.2,
+      "band_e": 17,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 64.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   },
   {
     "outcode": "SW1E",
@@ -3149,23 +5109,43 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 76.6,
+      "band_e": 14.4,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 64.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "SW1H",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 1683,
-    "pct_poor_epc": 23.0,
+    "pct_poor_epc": 23,
     "pct_old_build": 69.8,
-    "pct_terrace_or_flat": 93.0,
+    "pct_terrace_or_flat": 93,
     "dominant_house_type": "Flat",
     "latitude": 51.4986449341,
     "longitude": -0.1335085495,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 73.1,
+      "band_e": 17,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 62.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "SW1P",
@@ -3181,7 +5161,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.2,
+      "band_c_d": 72.3,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 59.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "SW1V",
@@ -3190,14 +5180,24 @@
     "total_properties": 10582,
     "pct_poor_epc": 23.5,
     "pct_old_build": 63.5,
-    "pct_terrace_or_flat": 93.0,
+    "pct_terrace_or_flat": 93,
     "dominant_house_type": "Flat",
     "latitude": 51.489504271,
     "longitude": -0.1399996154,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 72.2,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 57.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "SW1W",
@@ -3213,7 +5213,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 76.5,
+      "band_e": 14.4,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 63.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "SW1X",
@@ -3229,14 +5239,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 65,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 2.9,
+      "band_c_d": 72.6,
+      "band_e": 18.1,
+      "band_f_g": 6.4
+    },
+    "pct_solid_wall": 72.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.5,
+    "est_dew_point_c": 12.7
   },
   {
     "outcode": "SW1Y",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 3385,
-    "pct_poor_epc": 22.0,
+    "pct_poor_epc": 22,
     "pct_old_build": 65.6,
     "pct_terrace_or_flat": 91.2,
     "dominant_house_type": "Flat",
@@ -3245,7 +5265,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.2,
+      "band_c_d": 73.8,
+      "band_e": 16.3,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 59.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "SW2",
@@ -3261,7 +5291,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.8,
+      "band_c_d": 76,
+      "band_e": 14.2,
+      "band_f_g": 5
+    },
+    "pct_solid_wall": 55.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SW20",
@@ -3270,14 +5310,24 @@
     "total_properties": 10545,
     "pct_poor_epc": 14.2,
     "pct_old_build": 45.4,
-    "pct_terrace_or_flat": 63.0,
+    "pct_terrace_or_flat": 63,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.410786407,
     "longitude": -0.2278835316,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 39,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.4,
+      "band_c_d": 79.4,
+      "band_e": 10.5,
+      "band_f_g": 3.7
+    },
+    "pct_solid_wall": 42.7,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "SW3",
@@ -3286,14 +5336,24 @@
     "total_properties": 16058,
     "pct_poor_epc": 23.5,
     "pct_old_build": 72.5,
-    "pct_terrace_or_flat": 91.0,
+    "pct_terrace_or_flat": 91,
     "dominant_house_type": "Flat",
     "latitude": 51.4893573099,
     "longitude": -0.1658845242,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 60,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 72.9,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 65.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   },
   {
     "outcode": "SW4",
@@ -3309,7 +5369,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 48,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5.3,
+      "band_c_d": 76.5,
+      "band_e": 13.5,
+      "band_f_g": 4.7
+    },
+    "pct_solid_wall": 50.6,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.9,
+    "est_dew_point_c": 11.9
   },
   {
     "outcode": "SW5",
@@ -3325,7 +5395,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 61,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 72.8,
+      "band_e": 17.5,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 66,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   },
   {
     "outcode": "SW6",
@@ -3334,14 +5414,24 @@
     "total_properties": 27861,
     "pct_poor_epc": 23.8,
     "pct_old_build": 68.5,
-    "pct_terrace_or_flat": 84.0,
+    "pct_terrace_or_flat": 84,
     "dominant_house_type": "Flat",
     "latitude": 51.4765433752,
     "longitude": -0.2009490837,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 72.3,
+      "band_e": 17.6,
+      "band_f_g": 6.2
+    },
+    "pct_solid_wall": 61.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "SW7",
@@ -3357,7 +5447,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 63,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.2,
+      "band_c_d": 71.5,
+      "band_e": 18.7,
+      "band_f_g": 6.6
+    },
+    "pct_solid_wall": 68.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.4,
+    "est_dew_point_c": 12.6
   },
   {
     "outcode": "SW8",
@@ -3373,7 +5473,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 42,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 7.1,
+      "band_c_d": 78.2,
+      "band_e": 10.9,
+      "band_f_g": 3.8
+    },
+    "pct_solid_wall": 35.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.8,
+    "est_dew_point_c": 11.6
   },
   {
     "outcode": "SW9",
@@ -3382,14 +5492,24 @@
     "total_properties": 17926,
     "pct_poor_epc": 20.2,
     "pct_old_build": 57.7,
-    "pct_terrace_or_flat": 78.0,
+    "pct_terrace_or_flat": 78,
     "dominant_house_type": "Flat",
     "latitude": 51.4693539174,
     "longitude": -0.1138888514,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 5,
+      "band_c_d": 74.8,
+      "band_e": 14.9,
+      "band_f_g": 5.3
+    },
+    "pct_solid_wall": 52.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "SW95",
@@ -3405,7 +5525,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 50,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.9,
+      "band_c_d": 74.4,
+      "band_e": 15.3,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 53.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81,
+    "est_dew_point_c": 12
   },
   {
     "outcode": "W10",
@@ -3421,7 +5551,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 75.2,
+      "band_e": 15.6,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 66,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W11",
@@ -3437,7 +5577,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 72.3,
+      "band_e": 17.8,
+      "band_f_g": 6.3
+    },
+    "pct_solid_wall": 65.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W12",
@@ -3445,7 +5595,7 @@
     "lad_code": "E09000013",
     "total_properties": 15170,
     "pct_poor_epc": 22.3,
-    "pct_old_build": 72.0,
+    "pct_old_build": 72,
     "pct_terrace_or_flat": 82.8,
     "dominant_house_type": "Flat",
     "latitude": 51.5083690915,
@@ -3453,7 +5603,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 74,
+      "band_e": 16.5,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 64.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "W13",
@@ -3461,15 +5621,25 @@
     "lad_code": "E09000009",
     "total_properties": 11007,
     "pct_poor_epc": 16.4,
-    "pct_old_build": 45.0,
-    "pct_terrace_or_flat": 62.0,
+    "pct_old_build": 45,
+    "pct_terrace_or_flat": 62,
     "dominant_house_type": "Mid-Terrace",
     "latitude": 51.5130075916,
     "longitude": -0.3212004084,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 39,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.3,
+      "band_c_d": 77.3,
+      "band_e": 12.1,
+      "band_f_g": 4.3
+    },
+    "pct_solid_wall": 42.4,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "W14",
@@ -3477,15 +5647,25 @@
     "lad_code": "E09000013",
     "total_properties": 11858,
     "pct_poor_epc": 22.3,
-    "pct_old_build": 72.0,
-    "pct_terrace_or_flat": 84.0,
+    "pct_old_build": 72,
+    "pct_terrace_or_flat": 84,
     "dominant_house_type": "Flat",
     "latitude": 51.4946910203,
     "longitude": -0.2102424493,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 74,
+      "band_e": 16.5,
+      "band_f_g": 5.8
+    },
+    "pct_solid_wall": 64.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1A",
@@ -3501,7 +5681,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.8,
+      "band_c_d": 71.8,
+      "band_e": 18.1,
+      "band_f_g": 6.3
+    },
+    "pct_solid_wall": 62.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1B",
@@ -3510,21 +5700,31 @@
     "total_properties": 5494,
     "pct_poor_epc": 26.5,
     "pct_old_build": 80.8,
-    "pct_terrace_or_flat": 96.0,
+    "pct_terrace_or_flat": 96,
     "dominant_house_type": "Flat",
     "latitude": 51.5143764478,
     "longitude": -0.1409486431,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 66,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 2.9,
+      "band_c_d": 70.6,
+      "band_e": 19.6,
+      "band_f_g": 6.9
+    },
+    "pct_solid_wall": 72.1,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.5,
+    "est_dew_point_c": 12.8
   },
   {
     "outcode": "W1C",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 2608,
-    "pct_poor_epc": 23.0,
+    "pct_poor_epc": 23,
     "pct_old_build": 73.3,
     "pct_terrace_or_flat": 94.2,
     "dominant_house_type": "Flat",
@@ -3533,7 +5733,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 61,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 73.4,
+      "band_e": 17,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 65.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   },
   {
     "outcode": "W1D",
@@ -3549,7 +5759,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 65,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 2.9,
+      "band_c_d": 69.6,
+      "band_e": 20.4,
+      "band_f_g": 7.1
+    },
+    "pct_solid_wall": 71.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.5,
+    "est_dew_point_c": 12.7
   },
   {
     "outcode": "W1F",
@@ -3565,7 +5785,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 61,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.6,
+      "band_c_d": 71.9,
+      "band_e": 18.1,
+      "band_f_g": 6.4
+    },
+    "pct_solid_wall": 64.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   },
   {
     "outcode": "W1G",
@@ -3574,14 +5804,24 @@
     "total_properties": 13005,
     "pct_poor_epc": 19.5,
     "pct_old_build": 72.6,
-    "pct_terrace_or_flat": 90.0,
+    "pct_terrace_or_flat": 90,
     "dominant_house_type": "Flat",
     "latitude": 51.5193266586,
     "longitude": -0.1482658393,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.8,
+      "band_c_d": 76.7,
+      "band_e": 14.4,
+      "band_f_g": 5.1
+    },
+    "pct_solid_wall": 65.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1H",
@@ -3597,14 +5837,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.8,
+      "band_c_d": 72.7,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 62.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1J",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 12321,
-    "pct_poor_epc": 24.0,
+    "pct_poor_epc": 24,
     "pct_old_build": 66.3,
     "pct_terrace_or_flat": 94.2,
     "dominant_house_type": "Flat",
@@ -3613,7 +5863,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 71.9,
+      "band_e": 17.8,
+      "band_f_g": 6.2
+    },
+    "pct_solid_wall": 60,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1K",
@@ -3621,7 +5881,7 @@
     "lad_code": "E09000033",
     "total_properties": 16243,
     "pct_poor_epc": 20.9,
-    "pct_old_build": 80.0,
+    "pct_old_build": 80,
     "pct_terrace_or_flat": 92.2,
     "dominant_house_type": "Flat",
     "latitude": 51.5111214431,
@@ -3629,7 +5889,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 62,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.2,
+      "band_c_d": 75.9,
+      "band_e": 15.5,
+      "band_f_g": 5.4
+    },
+    "pct_solid_wall": 71.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.4,
+    "est_dew_point_c": 12.6
   },
   {
     "outcode": "W1S",
@@ -3645,7 +5915,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 74.8,
+      "band_e": 15.9,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 65.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1T",
@@ -3661,14 +5941,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 72.6,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 62.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "W1U",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 19795,
-    "pct_poor_epc": 24.0,
+    "pct_poor_epc": 24,
     "pct_old_build": 67.7,
     "pct_terrace_or_flat": 92.4,
     "dominant_house_type": "Flat",
@@ -3677,7 +5967,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 59,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 72,
+      "band_e": 17.8,
+      "band_f_g": 6.2
+    },
+    "pct_solid_wall": 61.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "W1W",
@@ -3693,7 +5993,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 74.1,
+      "band_e": 15.9,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 58.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "W2",
@@ -3709,7 +6019,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 72.2,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 57.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "W3",
@@ -3725,7 +6045,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 77.9,
+      "band_e": 11.8,
+      "band_f_g": 4.1
+    },
+    "pct_solid_wall": 42.9,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "W4",
@@ -3733,7 +6063,7 @@
     "lad_code": "E09000018",
     "total_properties": 18944,
     "pct_poor_epc": 15.3,
-    "pct_old_build": 38.0,
+    "pct_old_build": 38,
     "pct_terrace_or_flat": 58.7,
     "dominant_house_type": "Semi-Detached",
     "latitude": 51.4911739336,
@@ -3741,7 +6071,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 35,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.9,
+      "band_c_d": 77.8,
+      "band_e": 11.3,
+      "band_f_g": 4
+    },
+    "pct_solid_wall": 36.5,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.2
   },
   {
     "outcode": "W5",
@@ -3757,7 +6097,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 40,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.2,
+      "band_c_d": 75.4,
+      "band_e": 13.6,
+      "band_f_g": 4.8
+    },
+    "pct_solid_wall": 41.2,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.7,
+    "est_dew_point_c": 11.5
   },
   {
     "outcode": "W6",
@@ -3773,7 +6123,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 73.8,
+      "band_e": 16.1,
+      "band_f_g": 5.7
+    },
+    "pct_solid_wall": 58.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "W7",
@@ -3789,7 +6149,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 38,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 6.5,
+      "band_c_d": 75.1,
+      "band_e": 13.6,
+      "band_f_g": 4.8
+    },
+    "pct_solid_wall": 38.3,
+    "wind_driven_rain_exposure": "Sheltered",
+    "avg_relative_humidity": 80.6,
+    "est_dew_point_c": 11.4
   },
   {
     "outcode": "W8",
@@ -3797,7 +6167,7 @@
     "lad_code": "E09000020",
     "total_properties": 12728,
     "pct_poor_epc": 26.1,
-    "pct_old_build": 77.0,
+    "pct_old_build": 77,
     "pct_terrace_or_flat": 86.4,
     "dominant_house_type": "Flat",
     "latitude": 51.5011899259,
@@ -3805,14 +6175,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 62,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.2,
+      "band_c_d": 70.7,
+      "band_e": 19.3,
+      "band_f_g": 6.8
+    },
+    "pct_solid_wall": 68.9,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.4,
+    "est_dew_point_c": 12.6
   },
   {
     "outcode": "W9",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 10693,
-    "pct_poor_epc": 23.0,
+    "pct_poor_epc": 23,
     "pct_old_build": 71.9,
     "pct_terrace_or_flat": 91.2,
     "dominant_house_type": "Flat",
@@ -3821,30 +6201,50 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 60,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.7,
+      "band_c_d": 73.3,
+      "band_e": 17,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 64.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   },
   {
     "outcode": "WC1A",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 2719,
-    "pct_poor_epc": 20.0,
+    "pct_poor_epc": 20,
     "pct_old_build": 64.7,
-    "pct_terrace_or_flat": 85.0,
+    "pct_terrace_or_flat": 85,
     "dominant_house_type": "Flat",
     "latitude": 51.5202844558,
     "longitude": -0.1200861156,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.4,
+      "band_c_d": 75.6,
+      "band_e": 14.8,
+      "band_f_g": 5.2
+    },
+    "pct_solid_wall": 58.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "WC1B",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 2886,
-    "pct_poor_epc": 20.0,
+    "pct_poor_epc": 20,
     "pct_old_build": 68.9,
     "pct_terrace_or_flat": 86.2,
     "dominant_house_type": "Flat",
@@ -3853,14 +6253,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 56,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 75.9,
+      "band_e": 14.8,
+      "band_f_g": 5.2
+    },
+    "pct_solid_wall": 62.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "WC1E",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 1998,
-    "pct_poor_epc": 23.0,
+    "pct_poor_epc": 23,
     "pct_old_build": 64.7,
     "pct_terrace_or_flat": 83.8,
     "dominant_house_type": "Flat",
@@ -3869,7 +6279,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 72.7,
+      "band_e": 17,
+      "band_f_g": 6
+    },
+    "pct_solid_wall": 58.7,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "WC1H",
@@ -3885,7 +6305,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 55,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.1,
+      "band_c_d": 77.4,
+      "band_e": 13.7,
+      "band_f_g": 4.8
+    },
+    "pct_solid_wall": 62.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "WC1N",
@@ -3901,14 +6331,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 72.5,
+      "band_e": 17.4,
+      "band_f_g": 6.1
+    },
+    "pct_solid_wall": 61.6,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "WC1R",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 1461,
-    "pct_poor_epc": 21.0,
+    "pct_poor_epc": 21,
     "pct_old_build": 65.4,
     "pct_terrace_or_flat": 83.8,
     "dominant_house_type": "Flat",
@@ -3917,14 +6357,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 74.7,
+      "band_e": 15.5,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 59.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "WC1V",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 1739,
-    "pct_poor_epc": 21.0,
+    "pct_poor_epc": 21,
     "pct_old_build": 60.5,
     "pct_terrace_or_flat": 89.2,
     "dominant_house_type": "Flat",
@@ -3933,14 +6383,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.7,
+      "band_c_d": 74.3,
+      "band_e": 15.5,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 55.2,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "WC1X",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 6049,
-    "pct_poor_epc": 21.0,
+    "pct_poor_epc": 21,
     "pct_old_build": 65.4,
     "pct_terrace_or_flat": 89.2,
     "dominant_house_type": "Flat",
@@ -3949,14 +6409,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 56,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.3,
+      "band_c_d": 74.7,
+      "band_e": 15.5,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 59.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "WC2A",
     "city": "London",
     "lad_code": "E09000007",
     "total_properties": 2090,
-    "pct_poor_epc": 21.0,
+    "pct_poor_epc": 21,
     "pct_old_build": 61.9,
     "pct_terrace_or_flat": 88.6,
     "dominant_house_type": "Flat",
@@ -3965,7 +6435,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 54,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 74.4,
+      "band_e": 15.5,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 56.4,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.2
   },
   {
     "outcode": "WC2B",
@@ -3981,7 +6461,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 53,
-    "risk_level": "Moderate"
+    "risk_level": "Moderate",
+    "epc_breakdown": {
+      "band_a_b": 4.6,
+      "band_c_d": 73.9,
+      "band_e": 15.9,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 55.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.1,
+    "est_dew_point_c": 12.1
   },
   {
     "outcode": "WC2E",
@@ -3990,14 +6480,24 @@
     "total_properties": 3071,
     "pct_poor_epc": 21.5,
     "pct_old_build": 66.3,
-    "pct_terrace_or_flat": 90.0,
+    "pct_terrace_or_flat": 90,
     "dominant_house_type": "Flat",
     "latitude": 51.5118831265,
     "longitude": -0.1233232831,
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4.2,
+      "band_c_d": 74.3,
+      "band_e": 15.9,
+      "band_f_g": 5.6
+    },
+    "pct_solid_wall": 60,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "WC2H",
@@ -4013,14 +6513,24 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 57,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 4,
+      "band_c_d": 75.5,
+      "band_e": 15.2,
+      "band_f_g": 5.3
+    },
+    "pct_solid_wall": 63.3,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.3
   },
   {
     "outcode": "WC2N",
     "city": "London",
     "lad_code": "E09000033",
     "total_properties": 2627,
-    "pct_poor_epc": 21.0,
+    "pct_poor_epc": 21,
     "pct_old_build": 70.5,
     "pct_terrace_or_flat": 89.4,
     "dominant_house_type": "Flat",
@@ -4029,7 +6539,17 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 58,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.9,
+      "band_c_d": 75.1,
+      "band_e": 15.5,
+      "band_f_g": 5.5
+    },
+    "pct_solid_wall": 63.5,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.2,
+    "est_dew_point_c": 12.4
   },
   {
     "outcode": "WC2R",
@@ -4045,6 +6565,16 @@
     "council_hazard_count": 0,
     "f1a": 0,
     "damp_risk_score": 61,
-    "risk_level": "High"
+    "risk_level": "High",
+    "epc_breakdown": {
+      "band_a_b": 3.5,
+      "band_c_d": 72,
+      "band_e": 18.1,
+      "band_f_g": 6.4
+    },
+    "pct_solid_wall": 65.8,
+    "wind_driven_rain_exposure": "Moderate",
+    "avg_relative_humidity": 81.3,
+    "est_dew_point_c": 12.5
   }
 ]

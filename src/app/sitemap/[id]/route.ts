@@ -1,32 +1,20 @@
 import { NextResponse } from 'next/server';
-import { supabase } from "@/lib/supabase";
-import { getAllOutcodesFromDB } from "@/lib/data";
+import { getAllOutcodes, getAllCities } from "@/lib/dampData";
 import { getSeoDates } from "@/lib/seoDates";
 import { guidesData } from "@/lib/guidesData";
-import { citiesData } from "@/lib/citiesData";
-import { suppliersData } from "@/lib/suppliersData";
 import { POPULAR_COMPARE_PAIRS } from "@/lib/comparePairs";
 
-export const revalidate = 86400; // ISR Cache 1 ngày trên CDN
+export const revalidate = 86400; // ISR Cache 1 day on CDN
 
-const baseUrl = 'https://waterhardness.uk';
-const CHUNK_SIZE = 500; // Quy định cố định 500 URLs cho mỗi sitemap con
+const baseUrl = 'https://checkdamp.co.uk';
 
-// Khai báo sẵn các file Sitemap con để Next.js pre-build
-// Bao gồm 20 file sectors-*.xml để trả về HTTP 200 (0 URL), xóa sạch 20 lỗi 404 trong GSC
 export async function generateStaticParams() {
-  const sectorSitemaps = Array.from({ length: 20 }, (_, i) => ({
-    id: `sectors-${i + 1}.xml`
-  }));
-
   return [
     { id: 'static.xml' },
     { id: 'outcodes.xml' },
     { id: 'compare.xml' },
     { id: 'guides.xml' },
     { id: 'cities.xml' },
-    { id: 'suppliers.xml' },
-    ...sectorSitemaps
   ];
 }
 
@@ -63,107 +51,76 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const cleanId = id.replace('.xml', ''); 
-  
+  const cleanId = id.replace('.xml', '');
+
   let routes: Array<{ url: string; lastModified: string; changeFrequency?: string; priority?: number }> = [];
 
-  // 1. SITEMAP CÁC TRANG TĨNH & TRUST
+  // 1. STATIC PAGES
   if (cleanId === 'static') {
     routes = [
-      '', '/outcodes', '/about', '/contact', '/privacy', '/terms'
+      '', '/damp-risk', '/cities', '/compare', '/guides', '/about', '/contact', '/privacy', '/terms'
     ].map((route) => ({
       url: `${baseUrl}${route}`,
-      // Lấy ISO trực tiếp từ getSeoDates để trùng với trang bài viết
-      lastModified: getSeoDates(route || 'homepage').dateModifiedISO, 
+      lastModified: getSeoDates(route || 'homepage').dateModifiedISO,
       changeFrequency: 'monthly',
-      priority: route === '' ? 1.0 : 0.6,
+      priority: route === '' ? 1.0 : 0.7,
     }));
   }
 
-  // 2. SITEMAP OUTCODE HUBS (~3,000 Outcodes)
+  // 2. ALL OUTCODES (SSG reading from dampData.json)
   else if (cleanId === 'outcodes') {
-    const outcodes = await getAllOutcodesFromDB();
-    routes = outcodes.map((st) => ({
-      url: `${baseUrl}/water-hardness/${st.outcode.toLowerCase()}`,
-      // 👉 TRÙNG KHỚP 100% VỚI Schema JSON-LD TRONG TRANG OUTCODE
-      lastModified: getSeoDates(st.outcode).dateModifiedISO,
+    const outcodes = getAllOutcodes();
+    routes = outcodes.map((code) => ({
+      url: `${baseUrl}/damp-risk/${code.toLowerCase()}`,
+      lastModified: getSeoDates(code).dateModifiedISO,
       changeFrequency: 'weekly',
       priority: 0.9,
     }));
   }
 
-  // 3. SITEMAP CÁC CẶP SO SÁNH HOT
+  // 3. COMPARISON PAIRS
   else if (cleanId === 'compare') {
     routes = POPULAR_COMPARE_PAIRS.map((pair) => ({
       url: `${baseUrl}/compare/${pair}`,
-      // 👉 TRÙNG KHỚP 100% VỚI Schema JSON-LD TRONG TRANG SO SÁNH
       lastModified: getSeoDates(pair).dateModifiedISO,
       changeFrequency: 'weekly',
       priority: 0.8,
     }));
   }
 
-  // 4. SITEMAP CHI TIẾT TỪNG TRANG SECTOR (Trả về XML rỗng HTTP 200 để GSC xóa sạch 20 lỗi 404)
-  else if (cleanId.startsWith('sectors-')) {
-    const emptyXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>`;
-    return new NextResponse(emptyXml, {
-      headers: {
-        'Content-Type': 'application/xml',
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400'
+  // 4. CITIES HUBS
+  else if (cleanId === 'cities') {
+    const cities = getAllCities();
+    routes = [
+      {
+        url: `${baseUrl}/cities`,
+        lastModified: getSeoDates('cities-directory').dateModifiedISO,
+        changeFrequency: 'weekly',
+        priority: 0.8,
       },
-    });
+      ...cities.map((city) => ({
+        url: `${baseUrl}/cities/${city.toLowerCase()}`,
+        lastModified: getSeoDates(city.toLowerCase()).dateModifiedISO,
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      }))
+    ];
   }
 
-  // 5. SITEMAP GUIDES & BLOG HUBS (E-E-A-T Editorial Hub)
+  // 5. GUIDES
   else if (cleanId === 'guides') {
     routes = [
       {
         url: `${baseUrl}/guides`,
         lastModified: getSeoDates('guides-hub').dateModifiedISO,
         changeFrequency: 'weekly',
-        priority: 0.9,
+        priority: 0.8,
       },
       ...guidesData.map((guide) => ({
         url: `${baseUrl}/guides/${guide.slug}`,
         lastModified: guide.dateModified,
         changeFrequency: 'weekly',
-        priority: 0.9,
-      }))
-    ];
-  }
-
-  // 6. SITEMAP CITIES HUBS (Top 30 UK Cities & Directory)
-  else if (cleanId === 'cities') {
-    routes = [
-      {
-        url: `${baseUrl}/cities`,
-        lastModified: getSeoDates('cities-directory').dateModifiedISO,
-        changeFrequency: 'weekly',
-        priority: 0.9,
-      },
-      ...citiesData.map((city) => ({
-        url: `${baseUrl}/cities/${city.slug}`,
-        lastModified: getSeoDates(city.slug).dateModifiedISO,
-        changeFrequency: 'weekly',
-        priority: 0.9,
-      }))
-    ];
-  }
-
-  // 7. SITEMAP SUPPLIERS HUBS (12 Major UK Water Authorities & Directory)
-  else if (cleanId === 'suppliers') {
-    routes = [
-      {
-        url: `${baseUrl}/suppliers`,
-        lastModified: getSeoDates('suppliers-directory').dateModifiedISO,
-        changeFrequency: 'weekly',
-        priority: 0.9,
-      },
-      ...suppliersData.map((supplier) => ({
-        url: `${baseUrl}/suppliers/${supplier.slug}`,
-        lastModified: getSeoDates(supplier.slug).dateModifiedISO,
-        changeFrequency: 'weekly',
-        priority: 0.9,
+        priority: 0.8,
       }))
     ];
   }
@@ -173,11 +130,11 @@ export async function GET(
   }
 
   const xml = buildXmlSitemap(routes);
-  
+
   return new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800' 
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800'
     }
   });
 }

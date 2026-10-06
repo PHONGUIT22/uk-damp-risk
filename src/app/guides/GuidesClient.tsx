@@ -10,10 +10,11 @@ import {
   Calendar, 
   ArrowRight, 
   MapPin, 
-  Droplet,
+  ShieldCheck,
   CheckCircle2,
   Sparkles,
-  Layers
+  Layers,
+  Wind
 } from "lucide-react";
 
 interface Props {
@@ -22,10 +23,10 @@ interface Props {
 
 const CATEGORIES = [
   "All Guides",
-  "Regional Hardness",
-  "Appliance Care",
-  "Plumbing & Heating",
-  "Health & Water Science",
+  "Damp Diagnostics",
+  "Legal & Regulations",
+  "Mitigation & Technology",
+  "Surveys & Property",
 ] as const;
 
 export default function GuidesClient({ initialGuides }: Props) {
@@ -54,14 +55,14 @@ export default function GuidesClient({ initialGuides }: Props) {
 
   const getCategoryBadgeClass = (category: GuideArticle["category"]) => {
     switch (category) {
-      case "Regional Hardness":
-        return "bg-cyan-50 text-cyan-700 border-cyan-200 hover:bg-cyan-100";
-      case "Appliance Care":
-        return "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100";
-      case "Plumbing & Heating":
-        return "bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100";
-      case "Health & Water Science":
-        return "bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100";
+      case "Damp Diagnostics":
+        return "bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100";
+      case "Legal & Regulations":
+        return "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100";
+      case "Mitigation & Technology":
+        return "bg-cyan-50 text-cyan-800 border-cyan-200 hover:bg-cyan-100";
+      case "Surveys & Property":
+        return "bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100";
       default:
         return "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100";
     }
@@ -85,7 +86,6 @@ export default function GuidesClient({ initialGuides }: Props) {
       {/* SEARCH AND FILTER BAR */}
       <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-5">
         <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-          
           {/* Search Input */}
           <div className="relative flex-1">
             <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -93,37 +93,36 @@ export default function GuidesClient({ initialGuides }: Props) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search guides, cities (e.g. Bristol, London), appliances, or outcodes..."
+              placeholder="Search guides (e.g. Condensation, Awaab's Law, Dehumidifier, Survey)..."
               className="w-full bg-slate-50 focus:bg-white border border-slate-200 focus:border-cyan-600 rounded-2xl pl-12 pr-4 py-3.5 text-sm font-medium focus:outline-none transition-all"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-700 bg-slate-200 hover:bg-slate-300 rounded-full px-2 py-0.5"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 font-bold"
               >
                 Clear
               </button>
             )}
           </div>
 
-          <div className="text-xs font-semibold text-slate-500 shrink-0 self-center">
-            Showing <span className="text-slate-900 font-bold">{filteredGuides.length}</span> of {initialGuides.length} articles
+          <div className="text-xs text-slate-500 font-semibold px-2">
+            Showing <strong className="text-slate-900">{filteredGuides.length}</strong> of {initialGuides.length} guides
           </div>
         </div>
 
         {/* Category Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-          <Layers className="w-4 h-4 text-slate-400 shrink-0 ml-1 hidden sm:inline" />
           {CATEGORIES.map((cat) => {
-            const isActive = selectedCategory === cat;
+            const isSelected = selectedCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all border ${
-                  isActive
-                    ? "bg-slate-900 text-white border-slate-900 shadow-sm"
-                    : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900"
+                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  isSelected
+                    ? "bg-slate-900 text-white shadow-sm"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
                 {cat}
@@ -133,90 +132,79 @@ export default function GuidesClient({ initialGuides }: Props) {
         </div>
       </div>
 
-      {/* ARTICLE GRID */}
+      {/* GUIDES GRID */}
       {filteredGuides.length === 0 ? (
-        <div className="bg-white p-12 rounded-3xl border border-slate-200 text-center space-y-4">
-          <div className="w-12 h-12 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto">
-            <BookOpen className="w-6 h-6" />
-          </div>
+        <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8">
+          <BookOpen className="w-12 h-12 text-slate-300 mx-auto mb-4" />
           <h3 className="text-lg font-bold text-slate-900">No guides found</h3>
-          <p className="text-sm text-slate-500 max-w-md mx-auto">
-            We couldn't find any articles matching &quot;{searchQuery}&quot;. Try adjusting your search keywords or switching category filters.
+          <p className="text-slate-500 text-xs mt-1">
+            No articles match your search criteria. Try another keyword or reset the category filter.
           </p>
           <button
             onClick={() => {
-              setSearchQuery("");
               setSelectedCategory("All Guides");
+              setSearchQuery("");
             }}
-            className="inline-flex items-center gap-2 text-xs font-bold text-cyan-700 bg-cyan-50 border border-cyan-200 px-4 py-2 rounded-full hover:bg-cyan-100 transition-colors"
+            className="mt-4 px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-xl"
           >
             Reset Filters
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredGuides.map((guide) => (
             <article
               key={guide.slug}
-              className="bg-white rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-cyan-300 transition-all flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-cyan-300 transition-all flex flex-col justify-between p-6 sm:p-8 group"
             >
-              <div className="p-6 space-y-4">
-                {/* Meta header: Category Badge & Reading Time */}
-                <div className="flex items-center justify-between gap-2 flex-wrap">
+              <div>
+                <div className="flex items-center justify-between gap-3 mb-4">
                   <span
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${getCategoryBadgeClass(
+                    className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full border ${getCategoryBadgeClass(
                       guide.category
                     )}`}
                   >
-                    <Droplet className="w-3 h-3 shrink-0" />
                     {guide.category}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-medium">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
                     <Clock className="w-3.5 h-3.5" />
-                    {guide.readingTime}
-                  </span>
+                    <span>{guide.readingTime}</span>
+                  </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-cyan-700 transition-colors leading-snug">
-                  <Link href={`/guides/${guide.slug}`}>
+                <Link href={`/guides/${guide.slug}`}>
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-cyan-600 transition-colors leading-snug">
                     {guide.title}
-                  </Link>
-                </h3>
+                  </h3>
+                </Link>
 
-                {/* Description */}
-                <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                <p className="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed line-clamp-3">
                   {guide.metaDescription}
                 </p>
 
-                {/* Quick Verdict Box preview */}
-                <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-3.5 text-xs space-y-1.5">
-                  <div className="flex items-center justify-between font-bold text-slate-800">
-                    <span className="text-[11px] uppercase tracking-wider text-slate-500">Quick Verdict</span>
-                    {guide.quickVerdict.ppmRange && (
-                      <span className="font-mono text-cyan-800 bg-cyan-100/60 px-2 py-0.5 rounded text-[11px]">
-                        {guide.quickVerdict.ppmRange}
-                      </span>
-                    )}
+                {/* Quick Verdict Snippet */}
+                {guide.quickVerdict && (
+                  <div className="mt-4 p-3.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-700">
+                    <strong className="text-slate-900 font-bold block mb-1">
+                      Key Takeaway:
+                    </strong>
+                    <span className="line-clamp-2 text-[11px] text-slate-600">
+                      {guide.quickVerdict.keyTakeaway}
+                    </span>
                   </div>
-                  <p className="text-slate-600 line-clamp-2 text-[11px] leading-relaxed">
-                    {guide.quickVerdict.keyTakeaway}
-                  </p>
-                </div>
+                )}
               </div>
 
-              {/* Card Footer */}
-              <div className="px-6 py-4 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2 text-[11px] text-slate-400">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Updated {formatDateUI(guide.dateModified)}</span>
-                </div>
-
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[11px] text-slate-400">
+                  Updated {formatDateUI(guide.dateModified)}
+                </span>
                 <Link
                   href={`/guides/${guide.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-cyan-700 group-hover:text-cyan-900 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 group-hover:text-cyan-600 transition-colors"
                 >
-                  Read Guide <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <span>Read Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </article>

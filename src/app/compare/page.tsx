@@ -1,457 +1,191 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { 
-  Scale, 
-  ArrowRight, 
-  Droplets, 
-  ShieldCheck, 
-  Flame, 
-  Sparkles, 
-  ChevronRight, 
-  MapPin,
-  WashingMachine,
+import {
+  Scale,
+  ArrowRight,
+  ShieldCheck,
+  Building2,
+  ChevronRight,
   CheckCircle2,
-  Info
+  AlertTriangle,
+  Layers,
 } from "lucide-react";
+import CompareHero from "@/components/compare/CompareHero";
+import { getAreaByOutcode } from "@/lib/dampData";
+import { POPULAR_COMPARE_PAIRS } from "@/lib/comparePairs";
 
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Compare UK Water Hardness: Postcode & City Head-to-Head",
-  description: "Compare tap water hardness between UK cities and postcodes. Check PPM differences, boiler scale risks, kettle maintenance, and dishwasher settings.",
+  title: "Compare UK Damp & Mould Risk: Postcode Head-to-Head | CheckDamp UK",
+  description: "Compare damp risk scores, Victorian solid-wall housing density, and poor EPC exposure between UK postcode areas.",
   alternates: {
-    canonical: "https://waterhardness.uk/compare",
+    canonical: "https://checkdamp.co.uk/compare",
   },
   openGraph: {
-    title: "Compare UK Water Hardness: Postcode & City Head-to-Head",
-    description: "Compare tap water hardness between UK cities and postcodes. Check PPM differences, boiler scale risks, and appliance settings.",
-    url: "https://waterhardness.uk/compare",
-    siteName: "WaterHardness.uk",
+    title: "Compare UK Damp & Mould Risk: Postcode Head-to-Head",
+    description: "Compare damp risk scores, Victorian solid-wall housing density, and poor EPC exposure between UK postcode areas.",
+    url: "https://checkdamp.co.uk/compare",
+    siteName: "UK Damp Risk Index",
     locale: "en_GB",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Compare UK Water Hardness: Postcode & City Head-to-Head",
-    description: "Compare tap water hardness between UK cities and postcodes. Check PPM differences, boiler scale risks, and appliance settings.",
-  },
 };
 
-interface ComparisonPair {
+interface ComparisonPairItem {
   slug: string;
   badge: string;
-  locationA: {
-    name: string;
-    sector: string;
-    ppm: number;
-    category: string;
-    supplier: string;
-  };
-  locationB: {
-    name: string;
-    sector: string;
-    ppm: number;
-    category: string;
-    supplier: string;
-  };
+  codeA: string;
+  codeB: string;
   highlight: string;
 }
 
-const comparisonPairs: ComparisonPair[] = [
+const FEATURED_PAIRS: ComparisonPairItem[] = [
   {
-    slug: "sw1a-1-vs-m1-1",
-    badge: "North vs South",
-    locationA: {
-      name: "London (Westminster)",
-      sector: "SW1A 1",
-      ppm: 280,
-      category: "Hard Water",
-      supplier: "Thames Water",
-    },
-    locationB: {
-      name: "Manchester (City Centre)",
-      sector: "M1 1",
-      ppm: 35,
-      category: "Soft Water",
-      supplier: "United Utilities",
-    },
-    highlight: "London tap water is 8x harder than Manchester. London combi boilers require BS 7593 scale inhibitors, while Manchester homes require zero dishwasher salt.",
+    slug: "b21-vs-b1",
+    badge: "High Risk vs Modern Core",
+    codeA: "B21",
+    codeB: "B1",
+    highlight: "Handsworth (B21) has over 69% Victorian solid-wall homes with high damp vulnerability (Score: 58), whereas Birmingham City Centre (B1) is predominantly modern with low damp risk (Score: 18).",
   },
   {
-    slug: "sw1a-1-vs-b1-1",
-    badge: "Capital vs Midlands",
-    locationA: {
-      name: "London (Westminster)",
-      sector: "SW1A 1",
-      ppm: 280,
-      category: "Hard Water",
-      supplier: "Thames Water",
-    },
-    locationB: {
-      name: "Birmingham (City Centre)",
-      sector: "B1 1",
-      ppm: 48,
-      category: "Soft Water",
-      supplier: "Severn Trent Water",
-    },
-    highlight: "Birmingham receives naturally soft Welsh mountain water via the 73-mile Elan Valley Aqueduct, whereas London draws from calcium-rich chalk aquifers.",
+    slug: "b11-vs-m1",
+    badge: "Midlands vs North West",
+    codeA: "B11",
+    codeB: "M1",
+    highlight: "Sparkhill (B11) features extensive pre-1930 terraces with high condensation risk (Score: 57), while Central Manchester (M1) benefits from contemporary building envelopes (Score: 24).",
   },
   {
-    slug: "sw1a-1-vs-eh1-1",
-    badge: "England vs Scotland",
-    locationA: {
-      name: "London (Westminster)",
-      sector: "SW1A 1",
-      ppm: 280,
-      category: "Hard Water",
-      supplier: "Thames Water",
-    },
-    locationB: {
-      name: "Edinburgh (Old Town)",
-      sector: "EH1 1",
-      ppm: 45,
-      category: "Soft Water",
-      supplier: "Scottish Water",
-    },
-    highlight: "Moving from London to Edinburgh completely stops kettle furring. Black tea infuses clear without the oily calcium film typical of London tap water.",
+    slug: "m14-vs-m15",
+    badge: "Student Terraces vs Hulme Modern",
+    codeA: "M14",
+    codeB: "M15",
+    highlight: "Fallowfield (M14) contains 50% pre-1930 housing stock with elevated tenant damp complaints (Score: 42), compared to Hulme (M15) at just 1.7% old builds (Score: 17).",
   },
   {
-    slug: "b1-1-vs-m1-1",
-    badge: "Soft Water Showdown",
-    locationA: {
-      name: "Birmingham (City Centre)",
-      sector: "B1 1",
-      ppm: 48,
-      category: "Soft Water",
-      supplier: "Severn Trent Water",
-    },
-    locationB: {
-      name: "Manchester (City Centre)",
-      sector: "M1 1",
-      ppm: 35,
-      category: "Soft Water",
-      supplier: "United Utilities",
-    },
-    highlight: "Both cities enjoy ultra-soft tap water from upland granite and moorland catchments (Elan Valley vs Lake District). Both can safely bypass dishwasher salt.",
+    slug: "b10-vs-m14",
+    badge: "Cross-City Victorian Hubs",
+    codeA: "B10",
+    codeB: "M14",
+    highlight: "Comparing Small Heath (B10, 61% pre-1930, Score: 56) with Fallowfield (M14, 50% pre-1930, Score: 42) reveals distinct regional differences in solid masonry moisture dynamics.",
   },
   {
-    slug: "ab10-1-vs-sw1a-1",
-    badge: "Extreme Hydro-Contrast",
-    locationA: {
-      name: "Aberdeen (Granite City)",
-      sector: "AB10 1",
-      ppm: 25,
-      category: "Naturally Soft",
-      supplier: "Scottish Water",
-    },
-    locationB: {
-      name: "London (Westminster)",
-      sector: "SW1A 1",
-      ppm: 280,
-      category: "Hard Water",
-      supplier: "Thames Water",
-    },
-    highlight: "One of the sharpest water contrasts in the UK: Aberdeen's River Dee granite catchment (25 PPM) vs London's Cretaceous chalk aquifer (280 PPM).",
+    slug: "b1-vs-m1",
+    badge: "City Centre Showdown",
+    codeA: "B1",
+    codeB: "M1",
+    highlight: "Both city centres exhibit predominantly modern high-density apartment housing with low moisture vulnerability (B1: 18 vs M1: 24).",
   },
   {
-    slug: "ls1-1-vs-sw1a-1",
-    badge: "Yorkshire vs London",
-    locationA: {
-      name: "Leeds (City Centre)",
-      sector: "LS1 1",
-      ppm: 120,
-      category: "Moderate Water",
-      supplier: "Yorkshire Water",
-    },
-    locationB: {
-      name: "London (Westminster)",
-      sector: "SW1A 1",
-      ppm: 280,
-      category: "Hard Water",
-      supplier: "Thames Water",
-    },
-    highlight: "Leeds tap water averages half the mineral load of London. Traditional Yorkshire Tea was blended specifically for soft-to-moderate waters like Leeds.",
-  },
-  {
-    slug: "bs1-1-vs-m1-1",
-    badge: "West Country vs North West",
-    locationA: {
-      name: "Bristol (City Centre)",
-      sector: "BS1 1",
-      ppm: 260,
-      category: "Very Hard",
-      supplier: "Bristol Water",
-    },
-    locationB: {
-      name: "Manchester (City Centre)",
-      sector: "M1 1",
-      ppm: 35,
-      category: "Soft Water",
-      supplier: "United Utilities",
-    },
-    highlight: "Bristol's Mendip limestone creates rapid chalk furring on kettle bases and shower cartridges, while Manchester plumbing remains virtually scale-free.",
+    slug: "b21-vs-m14",
+    badge: "Top Damp Risk Sectors",
+    codeA: "B21",
+    codeB: "M14",
+    highlight: "Birmingham Handsworth (B21) has a higher concentration of poor EPC ratings (29.8% vs 14.1%), resulting in colder internal wall dew points than Manchester Fallowfield.",
   },
 ];
 
 export default function CompareHubPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "@id": "https://waterhardness.uk/compare",
-        "url": "https://waterhardness.uk/compare",
-        "name": "Compare UK Water Hardness Head-to-Head",
-        "description": "Compare municipal tap water hardness ratings, PPM levels, and boiler protection guidance between UK cities and postcode districts.",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://waterhardness.uk"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Compare Water Hardness",
-              "item": "https://waterhardness.uk/compare"
-            }
-          ]
-        },
-        "mainEntity": {
-          "@type": "ItemList",
-          "itemListElement": comparisonPairs.map((pair, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "name": `${pair.locationA.name} vs ${pair.locationB.name} Water Hardness`,
-            "url": `https://waterhardness.uk/compare/${pair.slug}`
-          }))
-        }
-      }
-    ]
-  };
+  const dataB21 = getAreaByOutcode("B21");
+  const dataB1 = getAreaByOutcode("B1");
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    <div className="min-h-screen bg-[#FDFDFD] text-slate-900 pb-20">
+      {/* Breadcrumb Navigation */}
+      <div className="border-b border-slate-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-xs text-slate-500">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+            <span className="font-semibold text-slate-900">Compare Postcodes</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Compare Hero Component */}
+      <CompareHero
+        locA="B21"
+        locB="B1"
+        dataA={dataB21}
+        dataB={dataB1}
       />
 
-      <div className="min-h-screen bg-slate-50 text-slate-900 pb-16">
-        {/* Header Breadcrumbs */}
-        <div className="bg-white border-b border-slate-200">
-          <div className="max-w-6xl mx-auto px-4 py-3">
-            <nav className="flex items-center space-x-2 text-xs text-slate-500">
-              <Link href="/" className="hover:text-cyan-600 transition-colors">
-                Home
-              </Link>
-              <ChevronRight className="h-3 w-3 text-slate-400" />
-              <span className="font-semibold text-slate-700">Compare Water Hardness</span>
-            </nav>
-          </div>
+      {/* FEATURED COMPARISON CARDS */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14">
+        <div className="mb-8">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-600 block mb-1">
+            Curated Head-to-Head Comparisons
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Popular Postcode Damp Risk Matchups
+          </h2>
+          <p className="text-slate-600 text-sm mt-1">
+            Detailed property age profile, EPC efficiency, and moisture risk comparisons between key UK districts.
+          </p>
         </div>
 
-        {/* Hero Section */}
-        <div className="bg-white border-b border-slate-200">
-          <div className="max-w-6xl mx-auto px-4 py-10 sm:py-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-cyan-50 text-cyan-700 border border-cyan-200 mb-4">
-              <Scale className="h-3.5 w-3.5" />
-              <span>UK Head-to-Head Water Quality Comparator</span>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FEATURED_PAIRS.map((pair) => {
+            const areaA = getAreaByOutcode(pair.codeA);
+            const areaB = getAreaByOutcode(pair.codeB);
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Compare UK Water Hardness Head-to-Head
-            </h1>
+            if (!areaA || !areaB) return null;
 
-            <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
-              Moving home or wondering why your appliances scale up differently across Britain? Compare tap water mineral density (PPM), limescale accumulation speed, boiler heat exchanger drag, and dishwasher salt calibrations between UK postcode sectors.
-            </p>
-
-            {/* Quick KPI Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-100">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <Droplets className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs text-slate-500 font-medium block">PPM Mineral Contrast</span>
-                  <span className="text-sm font-bold text-slate-800 block">25 PPM to 360+ PPM</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                  <Flame className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs text-slate-500 font-medium block">Boiler Fuel Penalty</span>
-                  <span className="text-sm font-bold text-slate-800 block">Up to 12% scale loss in Hard zones</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs text-slate-500 font-medium block">Verified DWI Data</span>
-                  <span className="text-sm font-bold text-slate-800 block">Official UK water company metrics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Comparison Cards Grid */}
-        <main className="max-w-6xl mx-auto px-4 py-10">
-          <div className="flex items-center justify-between gap-4 mb-6">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-                Popular UK Head-to-Head Comparisons
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                Side-by-side analysis of Britain&apos;s most compared postal districts and metropolitan areas
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {comparisonPairs.map((pair) => (
+            return (
               <div
                 key={pair.slug}
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-cyan-200 transition-all flex flex-col justify-between"
+                className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
-                  {/* Badge */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
                       {pair.badge}
                     </span>
-                    <span className="text-xs text-slate-400">PPM Head-to-Head</span>
+                    <Scale className="w-4 h-4 text-slate-700" />
                   </div>
 
-                  {/* Versus Header */}
-                  <div className="grid grid-cols-2 gap-3 mb-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                    <div>
-                      <span className="text-xs font-semibold text-slate-500 block truncate">
-                        {pair.locationA.name}
-                      </span>
-                      <span className="text-lg font-black text-slate-900 block mt-0.5">
-                        {pair.locationA.ppm} <span className="text-xs font-semibold text-slate-500">PPM</span>
-                      </span>
-                      <span className={`inline-block mt-1 text-[11px] font-bold px-2 py-0.5 rounded-md ${
-                        pair.locationA.ppm >= 200 ? "bg-rose-100 text-rose-800" :
-                        pair.locationA.ppm >= 100 ? "bg-amber-100 text-amber-800" :
-                        "bg-emerald-100 text-emerald-800"
-                      }`}>
-                        {pair.locationA.category}
+                  {/* Outcode Matchup Header */}
+                  <div className="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-100 mb-4">
+                    <div className="text-center flex-1">
+                      <span className="font-black text-slate-900 text-lg block">{areaA.outcode}</span>
+                      <span className="text-[10px] text-slate-500 font-semibold">{areaA.city}</span>
+                      <span className="text-xs font-bold text-rose-600 block mt-1">
+                        {areaA.damp_risk_score}/100
                       </span>
                     </div>
 
-                    <div className="border-l border-slate-200 pl-3">
-                      <span className="text-xs font-semibold text-slate-500 block truncate">
-                        {pair.locationB.name}
-                      </span>
-                      <span className="text-lg font-black text-slate-900 block mt-0.5">
-                        {pair.locationB.ppm} <span className="text-xs font-semibold text-slate-500">PPM</span>
-                      </span>
-                      <span className={`inline-block mt-1 text-[11px] font-bold px-2 py-0.5 rounded-md ${
-                        pair.locationB.ppm >= 200 ? "bg-rose-100 text-rose-800" :
-                        pair.locationB.ppm >= 100 ? "bg-amber-100 text-amber-800" :
-                        "bg-emerald-100 text-emerald-800"
-                      }`}>
-                        {pair.locationB.category}
+                    <span className="text-xs font-black text-slate-300 px-2">VS</span>
+
+                    <div className="text-center flex-1">
+                      <span className="font-black text-slate-900 text-lg block">{areaB.outcode}</span>
+                      <span className="text-[10px] text-slate-500 font-semibold">{areaB.city}</span>
+                      <span className="text-xs font-bold text-emerald-600 block mt-1">
+                        {areaB.damp_risk_score}/100
                       </span>
                     </div>
                   </div>
 
-                  {/* Summary Highlight */}
-                  <p className="text-xs text-slate-600 leading-relaxed mb-5">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {pair.highlight}
                   </p>
                 </div>
 
-                {/* Card Action Link */}
-                <Link
-                  href={`/compare/${pair.slug}`}
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-xs bg-slate-900 hover:bg-cyan-600 text-white transition-colors group"
-                >
-                  <span>View Detailed Versus Report ({pair.locationA.sector} vs {pair.locationB.sector})</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* Educational Guidance Section */}
-          <div className="mt-12 bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-10 shadow-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center shrink-0">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-900">
-                  Why Compare Tap Water Hardness When Moving?
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-500">
-                  Three critical household adjustments when transitioning between UK water zones
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600">
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                  <WashingMachine className="w-4 h-4 text-cyan-600" />
-                  <span>Dishwasher Salt Settings</span>
+                <div className="mt-6 pt-4 border-t border-slate-100">
+                  <Link
+                    href={`/compare/${pair.slug}`}
+                    className="inline-flex items-center justify-between w-full text-xs font-bold text-slate-900 hover:text-slate-700 transition-colors"
+                  >
+                    <span>View Head-to-Head Report</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
-                <p className="leading-relaxed">
-                  Moving from a soft area (Manchester, Birmingham) to a hard area (London, Surrey, Bristol) requires resetting your dishwasher from H00 to H05. Running without salt in hard water permanently etches glassware within weeks.
-                </p>
               </div>
-
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                  <Flame className="w-4 h-4 text-amber-600" />
-                  <span>Combi Boiler Protection (BS 7593)</span>
-                </div>
-                <p className="leading-relaxed">
-                  Building Regulations Part L and British Standard BS 7593 mandate permanent inline scale protection for combi boilers in areas above 200 PPM. A 1.5mm limescale crust reduces heating heat transfer by up to 12%.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                  <Droplets className="w-4 h-4 text-blue-600" />
-                  <span>Skin & Eczema Sensitivity</span>
-                </div>
-                <p className="leading-relaxed">
-                  High calcium water bonds with bath soaps, forming an insoluble curd that strips natural skin barrier lipids. Households moving south frequently notice increased skin dryness and childhood eczema flare-ups.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Hub Navigation */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-600">
-            <span>Explore other directories:</span>
-            <Link href="/cities" className="text-cyan-600 hover:underline">
-              UK Cities Directory →
-            </Link>
-            <span>•</span>
-            <Link href="/outcodes" className="text-cyan-600 hover:underline">
-              All 3,000 Outcodes →
-            </Link>
-            <span>•</span>
-            <Link href="/guides" className="text-cyan-600 hover:underline">
-              Water Science & Appliance Guides →
-            </Link>
-          </div>
-        </main>
+            );
+          })}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

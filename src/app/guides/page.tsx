@@ -7,25 +7,23 @@ import {
   BookOpen, 
   ChevronRight, 
   Home, 
-  UserCircle, 
-  Award, 
   CheckCircle2, 
-  Droplet 
+  Wind 
 } from "lucide-react";
 
 export const revalidate = 86400; // Cache 24h on CDN
 
 export const metadata: Metadata = {
-  title: "UK Water Hardness & Appliance Guides",
-  description: "Expert UK guides on water hardness (PPM), limescale removal, dishwasher salt settings, combi boiler efficiency & local water supplier catchment reports.",
+  title: "UK Damp, Mould & Condensation Guides | CheckDamp UK",
+  description: "Expert UK building pathology guides on condensation vs rising damp, Awaab's Law landlord timelines, dehumidifier sizing, and independent PCA surveys.",
   alternates: {
-    canonical: "https://waterhardness.uk/guides",
+    canonical: "https://checkdamp.co.uk/guides",
   },
   openGraph: {
-    title: "UK Water Hardness & Appliance Guides",
-    description: "Expert British guides on UK water hardness, boiler scale protection, dishwasher calibration, and regional water supply science.",
-    url: "https://waterhardness.uk/guides",
-    siteName: "WaterHardness.uk",
+    title: "UK Damp, Mould & Condensation Guides | CheckDamp UK",
+    description: "Expert British guides on condensation diagnostics, Awaab's Law landlord obligations, dehumidifier extraction capacity, and pre-purchase damp surveys.",
+    url: "https://checkdamp.co.uk/guides",
+    siteName: "UK Damp Risk Index",
     locale: "en_GB",
     type: "website",
   },
@@ -39,17 +37,14 @@ export default function GuidesHubPage() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": "https://waterhardness.uk/guides",
-        "url": "https://waterhardness.uk/guides",
-        "name": "UK Water Hardness & Appliance Guides Hub",
-        "description": "Comprehensive editorial library of UK water hardness diagnostics, appliance calibration tables, and regional hydrogeological analyses.",
+        "@id": "https://checkdamp.co.uk/guides",
+        "url": "https://checkdamp.co.uk/guides",
+        "name": "UK Damp, Mould & Building Condition Guides",
+        "description": "Comprehensive editorial library of UK damp diagnostics, moisture dynamics, and landlord regulations.",
         "publisher": {
           "@type": "Organization",
-          "name": "WaterHardness.uk",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://waterhardness.uk/logo.png"
-          }
+          "name": "UK Damp Risk Index",
+          "url": "https://checkdamp.co.uk"
         }
       },
       {
@@ -57,7 +52,7 @@ export default function GuidesHubPage() {
         "itemListElement": allGuides.map((guide, idx) => ({
           "@type": "ListItem",
           "position": idx + 1,
-          "url": `https://waterhardness.uk/guides/${guide.slug}`,
+          "url": `https://checkdamp.co.uk/guides/${guide.slug}`,
           "name": guide.title
         }))
       },
@@ -68,13 +63,13 @@ export default function GuidesHubPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://waterhardness.uk"
+            "item": "https://checkdamp.co.uk"
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Guides & Blog",
-            "item": "https://waterhardness.uk/guides"
+            "name": "Guides",
+            "item": "https://checkdamp.co.uk/guides"
           }
         ]
       }
@@ -97,37 +92,25 @@ export default function GuidesHubPage() {
               <Home className="w-3.5 h-3.5" /> Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="font-semibold text-cyan-400">Guides & Technical Hub</span>
+            <span className="font-semibold text-slate-200">Guides &amp; Technical Hub</span>
           </nav>
 
-          {/* Badge & Title */}
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-800/80 px-3.5 py-1 rounded-full text-xs font-bold text-cyan-400">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" /> E-E-A-T Verified Water Engineering Library
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-              Water Hardness & Appliance <span className="text-cyan-400">Guides</span>
-            </h1>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              In-depth technical guides, regional catchment reports, and appliance calibration manuals written by British water quality specialists. Verified against Drinking Water Inspectorate (DWI) disclosures and UK Building Regulations Part L.
-            </p>
+          <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-300">
+            <ShieldCheck className="w-4 h-4 text-slate-400" /> Evidence-Based Building Science • BS 5250 &amp; PCA Guidelines
           </div>
 
-          {/* Author Badge */}
-          <div className="pt-2 flex items-center gap-4 text-xs text-slate-300 border-t border-slate-800/80 max-w-xl">
-            <div className="w-9 h-9 bg-cyan-600 rounded-full flex items-center justify-center font-bold text-white text-xs shrink-0">
-              NP
-            </div>
-            <div>
-              <p className="font-bold text-white">Curated by Nguyen Hac Phong</p>
-              <p className="text-slate-400 text-[11px]">Lead Water Quality & Data Engineer • Updated for 2026</p>
-            </div>
-          </div>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase">
+            UK Damp &amp; Mould <span className="text-white underline decoration-slate-600 underline-offset-8">Technical Guides</span>
+          </h1>
+
+          <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed">
+            Unbiased, building-physics-backed guidance on identifying condensation, enforcing Awaab&apos;s Law, sizing dehumidifiers for solid-brick Victorian homes, and avoiding chemical damp-proofing misdiagnosis.
+          </p>
         </div>
       </section>
 
-      {/* MAIN CONTENT AREA WITH CLIENT FILTER & CARDS */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
+      {/* MAIN CONTENT AREA */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <GuidesClient initialGuides={allGuides} />
       </main>
     </div>

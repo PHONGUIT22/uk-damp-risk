@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSectorData } from "@/lib/data";
+import { getAreaByOutcode } from "@/lib/dampData";
 import CompareHero from "@/components/compare/CompareHero";
 import VersusTable from "@/components/compare/VersusTable";
-import { Sparkles } from "lucide-react";
-import { getSeoDates } from "@/lib/seoDates";
-
+import QuoteRequestCard from "@/components/lead/QuoteRequestCard";
 import { POPULAR_COMPARE_PAIRS, isPopularComparePair } from "@/lib/comparePairs";
+import { ChevronRight, ShieldCheck, Building2, Scale, ArrowRight } from "lucide-react";
 
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -22,20 +21,18 @@ interface PageProps {
   params: Promise<{ pair: string }> | { pair: string };
 }
 
-// Helper tách 2 Sector từ Pair Slug (VD: sw1a-1-vs-ab10-1 -> [SW1A 1, AB10 1])
 function parsePairSlug(pairSlug: string) {
   const parts = pairSlug.split("-vs-");
   if (parts.length !== 2) return null;
 
-  const sectorA = parts[0].replace(/-/g, " ").trim().toUpperCase();
-  const sectorB = parts[1].replace(/-/g, " ").trim().toUpperCase();
+  const outcodeA = parts[0].trim().toUpperCase();
+  const outcodeB = parts[1].trim().toUpperCase();
 
-  if (!sectorA || !sectorB) return null;
+  if (!outcodeA || !outcodeB) return null;
 
-  return { sectorA, sectorB, slugA: parts[0], slugB: parts[1] };
+  return { outcodeA, outcodeB, slugA: parts[0], slugB: parts[1] };
 }
 
-// 1. GENERATE DYNAMIC METADATA (CRAWL BUDGET & THIN CONTENT PROTECTION)
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const rawPairSlug = resolvedParams.pair || "";
@@ -44,30 +41,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!parsed) {
     return {
-      title: "Comparison Not Found - WaterHardness.uk",
+      title: "Comparison Not Found | UK Damp Risk Index",
       robots: { index: false, follow: true },
     };
   }
 
-  const [dataA, dataB] = await Promise.all([
-    getSectorData(parsed.sectorA),
-    getSectorData(parsed.sectorB),
-  ]);
+  const dataA = getAreaByOutcode(parsed.outcodeA);
+  const dataB = getAreaByOutcode(parsed.outcodeB);
 
   if (!dataA || !dataB) {
     return {
-      title: "Comparison Not Found - WaterHardness.uk",
+      title: "Comparison Not Found | UK Damp Risk Index",
       robots: { index: false, follow: true },
     };
   }
 
-  // Only whitelist key comparison pairs for indexing; arbitrary combinations are noindexed
   const isIndexable = isPopularComparePair(normalizedPairSlug);
-  const canonicalUrl = `https://waterhardness.uk/compare/${normalizedPairSlug}`;
+  const canonicalUrl = `https://checkdamp.co.uk/compare/${normalizedPairSlug}`;
+  const title = `${dataA.outcode} vs ${dataB.outcode} Damp & Mould Risk Comparison`;
+  const description = `Compare residential damp risk: ${dataA.outcode} (${dataA.damp_risk_score}/100) vs ${dataB.outcode} (${dataB.damp_risk_score}/100). Victorian solid-wall housing: ${dataA.pct_old_build}% vs ${dataB.pct_old_build}%.`;
 
   return {
-    title: `${dataA.sector} vs ${dataB.sector} Water Hardness`,
-    description: `Compare tap water hardness: Sector ${dataA.sector} (${dataA.avgPpm} PPM) vs Sector ${dataB.sector} (${dataB.avgPpm} PPM). Check limescale risks & appliance settings.`,
+    title: { absolute: `${title} | CheckDamp UK` },
+    description,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -80,141 +76,166 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
     },
     openGraph: {
-      title: `${dataA.sector} vs ${dataB.sector} Water Hardness`,
-      description: `Compare tap water hardness: Sector ${dataA.sector} (${dataA.avgPpm} PPM) vs Sector ${dataB.sector} (${dataB.avgPpm} PPM).`,
+      title,
+      description,
       url: canonicalUrl,
-      siteName: "WaterHardness.uk",
+      siteName: "UK Damp Risk Index",
       locale: "en_GB",
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${dataA.sector} vs ${dataB.sector} Water Hardness`,
-      description: `Compare water hardness between Sector ${dataA.sector} and Sector ${dataB.sector}.`,
+      title,
+      description,
     },
   };
 }
 
-// 2. MAIN SERVER COMPONENT
 export default async function CompareDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
-  const parsed = parsePairSlug(resolvedParams.pair);
+  const rawPairSlug = resolvedParams.pair || "";
+  const normalizedPairSlug = rawPairSlug.toLowerCase().trim();
+  const parsed = parsePairSlug(normalizedPairSlug);
 
-  if (!parsed) return notFound();
+  if (!parsed) {
+    notFound();
+  }
 
-  const [dataA, dataB] = await Promise.all([
-    getSectorData(parsed.sectorA),
-    getSectorData(parsed.sectorB),
-  ]);
+  const dataA = getAreaByOutcode(parsed.outcodeA);
+  const dataB = getAreaByOutcode(parsed.outcodeB);
 
-  if (!dataA || !dataB) return notFound();
+  if (!dataA || !dataB) {
+    notFound();
+  }
 
-  // ==============================================================================
-  // 🔥 ENGINE PHÂN TÍCH SO SÁNH TỰ ĐỘNG (CHỐNG THIN CONTENT)
-  // ==============================================================================
-  const ppmDiff = Math.abs(dataA.avgPpm - dataB.avgPpm);
-  const isASofter = dataA.avgPpm <= dataB.avgPpm;
-
-  const softerSector = isASofter ? dataA : dataB;
-  const harderSector = isASofter ? dataB : dataA;
-
-  const summaryParagraph1 = `Comparing tap water mineral concentration between Sector ${dataA.sector} (${dataA.companyName}) and Sector ${dataB.sector} (${dataB.companyName}) reveals a water hardness difference of ${ppmDiff} PPM. Sector ${softerSector.sector} has softer water at ${softerSector.avgPpm} PPM (${softerSector.hardnessCategory}) compared to Sector ${harderSector.sector} at ${harderSector.avgPpm} PPM (${harderSector.hardnessCategory}).`;
-
-  const summaryParagraph2 = `Limescale risk and boiler heating efficiency vary based on these mineral levels. Households in Sector ${harderSector.sector} experience higher heating element degradation and kettle scale accumulation due to elevated calcium carbonate density (${harderSector.avgPpm} PPM vs ${softerSector.avgPpm} PPM).`;
-
-  const summaryParagraph3 = `For home appliance setup, Bosch dishwasher water softener settings should be calibrated accordingly: Sector ${dataA.sector} requires setting ${dataA.boschSaltSetting || "H00"} whereas Sector ${dataB.sector} recommends setting ${dataB.boschSaltSetting || "H00"}.`;
-  const { datePublishedISO, dateModifiedISO, dateModifiedFormatted } = getSeoDates(resolvedParams.pair);
-  // 3. SCHEMA JSON-LD CHUẨN EEAT & FAQ
-  const schema = {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Article",
-        "headline": `Water Hardness Comparison: Sector ${dataA.sector} vs Sector ${dataB.sector}`,
-        "description": `Side-by-side water quality and hardness comparison between Sector ${dataA.sector} and Sector ${dataB.sector}.`,
-        "author": { "@id": "https://waterhardness.uk/#person" },
-        "publisher": { "@id": "https://waterhardness.uk/#organization" },
-        "datePublished": datePublishedISO,
-        "dateModified": dateModifiedISO,
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": `Which area has harder water: Sector ${dataA.sector} or Sector ${dataB.sector}?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `Sector ${harderSector.sector} has harder water at ${harderSector.avgPpm} PPM compared to Sector ${softerSector.sector} at ${softerSector.avgPpm} PPM (a difference of ${ppmDiff} PPM).`,
-            },
-          },
-          {
-            "@type": "Question",
-            "name": `What are the Bosch dishwasher salt settings for ${dataA.sector} vs ${dataB.sector}?`,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": `Bosch dishwashers should be set to ${dataA.boschSaltSetting || "H00"} in Sector ${dataA.sector} and ${dataB.boschSaltSetting || "H00"} in Sector ${dataB.sector}.`,
-            },
-          },
-        ],
-      },
-      {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://waterhardness.uk" },
-          { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://waterhardness.uk/compare" },
-          { "@type": "ListItem", "position": 3, "name": `${dataA.sector} vs ${dataB.sector}`, "item": `https://waterhardness.uk/compare/${resolvedParams.pair}` },
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://checkdamp.co.uk",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Compare",
+            "item": "https://checkdamp.co.uk/compare",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": `${dataA.outcode} vs ${dataB.outcode}`,
+            "item": `https://checkdamp.co.uk/compare/${normalizedPairSlug}`,
+          },
         ],
+      },
+      {
+        "@type": "Article",
+        "headline": `${dataA.outcode} vs ${dataB.outcode} Housing Condition & Damp Risk Head-to-Head`,
+        "description": `Detailed comparison between ${dataA.outcode} (${dataA.city}) and ${dataB.outcode} (${dataB.city}).`,
+        "mainEntityOfPage": `https://checkdamp.co.uk/compare/${normalizedPairSlug}`,
       },
     ],
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-slate-900 pb-20">
+    <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* SEARCH HERO */}
-      <CompareHero locA={dataA.sector} locB={dataB.sector} dataA={dataA} dataB={dataB} />
-
-      <div className="max-w-5xl mx-auto px-4 -mt-6">
-        
-        {/* SEO TEXT ARTICLE PHÂN TÍCH SO SÁNH */}
-        <article className="prose prose-slate max-w-none text-slate-700 mb-8 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm leading-relaxed text-base sm:text-lg space-y-4">
-          <div className="flex items-center gap-2 text-cyan-600 font-bold text-xs uppercase tracking-wider mb-2">
-            <Sparkles className="w-4 h-4" /> Water Quality Comparison Analysis
-          </div>
-          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 border-b border-slate-100 pb-3">
-            Executive Summary: Sector {dataA.sector} vs Sector {dataB.sector}
-          </h2>
-          <p>{summaryParagraph1}</p>
-          <p>{summaryParagraph2}</p>
-          <p>{summaryParagraph3}</p>
-        </article>
-
-        {/* KHỐI TÁC GIẢ EEAT */}
-        <div className="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200/80 mb-8 text-xs shadow-xs">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-slate-900 text-cyan-400 rounded-full flex items-center justify-center font-black text-sm shrink-0 border border-slate-800">
-              NP
-            </div>
-            <div>
-              <span className="text-slate-400 block text-[10px] uppercase font-bold tracking-wider">Comparative Analysis Verified</span>
-              <Link href="/about" className="font-bold text-slate-900 hover:text-cyan-600 transition-colors text-sm">
-                Nguyễn Hạc Phong <span className="text-slate-400 font-normal text-xs">• Founder & Data Engineer</span>
+      <div className="min-h-screen bg-[#FDFDFD] text-slate-900 pb-20">
+        {/* Breadcrumb Navigation */}
+        <div className="border-b border-slate-200 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-xs text-slate-500">
+              <Link href="/" className="hover:text-slate-900 transition-colors">
+                Home
               </Link>
-            </div>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+              <Link href="/compare" className="hover:text-slate-900 transition-colors">
+                Compare
+              </Link>
+              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+              <span className="font-semibold text-slate-900">
+                {dataA.outcode} vs {dataB.outcode}
+              </span>
+            </nav>
           </div>
-          <Link href="/about" className="text-cyan-600 font-bold hover:underline hidden sm:inline text-xs">
-            Data Methodology & Sources →
-          </Link>
         </div>
 
-        {/* BẢNG SO SÁNH CHI TIẾT */}
+        {/* Hero Section */}
+        <CompareHero
+          locA={dataA.outcode}
+          locB={dataB.outcode}
+          dataA={dataA}
+          dataB={dataB}
+        />
+
+        {/* Versus Comparison Table */}
         <VersusTable dataA={dataA} dataB={dataB} />
+
+        {/* Deep Dive Narrative Comparison */}
+        <div className="max-w-5xl mx-auto px-4 mt-14">
+          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm space-y-6">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <Building2 className="w-6 h-6 text-slate-800" />
+              Housing Stock &amp; Moisture Dynamics: {dataA.outcode} vs {dataB.outcode}
+            </h2>
+
+            <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+              <p>
+                When assessing property condition between <strong>{dataA.outcode} ({dataA.city})</strong> and <strong>{dataB.outcode} ({dataB.city})</strong>, the primary structural differentiator is the age profile of the residential building envelope.
+              </p>
+
+              <p>
+                In <strong>{dataA.outcode}</strong>, <strong>{dataA.pct_old_build}%</strong> of properties are solid-wall Victorian or Edwardian construction, compared to <strong>{dataB.pct_old_build}%</strong> in <strong>{dataB.outcode}</strong>. Solid brick masonry lacks the modern thermal break of a cavity wall, resulting in higher moisture permeation through mortar beds during prolonged wet weather.
+              </p>
+
+              <p>
+                Regarding energy efficiency, {dataA.outcode} records <strong>{dataA.pct_poor_epc}%</strong> of properties in EPC bands E through G, while {dataB.outcode} records <strong>{dataB.pct_poor_epc}%</strong>. Colder internal surface temperatures accelerate the condensation of ambient indoor moisture, substantially elevating the risk of black mould spore germination.
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4 text-xs font-bold">
+                <Link
+                  href={`/damp-risk/${dataA.outcode.toLowerCase()}`}
+                  className="text-slate-900 hover:underline"
+                >
+                  View full {dataA.outcode} profile &rarr;
+                </Link>
+                <span className="text-slate-300">•</span>
+                <Link
+                  href={`/damp-risk/${dataB.outcode.toLowerCase()}`}
+                  className="text-slate-900 hover:underline"
+                >
+                  View full {dataB.outcode} profile &rarr;
+                </Link>
+              </div>
+
+              <span className="text-[11px] text-slate-400">
+                Sample: {dataA.total_properties.toLocaleString()} ({dataA.outcode}) vs {dataB.total_properties.toLocaleString()} ({dataB.outcode}) homes
+              </span>
+            </div>
+          </div>
+
+          {/* Lead Quote Request Card with id="survey-quote" */}
+          <div id="survey-quote" className="mt-8">
+            <QuoteRequestCard
+              outcode={dataA.outcode}
+              dampRiskScore={dataA.damp_risk_score}
+              locationName={dataA.city}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -86,16 +86,16 @@ export default function NotFound() {
               href="/compare"
               className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-5 py-2.5 rounded-full text-xs transition-colors shadow-xs"
             >
-              Compare Hardness Tool
+              Compare Postcodes
             </Link>
           </div>
 
           <div className="text-xs text-slate-500 flex items-center justify-center gap-2 flex-wrap">
             <span>Or explore major areas:</span>
-            <Link href="/water-hardness/sw1a" className="font-semibold text-slate-700 hover:text-cyan-600 underline">SW1A (London)</Link> •
-            <Link href="/water-hardness/m1" className="font-semibold text-slate-700 hover:text-cyan-600 underline">M1 (Manchester)</Link> •
-            <Link href="/water-hardness/b1" className="font-semibold text-slate-700 hover:text-cyan-600 underline">B1 (Birmingham)</Link> •
-            <Link href="/water-hardness/eh1" className="font-semibold text-slate-700 hover:text-cyan-600 underline">EH1 (Edinburgh)</Link>
+            <Link href="/damp-risk/b21" className="font-semibold text-slate-700 hover:text-cyan-600 underline">B21 (Handsworth)</Link> •
+            <Link href="/damp-risk/m14" className="font-semibold text-slate-700 hover:text-cyan-600 underline">M14 (Fallowfield)</Link> •
+            <Link href="/damp-risk/b1" className="font-semibold text-slate-700 hover:text-cyan-600 underline">B1 (Birmingham)</Link> •
+            <Link href="/damp-risk/m1" className="font-semibold text-slate-700 hover:text-cyan-600 underline">M1 (Manchester)</Link>
           </div>
         </div>
 

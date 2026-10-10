@@ -11,6 +11,7 @@ import {
 import DehumidifierSizingGuide from "@/components/detail/DehumidifierSizingGuide";
 import EpcDistributionChart from "@/components/detail/EpcDistributionChart";
 import QuoteRequestCard from "@/components/lead/QuoteRequestCard";
+import { POPULAR_COMPARE_PAIRS } from "@/lib/comparePairs";
 import {
   ShieldCheck,
   AlertTriangle,
@@ -55,11 +56,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const baseTitle = `${area.outcode} Damp & Mould Risk Score: ${area.damp_risk_score}/100 (${area.risk_level} Risk)`;
-  const description = `${area.outcode} damp & mould risk score: ${area.damp_risk_score}/100 (${area.risk_level}). EPC & building age analysis for ${area.city} properties with local climate factors.`;
+  const baseTitle = `${area.outcode} Damp & Mould Risk: ${area.damp_risk_score}/100 Surveyor Report (2026)`;
+  const description = `${area.pct_solid_wall}% solid walls, ${area.avg_relative_humidity}% winter humidity. Check ${area.outcode} (${area.city}) damp & mould risk report plus BS 5250 remedial guidance.`;
 
   return {
-    title: { absolute: `${baseTitle} | CheckDamp UK` },
+    title: { absolute: baseTitle },
     description,
     alternates: {
       canonical: `https://checkdamp.co.uk/damp-risk/${area.outcode.toLowerCase()}`,
@@ -93,6 +94,11 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
   const cityPeers = getAreasByCity(area.city)
     .filter((p) => p.outcode !== area.outcode)
     .slice(0, 8);
+
+  const currentOutcodeLower = area.outcode.toLowerCase();
+  const popularPairsForOutcode = POPULAR_COMPARE_PAIRS.filter((pair) =>
+    pair.split("-vs-").includes(currentOutcodeLower)
+  );
 
   const isHigh = area.damp_risk_score >= 50;
   const isModerate = area.damp_risk_score >= 35 && area.damp_risk_score < 50;
@@ -190,6 +196,25 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
             },
           },
         ],
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `https://checkdamp.co.uk/damp-risk/${area.outcode.toLowerCase()}#service`,
+        "name": `Independent Damp & Mould Survey - ${area.outcode} (${area.city})`,
+        "description": `Professional property moisture diagnostic inspection, thermal imaging dew-point assessment, and damp risk surveying for domestic dwellings in postal district ${area.outcode}.`,
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": `${area.outcode}, ${area.city}`
+        },
+        "provider": {
+          "@id": "https://checkdamp.co.uk/#organization"
+        },
+        "serviceType": "Damp and Timber Diagnostic Survey",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "GBP",
+          "description": "Independent PCA / RICS qualified survey quotes and condensation triage"
+        }
       },
     ],
   };
@@ -403,6 +428,20 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
+              {/* FEATURED SNIPPET (TOP 0) & AI OVERVIEW 45-WORD QUICK ANSWER BOX */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-lg">
+                <div className="flex items-center gap-2 mb-2 text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <Sparkles className="w-4 h-4 text-amber-400" />
+                  <span>Executive Summary • Quick Answer</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                  What is the Damp &amp; Mould Risk in {area.outcode}?
+                </h2>
+                <p className="mt-3 text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
+                  Postal district {area.outcode} ({area.city}) carries a {area.risk_level.toLowerCase()} damp risk score of {area.damp_risk_score}/100, driven by {area.pct_solid_wall}% uninsulated solid-wall housing and {area.wind_driven_rain_exposure.toLowerCase()} wind-driven rain exposure. With an indoor dew point of {area.est_dew_point_c}°C, unheated external masonry provokes persistent surface condensation, necessitating BS 5250 ventilation and thermal barrier upgrades.
+                </p>
+              </div>
+
               {/* Primary Building Physics Card */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm">
                 <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
@@ -430,28 +469,50 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                   </p>
                 </div>
 
-                {/* 4-Box Quantitative Forensic Spec Table */}
-                <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Solid Wall Fabric</span>
-                    <strong className="text-sm font-black text-slate-900">{area.pct_solid_wall}%</strong>
-                    <span className="text-[10px] text-slate-500 block">Uninsulated masonry</span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Rain Exposure</span>
-                    <strong className="text-sm font-black text-slate-900">{area.wind_driven_rain_exposure}</strong>
-                    <span className="text-[10px] text-slate-500 block">BS 8104 Index</span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Winter Ambient RH</span>
-                    <strong className="text-sm font-black text-slate-900">{area.avg_relative_humidity}%</strong>
-                    <span className="text-[10px] text-slate-500 block">Outdoor moisture load</span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Dew Point @ 20°C</span>
-                    <strong className="text-sm font-black text-slate-900">{area.est_dew_point_c}°C</strong>
-                    <span className="text-[10px] text-slate-500 block">Condensation line</span>
-                  </div>
+                {/* SEMANTIC HTML COMPARISON TABLE FOR GOOGLEBOT TABLE SNIPPETS */}
+                <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <table className="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-slate-900 text-white border-b border-slate-800">
+                        <th className="p-3.5 font-bold uppercase tracking-wider text-[11px]">Vulnerability Metric</th>
+                        <th className="p-3.5 font-bold uppercase tracking-wider text-[11px]">{area.outcode} Reading</th>
+                        <th className="p-3.5 font-bold uppercase tracking-wider text-[11px]">UK Benchmark / Standard</th>
+                        <th className="p-3.5 font-bold uppercase tracking-wider text-[11px]">Pathology Risk Assessment</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 text-slate-700">
+                      <tr className="hover:bg-slate-50">
+                        <td className="p-3.5 font-semibold text-slate-900">Uninsulated Solid Wall Fabric</td>
+                        <td className="p-3.5 font-extrabold text-slate-900">{area.pct_solid_wall}%</td>
+                        <td className="p-3.5 text-slate-500">28.0% UK Avg</td>
+                        <td className="p-3.5 font-medium">{area.pct_solid_wall > 40 ? "Elevated solid-wall thermal bridging" : "Moderate solid-wall density"}</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="p-3.5 font-semibold text-slate-900">Wind-Driven Rain Exposure</td>
+                        <td className="p-3.5 font-extrabold text-slate-900">{area.wind_driven_rain_exposure}</td>
+                        <td className="p-3.5 text-slate-500">BS 8104 Climatic Index</td>
+                        <td className="p-3.5 font-medium">{area.wind_driven_rain_exposure === "Severe" || area.wind_driven_rain_exposure === "Very Severe" ? "High driving-rain saturation risk" : "Standard weathering load"}</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="p-3.5 font-semibold text-slate-900">Winter Outdoor Relative Humidity</td>
+                        <td className="p-3.5 font-extrabold text-slate-900">{area.avg_relative_humidity}%</td>
+                        <td className="p-3.5 text-slate-500">Met Office Seasonal Norm</td>
+                        <td className="p-3.5 font-medium">Sustained exterior moisture pressure</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="p-3.5 font-semibold text-slate-900">Estimated Internal Dew Point</td>
+                        <td className="p-3.5 font-extrabold text-slate-900">{area.est_dew_point_c}°C</td>
+                        <td className="p-3.5 text-slate-500">12.8°C at 20°C / 65% RH</td>
+                        <td className="p-3.5 font-medium">Condensation threshold on cold masonry</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50">
+                        <td className="p-3.5 font-semibold text-slate-900">Energy Inefficiency (EPC Band E–G)</td>
+                        <td className="p-3.5 font-extrabold text-slate-900">{area.pct_poor_epc}%</td>
+                        <td className="p-3.5 text-slate-500">14.2% England &amp; Wales Avg</td>
+                        <td className="p-3.5 font-medium">{area.pct_poor_epc > 20 ? "Severe thermal heat dissipation" : "Typical housing efficiency"}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
 
                 <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -677,28 +738,39 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                   {cityPeers.map((peer) => {
                     const peerColor = getRiskColorClass(peer.risk_level);
                     return (
-                      <Link
+                      <div
                         key={peer.outcode}
-                        href={`/damp-risk/${peer.outcode.toLowerCase()}`}
                         className="p-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 hover:border-slate-300 transition-all flex items-center justify-between group"
                       >
-                        <div>
+                        <Link
+                          href={`/damp-risk/${peer.outcode.toLowerCase()}`}
+                          className="flex-1 min-w-0 pr-2"
+                        >
                           <span className="font-extrabold text-slate-800 group-hover:text-slate-900 text-sm block">
                             {peer.outcode}
                           </span>
-                          <span className="text-[10px] text-slate-400 block">
+                          <span className="text-[10px] text-slate-400 block truncate">
                             {peer.dominant_house_type} • {peer.pct_old_build}% Old
                           </span>
+                        </Link>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <div className="text-right">
+                            <span className="font-bold text-slate-900 text-xs block">
+                              {peer.damp_risk_score}/100
+                            </span>
+                            <span className={`text-[10px] font-bold ${peerColor.text}`}>
+                              {peer.risk_level}
+                            </span>
+                          </div>
+                          <Link
+                            href={`/compare/${area.outcode.toLowerCase()}-vs-${peer.outcode.toLowerCase()}`}
+                            className="text-[10px] font-bold px-2 py-1 rounded-lg bg-slate-200/80 hover:bg-slate-900 hover:text-white text-slate-700 transition-colors"
+                            title={`Compare ${area.outcode} vs ${peer.outcode}`}
+                          >
+                            vs
+                          </Link>
                         </div>
-                        <div className="text-right">
-                          <span className="font-bold text-slate-900 text-xs block">
-                            {peer.damp_risk_score} / 100
-                          </span>
-                          <span className={`text-[10px] font-bold ${peerColor.text}`}>
-                            {peer.risk_level}
-                          </span>
-                        </div>
-                      </Link>
+                      </div>
                     );
                   })}
                 </div>
@@ -723,13 +795,48 @@ export default async function DampRiskOutcodePage({ params }: PageProps) {
                   Compare {area.outcode} with Another District
                 </h4>
                 <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                  Moving house or managing multiple rental portfolios? Compare EPC profiles and solid wall vulnerability head-to-head.
+                  Moving house or evaluating rental portfolios? Compare EPC profiles and solid wall vulnerability head-to-head.
                 </p>
+
+                {/* Direct High-Intent Compare Links */}
+                {popularPairsForOutcode.length > 0 && (
+                  <div className="mt-4 space-y-2 border-t border-slate-800 pt-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                      Popular Head-to-Head Comparisons:
+                    </span>
+                    {popularPairsForOutcode.map((pair) => {
+                      const [p1, p2] = pair.split("-vs-").map((p) => p.toUpperCase());
+                      return (
+                        <Link
+                          key={pair}
+                          href={`/compare/${pair}`}
+                          className="flex items-center justify-between text-xs font-bold text-cyan-400 hover:text-cyan-300 py-1 transition-colors"
+                        >
+                          <span>{p1} vs {p2} Risk Report</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {popularPairsForOutcode.length === 0 && cityPeers.length > 0 && (
+                  <div className="mt-4 border-t border-slate-800 pt-3">
+                    <Link
+                      href={`/compare/${area.outcode.toLowerCase()}-vs-${cityPeers[0].outcode.toLowerCase()}`}
+                      className="flex items-center justify-between text-xs font-bold text-cyan-400 hover:text-cyan-300 py-1 transition-colors"
+                    >
+                      <span>Compare {area.outcode} vs {cityPeers[0].outcode} (Nearest Peer)</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                )}
+
                 <Link
                   href="/compare"
                   className="mt-4 inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-colors w-full justify-center"
                 >
-                  <span>Launch Postcode Comparison</span>
+                  <span>Launch Full Comparison Engine</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

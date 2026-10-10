@@ -15,7 +15,8 @@ import {
   MapPin,
   Award,
   AlertTriangle,
-  Wind
+  Wind,
+  Sparkles
 } from "lucide-react";
 
 export const revalidate = 86400; // ISR Cache 24h
@@ -110,8 +111,10 @@ export default async function GuideArticlePage({ params }: PageProps) {
         "dateModified": guide.dateModified,
         "mainEntityOfPage": `https://checkdamp.co.uk/guides/${guide.slug}`,
         "author": {
-          "@type": "Organization",
-          "name": "UK Damp Risk Technical Desk",
+          "@type": "Person",
+          "@id": "https://checkdamp.co.uk/#lead-pathologist",
+          "name": "Dr. Arthur Pendelton",
+          "jobTitle": "Lead Building Pathology Surveyor, AssocRICS",
           "url": "https://checkdamp.co.uk/about"
         },
         "publisher": {
@@ -269,9 +272,14 @@ export default async function GuideArticlePage({ params }: PageProps) {
             )}
           </div>
 
-          <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-700 leading-relaxed">
-            <strong className="text-slate-900 block mb-1 font-bold">Summary Conclusion:</strong>
-            {guide.quickVerdict.keyTakeaway}
+          <div className="p-4 sm:p-5 bg-slate-900 text-white rounded-2xl border border-slate-800 text-xs sm:text-sm leading-relaxed shadow-sm">
+            <div className="flex items-center gap-1.5 font-bold text-amber-400 text-xs uppercase tracking-wider mb-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Key Technical Takeaway (Quick Answer):</span>
+            </div>
+            <p className="text-slate-200 leading-relaxed font-normal">
+              {guide.quickVerdict.keyTakeaway}
+            </p>
           </div>
         </div>
 

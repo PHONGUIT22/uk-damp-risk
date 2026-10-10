@@ -57,175 +57,204 @@ export default function VersusTable({ dataA, dataB }: Props) {
         </p>
       </div>
 
-      {/* VERSUS DATA MATRIX */}
+      {/* VERSUS DATA MATRIX - SEMANTIC HTML TABLE FOR GOOGLEBOT TABLE SNIPPETS */}
       <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
-        {/* HEADER */}
-        <div className="grid grid-cols-3 bg-slate-900 text-white p-4 sm:p-6 text-center font-bold text-sm sm:text-base">
-          <div className="text-left pl-2 text-slate-400 font-medium">Metric / Technical Indicator</div>
-          <div className="font-black text-white">{dataA.outcode} ({dataA.city})</div>
-          <div className="font-black text-white">{dataB.outcode} ({dataB.city})</div>
-        </div>
-
-        {/* ROWS */}
-        <div className="divide-y divide-slate-100 text-slate-700">
-          {/* 1. Overall Score */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center bg-slate-50/50">
-            <div className="flex items-center gap-2 font-black text-slate-900 text-xs sm:text-sm text-left pl-2">
-              <AlertTriangle className="w-4 h-4 text-slate-800 shrink-0 hidden sm:inline" />
-              <span>Damp Risk Score</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 font-black text-lg sm:text-2xl text-slate-900">
-              <span>{dataA.damp_risk_score}</span>
-              <span className="text-xs text-slate-400 font-normal">/100</span>
-              {isALowerRisk && diffScore > 0 && (
-                <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold ml-1 hidden sm:inline">
-                  Better
+        <table className="w-full text-center border-collapse">
+          <thead>
+            <tr className="bg-slate-900 text-white text-sm sm:text-base border-b border-slate-800">
+              <th className="p-4 sm:p-6 text-left pl-4 sm:pl-6 text-slate-400 font-medium w-1/3">Metric / Technical Indicator</th>
+              <th className="p-4 sm:p-6 font-black text-white w-1/3">{dataA.outcode} ({dataA.city})</th>
+              <th className="p-4 sm:p-6 font-black text-white w-1/3">{dataB.outcode} ({dataB.city})</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100 text-slate-700">
+            {/* 1. Overall Score */}
+            <tr className="bg-slate-50/50">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-black text-slate-900 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-slate-800 shrink-0 hidden sm:inline" />
+                  <span>Damp Risk Score</span>
                 </span>
-              )}
-              {isALowerRisk && <ArrowDown className="w-4 h-4 text-emerald-600 shrink-0" />}
-            </div>
-            <div className="flex items-center justify-center gap-1.5 font-black text-lg sm:text-2xl text-slate-900">
-              <span>{dataB.damp_risk_score}</span>
-              <span className="text-xs text-slate-400 font-normal">/100</span>
-              {!isALowerRisk && diffScore > 0 && (
-                <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold ml-1 hidden sm:inline">
-                  Better
+              </td>
+              <td className="p-4 sm:p-5">
+                <div className="flex items-center justify-center gap-1.5 font-black text-lg sm:text-2xl text-slate-900">
+                  <span>{dataA.damp_risk_score}</span>
+                  <span className="text-xs text-slate-400 font-normal">/100</span>
+                  {isALowerRisk && diffScore > 0 && (
+                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold ml-1 hidden sm:inline">
+                      Better
+                    </span>
+                  )}
+                  {isALowerRisk && <ArrowDown className="w-4 h-4 text-emerald-600 shrink-0" />}
+                </div>
+              </td>
+              <td className="p-4 sm:p-5">
+                <div className="flex items-center justify-center gap-1.5 font-black text-lg sm:text-2xl text-slate-900">
+                  <span>{dataB.damp_risk_score}</span>
+                  <span className="text-xs text-slate-400 font-normal">/100</span>
+                  {!isALowerRisk && diffScore > 0 && (
+                    <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold ml-1 hidden sm:inline">
+                      Better
+                    </span>
+                  )}
+                  {!isALowerRisk && <ArrowDown className="w-4 h-4 text-emerald-600 shrink-0" />}
+                </div>
+              </td>
+            </tr>
+
+            {/* 2. Risk Level */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Severity Classification</span>
                 </span>
-              )}
-              {!isALowerRisk && <ArrowDown className="w-4 h-4 text-emerald-600 shrink-0" />}
-            </div>
-          </div>
+              </td>
+              <td className="p-4 sm:p-5">
+                <div className="flex justify-center">
+                  <span className={`text-xs font-black uppercase px-2.5 py-1 rounded-full border ${getRiskBadgeClass(dataA.damp_risk_score)}`}>
+                    {dataA.risk_level}
+                  </span>
+                </div>
+              </td>
+              <td className="p-4 sm:p-5">
+                <div className="flex justify-center">
+                  <span className={`text-xs font-black uppercase px-2.5 py-1 rounded-full border ${getRiskBadgeClass(dataB.damp_risk_score)}`}>
+                    {dataB.risk_level}
+                  </span>
+                </div>
+              </td>
+            </tr>
 
-          {/* 2. Risk Level */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <ShieldCheck className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Severity Classification</span>
-            </div>
-            <div className="flex justify-center">
-              <span className={`text-xs font-black uppercase px-2.5 py-1 rounded-full border ${getRiskBadgeClass(dataA.damp_risk_score)}`}>
-                {dataA.risk_level}
-              </span>
-            </div>
-            <div className="flex justify-center">
-              <span className={`text-xs font-black uppercase px-2.5 py-1 rounded-full border ${getRiskBadgeClass(dataB.damp_risk_score)}`}>
-                {dataB.risk_level}
-              </span>
-            </div>
-          </div>
+            {/* 3. Solid Wall Masonry */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Solid Wall Masonry %</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataA.pct_solid_wall}%
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.pct_solid_wall}%
+              </td>
+            </tr>
 
-          {/* 3. Solid Wall Masonry */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <Building2 className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Solid Wall Masonry %</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataA.pct_solid_wall}%
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataB.pct_solid_wall}%
-            </div>
-          </div>
+            {/* 4. Pre-1930 Build Density */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <Home className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Pre-1930 Victorian Builds</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataA.pct_old_build}%
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.pct_old_build}%
+              </td>
+            </tr>
 
-          {/* 4. Pre-1930 Build Density */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <Home className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Pre-1930 Victorian Builds</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataA.pct_old_build}%
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataB.pct_old_build}%
-            </div>
-          </div>
+            {/* 5. Rain Exposure Index */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <CloudRain className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Wind-Driven Rain (BS 8104)</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataA.wind_driven_rain_exposure}
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.wind_driven_rain_exposure}
+              </td>
+            </tr>
 
-          {/* 5. Rain Exposure Index */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <CloudRain className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Wind-Driven Rain (BS 8104)</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataA.wind_driven_rain_exposure}
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataB.wind_driven_rain_exposure}
-            </div>
-          </div>
+            {/* 6. Winter RH & Dew Point */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <Droplets className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Dew Point (@ 20°C room temp)</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataA.est_dew_point_c}°C ({dataA.avg_relative_humidity}% RH)
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.est_dew_point_c}°C ({dataB.avg_relative_humidity}% RH)
+              </td>
+            </tr>
 
-          {/* 6. Winter RH & Dew Point */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <Droplets className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Dew Point (@ 20°C room temp)</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataA.est_dew_point_c}°C ({dataA.avg_relative_humidity}% RH)
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataB.est_dew_point_c}°C ({dataB.avg_relative_humidity}% RH)
-            </div>
-          </div>
+            {/* 7. Poor EPC Rating (E-G) */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <ThermometerSnowflake className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Energy Inefficiency (EPC E-G)</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataA.pct_poor_epc}%
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.pct_poor_epc}%
+              </td>
+            </tr>
 
-          {/* 7. Poor EPC Rating (E-G) */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <ThermometerSnowflake className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Energy Inefficiency (EPC E-G)</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataA.pct_poor_epc}%
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataB.pct_poor_epc}%
-            </div>
-          </div>
+            {/* 8. Terraced or Flat % */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Terraces &amp; Flats</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataA.pct_terrace_or_flat}%
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.pct_terrace_or_flat}%
+              </td>
+            </tr>
 
-          {/* 8. Terraced or Flat % */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <Layers className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Terraces &amp; Flats</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataA.pct_terrace_or_flat}%
-            </div>
-            <div className="font-extrabold text-slate-800 text-sm sm:text-base">
-              {dataB.pct_terrace_or_flat}%
-            </div>
-          </div>
+            {/* 9. Dominant Architecture */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <Home className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Dominant Architecture</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-xs sm:text-sm">
+                {dataA.dominant_house_type}
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.dominant_house_type}
+              </td>
+            </tr>
 
-          {/* 9. Dominant Architecture */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <Home className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Dominant Architecture</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-xs sm:text-sm">
-              {dataA.dominant_house_type}
-            </div>
-            <div className="font-extrabold text-slate-800 text-xs sm:text-sm">
-              {dataB.dominant_house_type}
-            </div>
-          </div>
-
-          {/* 10. Total Inspected Properties */}
-          <div className="grid grid-cols-3 p-4 sm:p-5 items-center text-center hover:bg-slate-50 transition-colors">
-            <div className="flex items-center gap-2 font-bold text-slate-800 text-xs sm:text-sm text-left pl-2">
-              <CheckCircle2 className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
-              <span>Sample Inspected Homes</span>
-            </div>
-            <div className="font-extrabold text-slate-800 text-xs sm:text-sm">
-              {dataA.total_properties.toLocaleString()}
-            </div>
-            <div className="font-extrabold text-slate-800 text-xs sm:text-sm">
-              {dataB.total_properties.toLocaleString()}
-            </div>
-          </div>
-        </div>
+            {/* 10. Total Inspected Properties */}
+            <tr className="hover:bg-slate-50 transition-colors">
+              <td className="p-4 sm:p-5 text-left pl-4 sm:pl-6 font-bold text-slate-800 text-xs sm:text-sm">
+                <span className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-slate-700 shrink-0 hidden sm:inline" />
+                  <span>Sample Inspected Homes</span>
+                </span>
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-xs sm:text-sm">
+                {dataA.total_properties.toLocaleString()}
+              </td>
+              <td className="p-4 sm:p-5 font-extrabold text-slate-800 text-sm sm:text-base">
+                {dataB.total_properties.toLocaleString()}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

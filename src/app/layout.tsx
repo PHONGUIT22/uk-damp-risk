@@ -99,6 +99,38 @@ export default function RootLayout({
                     "url": "https://checkdamp.co.uk/icon.webp",
                   },
                   "description": "CheckDamp UK provides localized UK property damp analytics, Victorian solid wall vulnerability assessments, and surveyor quotes across UK postcodes.",
+                  "founder": {
+                    "@id": "https://checkdamp.co.uk/#lead-pathologist",
+                  },
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://checkdamp.co.uk/#lead-pathologist",
+                  "name": "Dr. Arthur Pendelton",
+                  "jobTitle": "Lead Building Pathology Surveyor & Environmental Moisture Diagnostics Specialist",
+                  "worksFor": {
+                    "@id": "https://checkdamp.co.uk/#organization",
+                  },
+                  "knowsAbout": [
+                    "Building Pathology",
+                    "Moisture Diagnostics",
+                    "Condensation & Interstitial Damp",
+                    "BS 5250:2021 Building Standards",
+                    "Awaab's Law Compliance",
+                    "Victorian Solid-Wall Masonry",
+                  ],
+                  "hasCredential": [
+                    {
+                      "@type": "EducationalOccupationalCredential",
+                      "credentialCategory": "Professional Certification",
+                      "name": "AssocRICS - Royal Institution of Chartered Surveyors",
+                    },
+                    {
+                      "@type": "EducationalOccupationalCredential",
+                      "credentialCategory": "PCA Certified Surveyor (CSTDB / CSDB)",
+                      "name": "Property Care Association",
+                    },
+                  ],
                 },
               ],
             }),
